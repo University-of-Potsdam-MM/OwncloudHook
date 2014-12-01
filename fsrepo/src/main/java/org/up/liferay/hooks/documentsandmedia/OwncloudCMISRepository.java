@@ -14,6 +14,9 @@
 
 package org.up.liferay.hooks.documentsandmedia;
 
+import com.liferay.portal.kernel.repository.cmis.CMISRepositoryHandler;
+import com.liferay.portal.repository.cmis.CMISRepository;
+
 
 /**
  * CMIS does not provide vendor neutral support for workflow, metadata, tags,
@@ -30,7 +33,14 @@ package org.up.liferay.hooks.documentsandmedia;
  */
 public class OwncloudCMISRepository extends CMISRepository {
 
-	public OwncloudCMISRepository() {
-		super(new CMISAtomPubRepository());		
+	static OwncloudCMISAtomPubRepository endpoint = new OwncloudCMISAtomPubRepository();
+	
+//	public OwncloudCMISRepository() {
+//		super(endpoint);			
+//		endpoint.setCmisRepository(this);
+//	}
+	
+	public OwncloudCMISRepository(CMISRepositoryHandler cmisRepositoryHandler) {
+		super(cmisRepositoryHandler);
 	}
 }

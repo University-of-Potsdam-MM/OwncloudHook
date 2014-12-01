@@ -25,6 +25,7 @@ import com.liferay.portal.InvalidRepositoryException;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.repository.cmis.CMISRepositoryHandler;
+import com.liferay.portal.kernel.repository.cmis.CMISRepositoryUtil;
 import com.liferay.portal.kernel.repository.cmis.Session;
 import com.liferay.portal.kernel.util.LocaleUtil;
 import com.liferay.portal.kernel.util.UnicodeProperties;
@@ -32,10 +33,14 @@ import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.security.auth.PrincipalThreadLocal;
 
 /**
- * @author Alexander Chow
+ * @author Julian Dehne
  */
-public class CMISAtomPubRepository extends CMISRepositoryHandler{
-
+public class OwncloudCMISAtomPubRepository extends CMISRepositoryHandler{
+	
+	public OwncloudCMISAtomPubRepository() {
+		setCmisRepository(new OwncloudCMISRepository(this));
+	}
+	
 	@Override
 	public Session getSession() throws PortalException, SystemException {
 		Map<String, String> parameters = new HashMap<String, String>();
@@ -84,8 +89,12 @@ public class CMISAtomPubRepository extends CMISRepositoryHandler{
 
 	protected String getTypeSettingsValue(String typeSettingsKey)
 		throws InvalidRepositoryException {
-
+				
 		UnicodeProperties typeSettingsProperties = getTypeSettingsProperties();
+		
+		if (typeSettingsProperties == null) {
+			setTypeSettingsProperties(new UnicodeProperties());
+		}
 
 		return CMISRepositoryUtil.getTypeSettingsValue(
 			typeSettingsProperties, typeSettingsKey);

@@ -56,7 +56,7 @@ public class OwncloudRepositoryStartupAction extends SimpleAction {
     }
 
     protected void init(Repository repo) throws PortalException, SystemException {
-        if (OwncloudCMISRepository.class.getName().equals(repo.getClassName())) {
+        if (OwncloudCMISAtomPubRepository.class.getName().equals(repo.getClassName())) {
             // repository is initialized also during this instantiation
             RepositoryLocalServiceUtil.getRepositoryImpl(repo.getRepositoryId());
         }
