@@ -26,8 +26,6 @@ import com.liferay.portal.service.RepositoryLocalServiceUtil;
 
 import java.util.List;
 
-import org.up.liferay.hooks.documentsandmedia.OwncloudCMISRepository;
-
 /**
  *
  * @author Tomas Polesovsky
