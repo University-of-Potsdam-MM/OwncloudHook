@@ -930,7 +930,7 @@ request.setAttribute("view_file_entry.jsp-fileEntry", fileEntry);
 					}
 				}
 			);
-
+<%--
 			<c:if test="<%= !fileEntry.isCheckedOut() %>">
 				fileEntryButtonGroup.push(
 					{
@@ -946,7 +946,7 @@ request.setAttribute("view_file_entry.jsp-fileEntry", fileEntry);
 					}
 				);
 			</c:if>
-
+ --%>
 			<c:if test="<%= fileEntry.isCheckedOut() && fileEntry.hasLock() %>">
 				fileEntryButtonGroup.push(
 					{
