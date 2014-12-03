@@ -8,6 +8,11 @@
 	<packaging>war</packaging>
 	<name>liferay-owncloud-hook Hook</name>
 	<version>0.1</version>
+	
+	<properties>
+		<liferay.version>6.2.1</liferay.version>
+	</properties>
+	
 	<build>
 		<plugins>
 			<plugin>
@@ -49,7 +54,8 @@
 				<configuration>					
 					<packagingExcludes>
 						WEB-INF/lib/commons-logging*.jar,
-						WEB-INF/lib/log4j*.jar,						
+						WEB-INF/lib/log4j*.jar,		
+						WEB-INF/lib/slf4j*.jar				
 					</packagingExcludes>
 				</configuration>
 			</plugin>
@@ -90,13 +96,13 @@
 			<groupId>org.apache.chemistry.opencmis</groupId>
 			<artifactId>chemistry-opencmis-client-impl</artifactId>
 			<version>0.12.0</version>
-			<scope>provided</scope>
+<!-- 			<scope>provided</scope> -->
 		</dependency>
 		<dependency>
 			<groupId>com.liferay.portal</groupId>
 			<artifactId>portal-impl</artifactId>
 			<version>${liferay.version}</version>
-			<scope>provided</scope>
+<!-- 			<scope>provided</scope> -->
 		</dependency>
 	</dependencies>
 	<profiles>
