@@ -51,6 +51,10 @@ import org.slf4j.LoggerFactory;
  */
 public class OwncloudCMISFolder extends CMISFolder {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private static final Logger log = LoggerFactory.getLogger(OwncloudCMISFolder.class
 			.getName());
 	private org.apache.chemistry.opencmis.client.api.Folder _cmisFolder;
@@ -61,6 +65,9 @@ public class OwncloudCMISFolder extends CMISFolder {
 		super(cmisRepository, uuid, folderId, cmisFolder);
 		this._cmisFolder = cmisFolder; //cannot change visibility of _cmisFolder field
 	}
+	
+		
+	
 
 		
 	

@@ -14,9 +14,13 @@
 
 package org.up.liferay.hooks.documentsandmedia;
 
+import java.util.List;
+
+import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.repository.cmis.CMISRepositoryHandler;
 import com.liferay.portal.kernel.repository.model.Folder;
+import com.liferay.portal.kernel.util.OrderByComparator;
 import com.liferay.portal.repository.cmis.CMISRepository;
 import com.liferay.portal.repository.cmis.model.CMISFolder;
 
@@ -53,4 +57,27 @@ public class OwncloudCMISRepository extends CMISRepository {
 
 		return new OwncloudCMISFolder(this, uuid, folderId, cmisFolder);
 	}
+	
+	@Override
+	protected List<Object> getFoldersAndFileEntries(long folderId)
+			throws SystemException {
+		System.err.println("i am hiere");
+		return super.getFoldersAndFileEntries(folderId);
+	}
+	
+	@Override
+	public List<Object> getFoldersAndFileEntries(long folderId, int start,
+			int end, OrderByComparator obc) throws SystemException {
+		System.err.println("i am hiere");
+		return super.getFoldersAndFileEntries(folderId, start, end, obc);
+	}
+	
+	@Override
+	public List<Object> getFoldersAndFileEntries(long folderId,
+			String[] mimeTypes, int start, int end, OrderByComparator obc)
+			throws PortalException, SystemException {
+		System.err.println("i am hiere");
+		return super.getFoldersAndFileEntries(folderId, mimeTypes, start, end, obc);
+	}
+		
 }

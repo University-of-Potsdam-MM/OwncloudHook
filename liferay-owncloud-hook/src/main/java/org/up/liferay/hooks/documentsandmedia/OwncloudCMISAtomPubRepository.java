@@ -37,7 +37,7 @@ import com.liferay.portal.security.auth.PrincipalThreadLocal;
  */
 public class OwncloudCMISAtomPubRepository extends CMISRepositoryHandler{
 	
-	public OwncloudCMISAtomPubRepository() {
+	public OwncloudCMISAtomPubRepository() {		
 		setCmisRepository(new OwncloudCMISRepository(this));
 	}
 	
