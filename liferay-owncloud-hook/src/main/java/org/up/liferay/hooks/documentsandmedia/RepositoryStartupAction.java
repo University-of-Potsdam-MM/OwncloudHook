@@ -26,7 +26,7 @@ import com.liferay.portal.service.RepositoryLocalServiceUtil;
 
 import java.util.List;
 
-import org.up.liferay.hooks.documentsandmedia.OwncloudCMISRepository;
+import org.up.liferay.hooks.documentsandmedia.OwncloudBaseRepository;
 
 /**
  *
@@ -56,7 +56,7 @@ public class RepositoryStartupAction extends SimpleAction {
     }
 
     protected void init(Repository repo) throws PortalException, SystemException {
-        if (OwncloudCMISRepository.class.getName().equals(repo.getClassName())) {
+        if (OwncloudBaseRepository.class.getName().equals(repo.getClassName())) {
             // repository is initialized also during this instantiation
             RepositoryLocalServiceUtil.getRepositoryImpl(repo.getRepositoryId());
         }
