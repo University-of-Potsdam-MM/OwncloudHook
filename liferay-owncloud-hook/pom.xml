@@ -7,7 +7,7 @@
 	<artifactId>liferay-owncloud-hook</artifactId>
 	<packaging>war</packaging>
 	<name>liferay-owncloud-hook Hook</name>
-	<version>0.1</version>
+	<version>3.1</version>
 	
 	<properties>
 		<liferay.version>6.2.1</liferay.version>
@@ -102,7 +102,7 @@
 			<groupId>com.liferay.portal</groupId>
 			<artifactId>portal-impl</artifactId>
 			<version>${liferay.version}</version>
-<!-- 			<scope>provided</scope> -->
+			<scope>provided</scope>
 		</dependency>
 	</dependencies>
 	<profiles>

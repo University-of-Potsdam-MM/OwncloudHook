@@ -16,13 +16,20 @@ package org.up.liferay.hooks.documentsandmedia;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
+import org.apache.chemistry.opencmis.client.api.Session;
+
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
+import com.liferay.portal.kernel.repository.RepositoryException;
 import com.liferay.portal.kernel.repository.cmis.CMISRepositoryHandler;
 import com.liferay.portal.kernel.repository.model.Folder;
+import com.liferay.portal.kernel.servlet.PortalSessionThreadLocal;
 import com.liferay.portal.kernel.util.OrderByComparator;
+import com.liferay.portal.kernel.util.StringPool;
+import com.liferay.portal.kernel.util.TransientValue;
 import com.liferay.portal.repository.cmis.CMISRepository;
-import com.liferay.portal.repository.cmis.model.CMISFolder;
 
 
 /**
@@ -41,6 +48,9 @@ import com.liferay.portal.repository.cmis.model.CMISFolder;
 public class OwncloudCMISRepository extends CMISRepository {
 	
 	
+	private String _sessionKey;
+
+
 	public OwncloudCMISRepository(CMISRepositoryHandler cmisRepositoryHandler) {
 		super(cmisRepositoryHandler);
 	}
@@ -78,6 +88,49 @@ public class OwncloudCMISRepository extends CMISRepository {
 			throws PortalException, SystemException {
 		System.err.println("i am hiere");
 		return super.getFoldersAndFileEntries(folderId, mimeTypes, start, end, obc);
+	}
+	
+	
+	protected void setCachedSession(Session session) {
+		HttpSession httpSession = PortalSessionThreadLocal.getHttpSession();
+
+		if (httpSession == null) {
+//			if (_log.isWarnEnabled()) {
+//				_log.warn("Unable to get HTTP session");
+//			}						
+			return;
+		}
+
+		httpSession.setAttribute(
+			_sessionKey, new TransientValue<Session>(session));
+	}
+	
+	
+	@Override
+	public void initRepository() throws PortalException, SystemException {
+		try {
+			_sessionKey =
+				Session.class.getName().concat(StringPool.POUND).concat(
+					String.valueOf(getRepositoryId()));
+
+			Session session = getSession();
+
+			session.getRepositoryInfo();
+		}
+		catch (PortalException pe) {
+			throw pe;
+		}
+		catch (SystemException se) {
+			throw se;
+		}
+		catch (Exception e) {
+			processException(e);
+
+			throw new RepositoryException(
+				"Unable to initialize CMIS session for repository with " +
+					"{repositoryId=" + getRepositoryId() + "}",
+				e);
+		}
 	}
 		
 }
