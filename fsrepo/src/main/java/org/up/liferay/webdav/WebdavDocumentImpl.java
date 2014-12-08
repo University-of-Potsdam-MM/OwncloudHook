@@ -21,14 +21,16 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.github.sardine.DavResource;
+import com.liferay.portal.kernel.log.Log;
+import com.liferay.portal.kernel.log.LogFactoryUtil;
 
 public class WebdavDocumentImpl extends DocumentImpl implements VersionedDocument, DocumentVersion {
 	private String decodedId;
 	private WebdavObjectStore objectStore;
 	
 
-	private static final Logger log = LoggerFactory
-			.getLogger(WebdavDocumentImpl.class.getName());	
+	private static Log log = LogFactoryUtil
+			.getLog(WebdavDocumentImpl.class);
 
 	public WebdavDocumentImpl(DavResource davResource, WebdavObjectStore objectStore) {			
 		this.objectStore = objectStore;

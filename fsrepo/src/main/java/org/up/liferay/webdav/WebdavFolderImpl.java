@@ -12,11 +12,16 @@ import org.apache.chemistry.opencmis.inmemory.storedobj.api.VersionedDocument;
 import org.apache.chemistry.opencmis.inmemory.storedobj.impl.FolderImpl;
 
 import com.github.sardine.DavResource;
+import com.liferay.portal.kernel.log.Log;
+import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.repository.model.Folder;
 
 public class WebdavFolderImpl extends FolderImpl implements VersionedDocument,
 		DocumentVersion {
 	private String decodedId;
+	
+	private static Log log = LogFactoryUtil
+			.getLog(WebdavFolderImpl.class);
 
 	public WebdavFolderImpl(DavResource davResource) {
 		this.decodedId = WebdavIdDecoderAndEncoder

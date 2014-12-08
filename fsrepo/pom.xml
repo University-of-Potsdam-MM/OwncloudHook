@@ -164,12 +164,12 @@
 		<!-- <version>0.12.0</version> -->
 		<!-- </dependency> -->
 
-<!-- 		<dependency> -->
-<!-- 			<groupId>org.apache.chemistry.opencmis</groupId> -->
-<!-- 			<artifactId>chemistry-opencmis-server-inmemory</artifactId> -->
-<!-- 			<version>0.12.0</version> -->
-<!-- 			<type>war</type> -->
-<!-- 		</dependency> -->
+		<!-- <dependency> -->
+		<!-- <groupId>org.apache.chemistry.opencmis</groupId> -->
+		<!-- <artifactId>chemistry-opencmis-server-inmemory</artifactId> -->
+		<!-- <version>0.12.0</version> -->
+		<!-- <type>war</type> -->
+		<!-- </dependency> -->
 
 		<dependency>
 			<groupId>org.apache.chemistry.opencmis</groupId>
@@ -209,6 +209,14 @@
 			<scope>provided</scope>
 			<type>war</type>
 		</dependency>
+
+		<dependency>
+			<groupId>com.liferay.portal</groupId>
+			<artifactId>util-java</artifactId>
+			<version>6.2.1</version>
+			<scope>provided</scope>
+		</dependency>
+
 
 		<dependency>
 			<groupId>junit</groupId>

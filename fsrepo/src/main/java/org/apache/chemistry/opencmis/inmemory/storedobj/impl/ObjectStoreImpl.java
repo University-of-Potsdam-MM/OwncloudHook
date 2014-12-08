@@ -99,8 +99,8 @@ public class ObjectStoreImpl implements ObjectStore {
 
     private static final Logger LOG = LoggerFactory.getLogger(ObjectStoreImpl.class.getName());
     private static final int FIRST_ID = 100;
-    private static final Long MAX_CONTENT_SIZE_KB = ConfigurationSettings
-            .getConfigurationValueAsLong(ConfigConstants.MAX_CONTENT_SIZE_KB);
+//    private static final Long MAX_CONTENT_SIZE_KB = ConfigurationSettings
+//            .getConfigurationValueAsLong(ConfigConstants.MAX_CONTENT_SIZE_KB);
 
     /**
      * User id for administrator always having all rights.
@@ -132,7 +132,7 @@ public class ObjectStoreImpl implements ObjectStore {
 
     public ObjectStoreImpl(String repositoryId) {
         fRepositoryId = repositoryId;
-        createRootFolder();
+//        createRootFolder();
     }
 
     private static synchronized Integer getNextId() {
@@ -1072,7 +1072,7 @@ public class ObjectStoreImpl implements ObjectStore {
                 newContent = null;
             } else {
                 boolean useFakeContentStore = so.getTypeId().equals(DefaultTypeSystemCreator.BIG_CONTENT_FAKE_TYPE);
-                newContent = new ContentStreamDataImpl(MAX_CONTENT_SIZE_KB == null ? 0 : MAX_CONTENT_SIZE_KB, useFakeContentStore);
+                newContent = new ContentStreamDataImpl(0, useFakeContentStore);
                 String fileName = contentStream.getFileName();
                 if (null == fileName || fileName.length() <= 0) {
                     fileName = so.getName(); // use name of document as fallback

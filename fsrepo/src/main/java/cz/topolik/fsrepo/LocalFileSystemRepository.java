@@ -98,28 +98,25 @@ public class LocalFileSystemRepository extends BaseRepositoryImpl {
 			.getLog(LocalFileSystemRepository.class);
 	private FileSystemRepositoryEnvironment environment;
 	private LocalFileSystemLocalRepository localRepository;
-	private ExpandoColumn expandoColumn;
-	private WebdavObjectStore webdavObjectStore;
+	private ExpandoColumn expandoColumn;	
 
 	public LocalFileSystemRepository() {
-		localRepository = new LocalFileSystemLocalRepository(this);
-		initWebdavRepository();
+		localRepository = new LocalFileSystemLocalRepository(this);		
 	}
 
-	private void initWebdavRepository() {
-		long userId = PrincipalThreadLocal.getUserId();
+	public static WebdavObjectStore getWebdavRepository() {
+		long userId = PrincipalThreadLocal.getUserId();		
 		String username = null;
 		String password = null;
-		try {
-			password = UserLocalServiceUtil.getUser(userId)
-					.getPasswordUnencrypted();
+		try {			
 			username = UserLocalServiceUtil.getUser(userId).getLogin();
+			password = PrincipalThreadLocal.getPassword();
 		} catch (PortalException e) {
 			e.printStackTrace();
 		} catch (SystemException e) {
 			e.printStackTrace();
 		}
-		webdavObjectStore = new WebdavObjectStore("A1", username, password);
+		return new WebdavObjectStore("A1", username, password);
 	}
 
 	@Override
@@ -157,6 +154,8 @@ public class LocalFileSystemRepository extends BaseRepositoryImpl {
 						table.getTableId(), Constants.ABSOLUTE_PATH,
 						ExpandoColumnConstants.STRING);
 			}
+			
+			
 
 			//
 			//
@@ -271,9 +270,9 @@ public class LocalFileSystemRepository extends BaseRepositoryImpl {
 		LocalFileSystemPermissionsUtil.checkFolder(getGroupId(), folderId,
 				ActionKeys.ADD_DOCUMENT);
 		WebdavFolderImpl directory = (WebdavFolderImpl) folderIdToFile(folderId);
-		if (directory.exists(webdavObjectStore) && directory.canWrite()) {
+		if (directory.exists(getWebdavRepository()) && directory.canWrite()) {
 //			Fileable file = new File(directory, sourceFileName);
-			WebdavDocumentImpl documentImpl = new WebdavDocumentImpl(directory.getId()+sourceFileName, webdavObjectStore);
+			WebdavDocumentImpl documentImpl = new WebdavDocumentImpl(directory.getId()+sourceFileName, getWebdavRepository());
 			try {
 				return fileToFileEntry(createFileWithInputStream(mimeType, title, is, size, documentImpl));
 //				StreamUtil.transfer(is, new FileOutputStream(file), true);
@@ -296,9 +295,9 @@ public class LocalFileSystemRepository extends BaseRepositoryImpl {
 		LocalFileSystemPermissionsUtil.checkFolder(getGroupId(),
 				parentFolderId, ActionKeys.ADD_SUBFOLDER);
 		WebdavFolderImpl subDir = (WebdavFolderImpl) folderIdToFile(parentFolderId);
-		if (subDir.exists(webdavObjectStore) && subDir.canWrite()) {			
+		if (subDir.exists(getWebdavRepository()) && subDir.canWrite()) {			
 //			folder.mkdir();
-			String folderId = webdavObjectStore.createFolder(title,subDir.getId());
+			String folderId = getWebdavRepository().createFolder(title,subDir.getId());
 			WebdavFolderImpl folder = new WebdavFolderImpl(folderId);
 			return fileToFolder(folder);
 		} else {
@@ -376,7 +375,7 @@ public class LocalFileSystemRepository extends BaseRepositoryImpl {
 			throw new SystemException("Source file " + srcFile
 					+ " cannot be read!");
 		}
-		if (!destDir.exists(webdavObjectStore) || !destDir.canWrite()) {
+		if (!destDir.exists(getWebdavRepository()) || !destDir.canWrite()) {
 			throw new SystemException(
 					"Cannot write into destination directory " + destDir);
 		}
@@ -385,7 +384,7 @@ public class LocalFileSystemRepository extends BaseRepositoryImpl {
 		String newFileId;
 		try {			
 			newFileId = destDir.getId()+srcFile.getName();
-			webdavObjectStore.copy(srcFile.getId(),newFileId);
+			getWebdavRepository().copy(srcFile.getId(),newFileId);
 //			StreamUtil.transfer(new FileInputStream(srcFile),
 //					new FileOutputStream(dstFile), true);
 //			return fileToFileEntry(dstFile);
@@ -393,7 +392,7 @@ public class LocalFileSystemRepository extends BaseRepositoryImpl {
 			_log.error(ex);
 			throw new SystemException(ex);
 		}
-		return fileToFileEntry(new WebdavDocumentImpl(newFileId, webdavObjectStore));
+		return fileToFileEntry(new WebdavDocumentImpl(newFileId, getWebdavRepository()));
 	}
 
 	public void deleteFileEntry(long fileEntryId) throws PortalException,
@@ -419,12 +418,12 @@ public class LocalFileSystemRepository extends BaseRepositoryImpl {
 		LocalFileSystemPermissionsUtil.checkFolder(getGroupId(), folderId,
 				ActionKeys.DELETE);
 		WebdavFolderImpl folder = (WebdavFolderImpl) folderIdToFile(folderId);
-		if (!folder.exists(webdavObjectStore) || !folder.canWrite()) {
+		if (!folder.exists(getWebdavRepository()) || !folder.canWrite()) {
 			throw new SystemException(
 					"Folder doesn't exist or cannot be modified " + folder);
 		}
 
-		folder.delete(webdavObjectStore);
+		folder.delete(getWebdavRepository());
 		RepositoryEntryUtil.remove(folderId);
 	}
 
@@ -514,7 +513,7 @@ public class LocalFileSystemRepository extends BaseRepositoryImpl {
 			throws PortalException, SystemException {
 		LocalFileSystemPermissionsUtil.checkFolder(getGroupId(), folderId,
 				ActionKeys.VIEW);
-		FileEntry entry = fileToFileEntry(new WebdavDocumentImpl(folderIdToFile(folderId).getId()+	title, webdavObjectStore));
+		FileEntry entry = fileToFileEntry(new WebdavDocumentImpl(folderIdToFile(folderId).getId()+	title, getWebdavRepository()));
 		if (entry == null) {
 			throw new PrincipalException();
 		}
@@ -681,13 +680,13 @@ public class LocalFileSystemRepository extends BaseRepositoryImpl {
 				ActionKeys.ADD_DOCUMENT);
 		WebdavDocumentImpl fileToMove = (WebdavDocumentImpl) fileEntryIdToFile(fileEntryId);
 		WebdavFolderImpl parentFolder = (WebdavFolderImpl) folderIdToFile(newFolderId);
-		WebdavDocumentImpl dstFile = new WebdavDocumentImpl(parentFolder.getId() + fileToMove.getName(), webdavObjectStore);
+		WebdavDocumentImpl dstFile = new WebdavDocumentImpl(parentFolder.getId() + fileToMove.getName(), getWebdavRepository());
 
 		if (!fileToMove.exists()) {
 			throw new SystemException("Source file doesn't exist: "
 					+ fileToMove);
 		}
-		if (!parentFolder.exists(webdavObjectStore)) {
+		if (!parentFolder.exists(getWebdavRepository())) {
 			throw new SystemException(
 					"Destination parent folder doesn't exist: " + parentFolder);
 		}
@@ -733,20 +732,20 @@ public class LocalFileSystemRepository extends BaseRepositoryImpl {
 		WebdavFolderImpl parentFolder = (WebdavFolderImpl) folderIdToFile(newParentFolderId);
 		WebdavFolderImpl dstFolder = new WebdavFolderImpl(parentFolder.getId()+ folderToMove.getName());
 
-		if (!webdavObjectStore.exists(folderToMove)) {
+		if (!getWebdavRepository().exists(folderToMove)) {
 			throw new SystemException("Source folder doesn't exist: "
 					+ folderToMove);
 		}
-		if (!webdavObjectStore.exists(parentFolder)) {
+		if (!getWebdavRepository().exists(parentFolder)) {
 			throw new SystemException(
 					"Destination parent folder doesn't exist: " + parentFolder);
 		}
-		if (!webdavObjectStore.exists(parentFolder)) {
+		if (!getWebdavRepository().exists(parentFolder)) {
 			throw new SystemException("Destination folder does exist: "
 					+ dstFolder);
 		}
 		if (folderToMove.canWrite() && parentFolder.canWrite()) {
-			webdavObjectStore.rename(folderToMove.getId(), dstFolder.getId());
+			getWebdavRepository().rename(folderToMove.getId(), dstFolder.getId());
 
 			RepositoryEntry repositoryEntry = RepositoryEntryUtil
 					.fetchByPrimaryKey(folderId);
@@ -826,13 +825,13 @@ public class LocalFileSystemRepository extends BaseRepositoryImpl {
 		LocalFileSystemPermissionsUtil.checkFileEntry(getGroupId(),
 				fileEntryId, ActionKeys.UPDATE);
 		WebdavDocumentImpl file = (WebdavDocumentImpl) fileEntryIdToFile(fileEntryId);
-		WebdavDocumentImpl dstFile = new WebdavDocumentImpl(WebdavIdDecoderAndEncoder.decodedIdToParentEncoded(file.getId())+ title, webdavObjectStore);
+		WebdavDocumentImpl dstFile = new WebdavDocumentImpl(WebdavIdDecoderAndEncoder.decodedIdToParentEncoded(file.getId())+ title, getWebdavRepository());
 		boolean toRename = false;
 		if (!file.canWrite()) {
 			throw new SystemException("Cannot modify file: " + file);
 		}
 		if (Validator.isNotNull(title) && !title.equals(file.getName())) {
-			if (webdavObjectStore.exists(dstFile)) {
+			if (getWebdavRepository().exists(dstFile)) {
 				throw new SystemException("Destination file already exists: "
 						+ dstFile);
 			}
@@ -845,7 +844,7 @@ public class LocalFileSystemRepository extends BaseRepositoryImpl {
 			
 		}
 		if (toRename) {
-			webdavObjectStore.rename(file.getId(), dstFile.getId());			
+			getWebdavRepository().rename(file.getId(), dstFile.getId());			
 
 			RepositoryEntry repositoryEntry = RepositoryEntryUtil
 					.fetchByPrimaryKey(fileEntryId);
@@ -862,7 +861,7 @@ public class LocalFileSystemRepository extends BaseRepositoryImpl {
 	private WebdavDocumentImpl createFileWithInputStream(String mimeType, String title,
 			InputStream is, long size, WebdavDocumentImpl dstFile) {
 		ContentStreamImpl contentStreamImpl = new ContentStreamImpl(title, new BigInteger(size+""), mimeType, is);
-		webdavObjectStore.createFile(title, dstFile.getParentDocument().getId(), contentStreamImpl);
+		getWebdavRepository().createFile(title, dstFile.getParentDocument().getId(), contentStreamImpl);
 		return dstFile;
 	}
 
@@ -878,12 +877,12 @@ public class LocalFileSystemRepository extends BaseRepositoryImpl {
 					+ " in the title! [title]: [" + title + "]");
 		}
 		WebdavFolderImpl folder = (WebdavFolderImpl) folderIdToFile(folderId);
-		if (!webdavObjectStore.exists(folder) || !folder.canWrite()) {
+		if (!getWebdavRepository().exists(folder) || !folder.canWrite()) {
 			throw new SystemException(
 					"Folder doesn't exist or cannot be changed: " + folder);
 		}
 		Fileable newFolder = new WebdavFolderImpl(folder.getParentId()+ title);
-		this.webdavObjectStore.rename(folder.getId(), newFolder.getId());
+		this.getWebdavRepository().rename(folder.getId(), newFolder.getId());
 		return fileToFolder(newFolder);
 	}
 
@@ -1211,7 +1210,7 @@ public class LocalFileSystemRepository extends BaseRepositoryImpl {
 		String cacheKey = dir.getId();
 		List<Fileable> cached = getFromCache(cacheKey);
 		if (cached == null) {
-			cached = webdavObjectStore.getChildrenForName(1000, 0, dir.getId())
+			cached = getWebdavRepository().getChildrenForName(1000, 0, dir.getId())
 					.getChildren();
 			putToCache(cacheKey, cached);
 		}

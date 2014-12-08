@@ -10,7 +10,6 @@ import java.util.List;
 import java.util.concurrent.ExecutionException;
 
 import org.apache.chemistry.opencmis.commons.data.ContentStream;
-import org.apache.chemistry.opencmis.commons.server.CallContext;
 import org.apache.chemistry.opencmis.inmemory.storedobj.api.Fileable;
 import org.apache.chemistry.opencmis.inmemory.storedobj.api.Folder;
 import org.apache.chemistry.opencmis.inmemory.storedobj.api.StoredObject;
@@ -18,15 +17,18 @@ import org.apache.chemistry.opencmis.inmemory.storedobj.impl.DocumentImpl;
 import org.apache.chemistry.opencmis.inmemory.storedobj.impl.FolderImpl;
 import org.apache.chemistry.opencmis.inmemory.storedobj.impl.ObjectStoreImpl;
 import org.apache.commons.io.IOUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import com.github.sardine.DavResource;
+import com.liferay.portal.kernel.log.Log;
+import com.liferay.portal.kernel.log.LogFactoryUtil;
 
 public class WebdavObjectStore extends ObjectStoreImpl {
 
-	private static final Logger log = LoggerFactory
-			.getLogger(WebdavObjectStore.class.getName());
+
+	
+	private static Log log = LogFactoryUtil
+			.getLog(WebdavObjectStore.class);
+	
 	private WebdavEndpoint endpoint;	
 
 	public WebdavObjectStore(String repositoryId, String username, String password) {
@@ -297,6 +299,8 @@ public class WebdavObjectStore extends ObjectStoreImpl {
 				.encodedIdToWebdav(encodedId);
 		long before = System.currentTimeMillis();
 		log.debug("showing resources for: " + listedPath);
+		
+		
 
 		List<DavResource> resources = endpoint.getSardine().list(listedPath);
 		// the first element is always the directory itself
