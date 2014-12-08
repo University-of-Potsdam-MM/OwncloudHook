@@ -30,6 +30,7 @@ public class WebdavFolderImpl extends FolderImpl implements VersionedDocument,
 		setDefault();
 		setNameProperties();
 	}
+	
 
 	private String setNameProperties() {
 		String name = WebdavIdDecoderAndEncoder.encodedIdToName(decodedId);
@@ -150,7 +151,7 @@ public class WebdavFolderImpl extends FolderImpl implements VersionedDocument,
 		}
 		try {
 			String parentIdEncoded = WebdavIdDecoderAndEncoder
-					.decodedIdToParentEncoded(decodedId);
+					.decodedIdToParentEncoded(decodedId);			
 			WebdavFolderImpl documentImpl = new WebdavFolderImpl(
 					parentIdEncoded);
 			return documentImpl;
@@ -179,6 +180,33 @@ public class WebdavFolderImpl extends FolderImpl implements VersionedDocument,
 
 	public String getAbsolutePath() {
 		return this.decodedId;
+	}
+
+	public boolean canWrite() {
+		return true;
+	}
+	
+	@Override
+	public String getParentId() {
+		return WebdavIdDecoderAndEncoder.decodedIdToParentEncoded(decodedId);
+	}
+	
+	@Override
+	public String getName() {
+		return WebdavIdDecoderAndEncoder.encodedIdToName(this.decodedId);
+	}
+	
+	public Boolean exists(WebdavObjectStore objectStore) {
+		return objectStore.exists(this);
+	}
+
+	public boolean canRead() {
+		return true;
+	}
+
+	public void delete(WebdavObjectStore webdavObjectStore) {
+		webdavObjectStore.deleteDirectory(this.getId());
+		
 	}
 
 }

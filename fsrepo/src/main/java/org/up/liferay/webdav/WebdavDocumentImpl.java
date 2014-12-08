@@ -30,7 +30,7 @@ public class WebdavDocumentImpl extends DocumentImpl implements VersionedDocumen
 	private static final Logger log = LoggerFactory
 			.getLogger(WebdavDocumentImpl.class.getName());	
 
-	public WebdavDocumentImpl(DavResource davResource, WebdavEndpoint endpoint, WebdavObjectStore objectStore) {			
+	public WebdavDocumentImpl(DavResource davResource, WebdavObjectStore objectStore) {			
 		this.objectStore = objectStore;
 		String id = WebdavIdDecoderAndEncoder.webdavToIdEncoded(davResource);			
 		setDefaults(id);
@@ -40,12 +40,14 @@ public class WebdavDocumentImpl extends DocumentImpl implements VersionedDocumen
 		
 	}
 
-	public WebdavDocumentImpl(String encodedId,  WebdavEndpoint endpoint, WebdavObjectStore objectStore) {			
+	public WebdavDocumentImpl(String encodedId, WebdavObjectStore objectStore) {			
 		this.objectStore = objectStore;
 		setDefaults(encodedId);
 		setWebdavContentDefaults();		
 		setDebugProperties();			
 	}
+	
+	
 
 	private void setDebugProperties() {
 		GregorianCalendar cal = new GregorianCalendar();
@@ -190,5 +192,29 @@ public class WebdavDocumentImpl extends DocumentImpl implements VersionedDocumen
 	public VersionedDocument getParentDocument() {
 		return WebdavFolderImpl.computerParentDocument(decodedId);
 	}
+
+	public boolean canWrite() {		
+		return true;
+	}
+	
+	@Override
+	public String getName() {
+		return WebdavIdDecoderAndEncoder.encodedIdToName(this.decodedId);
+	}
+
+	public boolean exists() {
+		return objectStore.exists(this);		
+	}
+
+	public boolean renameTo(WebdavDocumentImpl dstFile) {
+		objectStore.rename(this.getId(), dstFile.getId());
+		return true;
+	}
+
+	public void delete() {
+		objectStore.deleteDirectory(this.getId());
+	}
+	
+
 				
 }

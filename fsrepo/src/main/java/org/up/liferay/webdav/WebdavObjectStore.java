@@ -160,7 +160,7 @@ public class WebdavObjectStore extends ObjectStoreImpl {
 					folderChildren.add(folderResult);
 				} else {
 					DocumentImpl documentImpl = new WebdavDocumentImpl(
-							davResource, endpoint, this);
+							davResource, this);
 					folderChildren.add(documentImpl);
 				}
 			}
@@ -206,7 +206,7 @@ public class WebdavObjectStore extends ObjectStoreImpl {
 					return result;
 				} else {
 					WebdavDocumentImpl result = new WebdavDocumentImpl(
-							objectId, endpoint, this);
+							objectId, this);
 					//endpoint.getSardine().shutdown();
 					return result;
 				}
@@ -338,9 +338,7 @@ public class WebdavObjectStore extends ObjectStoreImpl {
 		try {
 			String finalPath = endpoint.getEndpoint() + objectIdDecoded;
 			// endpoint.getSardine().exists(finalPath);
-			endpoint.getSardine().delete(finalPath);
-			InMemoryServiceContext.CACHE.invalidate(new WebdavResourceKey(
-					objectIdEncoded, true, endpoint.getUser()));
+			endpoint.getSardine().delete(finalPath);		
 			//endpoint.getSardine().shutdown();
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -353,18 +351,31 @@ public class WebdavObjectStore extends ObjectStoreImpl {
 		deleteDirectory(encodedObjectId);
 	}
 
-	public void rename(String oldName, String newName) {
+	public void rename(String oldNameEncoded, String newNameEncoded) {
 		WebdavEndpoint endpoint = getOrRefreshSardineEndpoint();
 
 		String oldNameUrl = endpoint.getEndpoint()
-				+ WebdavIdDecoderAndEncoder.decode(oldName);
-		String newNameUrl = endpoint.getEndpoint() + "/" + newName;
+				+ WebdavIdDecoderAndEncoder.decode(oldNameEncoded);
+		String newNameUrl = endpoint.getEndpoint() + WebdavIdDecoderAndEncoder.decode(newNameEncoded);
 		try {
 			if (endpoint.getSardine().exists(oldNameUrl)) {
 				endpoint.getSardine().move(oldNameUrl, newNameUrl);
-				InMemoryServiceContext.CACHE.invalidate(new WebdavResourceKey(
-						oldName, true, endpoint.getUser()));
-				//endpoint.getSardine().shutdown();
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	
+	public void copy(String oldNameEncoded, String newNameEncoded) {
+		WebdavEndpoint endpoint = getOrRefreshSardineEndpoint();
+
+		String oldNameUrl = endpoint.getEndpoint()
+				+ WebdavIdDecoderAndEncoder.decode(oldNameEncoded);
+		String newNameUrl = endpoint.getEndpoint() + WebdavIdDecoderAndEncoder.decode(newNameEncoded);
+		try {
+			if (endpoint.getSardine().exists(oldNameUrl)) {
+				endpoint.getSardine().copy(oldNameUrl, newNameUrl);				
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -381,6 +392,15 @@ public class WebdavObjectStore extends ObjectStoreImpl {
 	@Override
 	public List<String> getParentIds(StoredObject so, String user) {
 		return Collections.singletonList(WebdavIdDecoderAndEncoder.decodedIdToParentEncoded(WebdavIdDecoderAndEncoder.decode(so.getId())));
+	}
+
+	public boolean exists(Fileable folder) {
+		try {
+			return endpoint.getSardine().exists(endpoint.getEndpoint()+ WebdavIdDecoderAndEncoder.decode(folder.getId()));
+		} catch (IOException e) {			
+			e.printStackTrace();
+		}
+		return false;
 	}
 
 }
