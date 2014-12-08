@@ -27,15 +27,17 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import org.up.liferay.webdav.WebdavFolderImpl;
+
 /**
  * @author Tomas Polesovsky
  */
 public class FileSystemFolder extends FileSystemModel implements Folder {
 
-    private File folder;
+    private WebdavFolderImpl folder;
     private long folderId;
 
-    public FileSystemFolder(LocalFileSystemRepository repository, String uuid, long folderId, File folder) {
+    public FileSystemFolder(LocalFileSystemRepository repository, String uuid, long folderId, WebdavFolderImpl folder) {
         super(repository, uuid, folder);
         this.folder = folder;
         this.folderId = folderId;
@@ -78,7 +80,7 @@ public class FileSystemFolder extends FileSystemModel implements Folder {
     }
 
     public Date getLastPostDate() {
-        return new Date(folder.lastModified());
+        return new Date(folder.getModifiedAt().getTimeInMillis());
     }
 
     public String getName() {
@@ -147,5 +149,11 @@ public class FileSystemFolder extends FileSystemModel implements Folder {
 
 	public StagedModelType getStagedModelType() {
 		return new StagedModelType(Folder.class);
+	}
+
+	@Override
+	public Folder getParentFolder() throws PortalException, SystemException {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

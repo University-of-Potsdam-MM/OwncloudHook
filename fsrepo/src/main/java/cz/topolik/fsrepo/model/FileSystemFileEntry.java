@@ -30,6 +30,7 @@ import com.liferay.portlet.documentlibrary.model.DLFileEntry;
 import com.liferay.portlet.documentlibrary.model.DLFileEntryConstants;
 import com.liferay.portlet.documentlibrary.service.DLAppHelperLocalServiceUtil;
 import com.liferay.portlet.documentlibrary.util.DLUtil;
+
 import cz.topolik.fsrepo.LocalFileSystemRepository;
 
 import java.io.File;
@@ -40,6 +41,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import org.apache.chemistry.opencmis.inmemory.storedobj.api.Fileable;
+import org.up.liferay.webdav.WebdavDocumentImpl;
+import org.up.liferay.webdav.WebdavFolderImpl;
+
 /**
  * @author Tomas Polesovsky
  */
@@ -48,9 +53,9 @@ public class FileSystemFileEntry extends FileSystemModel implements FileEntry {
     private static Log _log = LogFactoryUtil.getLog(FileSystemFileEntry.class);
     private FileVersion fileVersion;
     private long fileEntryId;
-    private Folder parentFolder;
+    private Folder parentFolder;    
 
-    public FileSystemFileEntry(LocalFileSystemRepository repository, String uuid, long fileEntryId, Folder parentFolder, File localFile, FileVersion fileVersion) {
+    public FileSystemFileEntry(LocalFileSystemRepository repository, String uuid, long fileEntryId, Folder parentFolder, WebdavDocumentImpl localFile, FileVersion fileVersion) {
         super(repository, uuid, localFile);
 
         this.fileEntryId = fileEntryId;
@@ -59,7 +64,7 @@ public class FileSystemFileEntry extends FileSystemModel implements FileEntry {
     }
     
     public Object clone() {
-        return new FileSystemFileEntry(repository, uuid, fileEntryId, parentFolder, localFile, fileVersion);
+        return new FileSystemFileEntry(repository, uuid, fileEntryId, parentFolder, (WebdavDocumentImpl) localFile, fileVersion);
     }
 
     public InputStream getContentStream() throws PortalException, SystemException {
@@ -71,12 +76,8 @@ public class FileSystemFileEntry extends FileSystemModel implements FileEntry {
             _log.error(e);
         }
 
-        try {
-            return new FileInputStream(localFile);
-        } catch (FileNotFoundException ex) {
-            _log.error(ex);
-            return null;
-        }
+        WebdavDocumentImpl localFileDocument = (WebdavDocumentImpl) localFile;
+		return localFileDocument.getContent().getStream();            
     }
 
     public InputStream getContentStream(String version) throws PortalException, SystemException {
@@ -111,18 +112,15 @@ public class FileSystemFileEntry extends FileSystemModel implements FileEntry {
         return new ArrayList<FileVersion>();
     }
 
-    public Folder getFolder() {
-        try {
-            return getParentFolder();
-        } catch (PortalException ex) {
-            _log.error(ex);
-        } catch (SystemException ex) {
-            _log.error(ex);
-        }
-        return null;
+    public Folder getFolder() {        
+         return getParentFolder();                
     }
 
-    public long getFolderId() {
+    private Folder getParentFolder() {
+		return new FileSystemFolder(repository, null, parentFolder.getFolderId(), (WebdavFolderImpl) getLocalFileCasted().getParentDocument());
+	}
+
+	public long getFolderId() {
         return getFolder().getFolderId();
     }
 
@@ -147,7 +145,7 @@ public class FileSystemFileEntry extends FileSystemModel implements FileEntry {
     }
 
     public long getSize() {
-        return localFile.length();
+        return getLocalFileCasted().getContent().getLength();
     }
 
     public String getTitle() {
@@ -226,5 +224,13 @@ public class FileSystemFileEntry extends FileSystemModel implements FileEntry {
 		//Trashcan of native fs not supported, what's available on fs is considered not in trash.
 		return false;
 	}
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	protected WebdavDocumentImpl getLocalFileCasted() {
+		return (WebdavDocumentImpl) getModel();
+	}
+	
+	
 
 }

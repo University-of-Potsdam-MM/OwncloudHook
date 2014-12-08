@@ -13,20 +13,25 @@
  */
 package cz.topolik.fsrepo.mapper;
 
-import com.liferay.portal.kernel.exception.SystemException;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
-import com.liferay.portal.service.PortalPreferencesLocalServiceUtil;
-import cz.topolik.fsrepo.Constants;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.List;
+
 import javax.portlet.PortletPreferences;
 import javax.portlet.ReadOnlyException;
 import javax.portlet.ValidatorException;
+
+import org.apache.chemistry.opencmis.inmemory.storedobj.api.Fileable;
+
+import com.liferay.portal.kernel.exception.SystemException;
+import com.liferay.portal.kernel.log.Log;
+import com.liferay.portal.kernel.log.LogFactoryUtil;
+import com.liferay.portal.service.PortalPreferencesLocalServiceUtil;
+
+import cz.topolik.fsrepo.Constants;
 
 /**
  * @author Tomas Polesovsky
@@ -58,21 +63,21 @@ public class FileSystemRepositoryMapper {
         return new File(getPrefs().getValue(mappedId, null));
     }
 
-    public String fileToMappedId(File file) {
+    public String fileToMappedId(Fileable file) {
         return fileToMappedId(file, true);
     }
 
-    public String fileToMappedId(File file, boolean save) {
-        md.reset();
-        md.update(file.getAbsolutePath().getBytes());
-        byte[] mdbytes = md.digest();
-
-        //convert the byte to hex format
-        StringBuffer sb = new StringBuffer();
-        for (int i = 0; i < mdbytes.length; i++) {
-            sb.append(Integer.toString((mdbytes[i] & 0xff) + 0x100, 16).substring(1));
-        }
-        String mappedId = sb.toString();
+    public String fileToMappedId(Fileable file, boolean save) {
+//        md.reset();
+//        md.update(file.getAbsolutePath().getBytes());
+//        byte[] mdbytes = md.digest();
+//
+//        //convert the byte to hex format
+//        StringBuffer sb = new StringBuffer();
+//        for (int i = 0; i < mdbytes.length; i++) {
+//            sb.append(Integer.toString((mdbytes[i] & 0xff) + 0x100, 16).substring(1));
+//        }
+        String mappedId = file.getId();
 
         if (save) {
             update(mappedId, file);
@@ -81,16 +86,16 @@ public class FileSystemRepositoryMapper {
         return mappedId;
     }
 
-    public void add(File file) {
+    public void add(Fileable file) {
         fileToMappedId(file);
     }
 
-    public void addAll(List<File> files) {
+    public void addAll(List<Fileable> files) {
         PortletPreferences prefs = getPrefs();
         try {
-            for (File file : files) {
+            for (Fileable file : files) {
                 String checksum = fileToMappedId(file, false);
-                prefs.setValue(checksum, file.getAbsolutePath());
+                prefs.setValue(checksum, file.getId());
             }
             prefs.store();
         } catch (IOException ex) {
@@ -102,7 +107,7 @@ public class FileSystemRepositoryMapper {
         }
     }
 
-    public void remove(File file) {
+    public void remove(Fileable file) {
         try {
             PortletPreferences prefs = getPrefs();
             String checksum = fileToMappedId(file);
@@ -117,14 +122,14 @@ public class FileSystemRepositoryMapper {
         }
     }
 
-    protected void update(String mappedId, File file) {
+    protected void update(String mappedId, Fileable file) {
         PortletPreferences prefs = getPrefs();
         if (prefs.getValue(mappedId, null) != null) {
             // let's hope there won't be any collision in SHA-256
             return;
         }
         try {
-            prefs.setValue(mappedId, file.getAbsolutePath());
+            prefs.setValue(mappedId, file.getId());
             prefs.store();
         } catch (IOException ex) {
             _log.error(ex);

@@ -25,7 +25,9 @@ import com.liferay.portal.service.UserLocalServiceUtil;
 import com.liferay.portlet.documentlibrary.service.DLAppLocalServiceUtil;
 import com.liferay.portlet.expando.model.ExpandoBridge;
 import com.liferay.portlet.expando.util.ExpandoBridgeFactoryUtil;
+
 import cz.topolik.fsrepo.LocalFileSystemRepository;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.Serializable;
@@ -34,6 +36,8 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
+
+import org.apache.chemistry.opencmis.inmemory.storedobj.api.Fileable;
 
 /**
  * @author Tomas Polesovsky
@@ -63,11 +67,11 @@ public abstract class FileSystemModel {
     }
     protected LocalFileSystemRepository repository;
     protected String uuid;
-    protected File localFile;
+    protected Fileable localFile;
     protected Folder parentFolder;
 
 
-    public FileSystemModel(LocalFileSystemRepository repository, String uuid, File localFile) {
+    public FileSystemModel(LocalFileSystemRepository repository, String uuid, Fileable localFile) {
         this.repository = repository;
         this.uuid = uuid;
         this.localFile = localFile;
@@ -94,10 +98,14 @@ public abstract class FileSystemModel {
             }
 
             if(actionId.equals(ActionKeys.VIEW)) {
-                return localFile.canRead();
+                // TODO: implement
+//            	return localFile.canRead();
+            	return true;
             }
             
-            return localFile.canWrite();            
+            // TODO: implement
+//            return localFile.canWrite();            
+            return true;
         }
 
         return false;
@@ -119,8 +127,9 @@ public abstract class FileSystemModel {
         return repository.getGroupId();
     }
 
-    public Date getModifiedDate() {
-        return new Date(localFile.lastModified());
+    public Date getModifiedDate() {        
+    	return new Date(localFile.getModifiedAt().getTimeInMillis());
+        
     }
 
     public long getRepositoryId() {
@@ -228,24 +237,26 @@ public abstract class FileSystemModel {
         return localFile;
     }
 
-    public Folder getParentFolder() throws PortalException, SystemException {
-        try {
-            if (parentFolder != null) {
-                return parentFolder;
-            }
-            File parentFile = localFile.getParentFile();
-            File rootFolder = repository.getRootFolder();
-            if (parentFile.getAbsolutePath().length() <= rootFolder.getAbsolutePath().length()) {
-                Folder mountFolder = DLAppLocalServiceUtil.getMountFolder(getRepositoryId());
-                parentFolder = mountFolder;
-            } else {
-                parentFolder = repository.fileToFolder(parentFile);
-            }
-            return parentFolder;
-        } catch (FileNotFoundException ex) {
-            throw new SystemException("Cannot get parent folder for [folder]: ["+localFile.getAbsolutePath()+"]", ex);
-        }
-    }
+//    public Folder getParentFolder() throws PortalException, SystemException {
+//        try {
+//            if (parentFolder != null) {
+//                return parentFolder;
+//            }
+//            File parentFile = localFile.getParentFile();
+//            File rootFolder = repository.getRootFolder();
+//            if (parentFile.getAbsolutePath().length() <= rootFolder.getAbsolutePath().length()) {
+//                Folder mountFolder = DLAppLocalServiceUtil.getMountFolder(getRepositoryId());
+//                parentFolder = mountFolder;
+//            } else {
+//                parentFolder = repository.fileToFolder(parentFile);
+//            }
+//            return parentFolder;
+//        } catch (FileNotFoundException ex) {
+//            throw new SystemException("Cannot get parent folder for [folder]: ["+localFile.getAbsolutePath()+"]", ex);
+//        }
+//    }
+    
+    
     public abstract long getPrimaryKey();
 
     public abstract String getModelClassName();
@@ -253,4 +264,9 @@ public abstract class FileSystemModel {
     public abstract void setPrimaryKey(long primaryKey);
 
     public abstract String getName();
+    
+    @SuppressWarnings("unchecked")
+	protected <T> T getLocalFileCasted() {
+    	return (T) getModel();
+    }
 }

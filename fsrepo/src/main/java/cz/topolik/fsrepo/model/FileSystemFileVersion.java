@@ -28,6 +28,7 @@ import com.liferay.portlet.documentlibrary.model.DLFileEntryConstants;
 import com.liferay.portlet.documentlibrary.model.DLFileVersion;
 import com.liferay.portlet.documentlibrary.service.DLAppHelperLocalServiceUtil;
 import com.liferay.portlet.documentlibrary.util.DLUtil;
+
 import cz.topolik.fsrepo.LocalFileSystemRepository;
 
 import java.io.File;
@@ -36,160 +37,175 @@ import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.util.Date;
 
+import org.apache.chemistry.opencmis.inmemory.storedobj.api.Fileable;
+import org.up.liferay.webdav.WebdavDocumentImpl;
+
 /**
  * @author Tomas Polesovsky
  */
-public class FileSystemFileVersion extends FileSystemModel implements FileVersion {
+public class FileSystemFileVersion extends FileSystemModel implements
+		FileVersion {
 
-    private static Log _log = LogFactoryUtil.getLog(FileSystemFileVersion.class);
-    private long fileVersionId;
-    private FileEntry fileEntry;
+	private static Log _log = LogFactoryUtil
+			.getLog(FileSystemFileVersion.class);
+	private long fileVersionId;
+	private FileEntry fileEntry;
 
-    public FileSystemFileVersion(LocalFileSystemRepository repository, long fileVersionId, FileEntry fileEntry, File f) {
-        super(repository, null, f);
+	public FileSystemFileVersion(LocalFileSystemRepository repository,
+			long fileVersionId, FileEntry fileEntry, Fileable f) {
+		super(repository, null, f);
 
-        this.fileVersionId = fileVersionId;
-        this.fileEntry = fileEntry;
-    }
-    
-    public Object clone() {
-        return new FileSystemFileVersion(repository, fileVersionId, fileEntry, super.localFile);
-    }
+		this.fileVersionId = fileVersionId;
+		this.fileEntry = fileEntry;
+	}
 
-    public String getChangeLog() {
-        return StringPool.BLANK;
-    }
+	public Object clone() {
+		return new FileSystemFileVersion(repository, fileVersionId, fileEntry,
+				super.localFile);
+	}
 
-    public InputStream getContentStream(boolean incrementCounter) throws PortalException, SystemException {
-        try {
-            DLAppHelperLocalServiceUtil.getFileAsStream(
-                    PrincipalThreadLocal.getUserId(), getFileEntry(),
-                    incrementCounter);
-        } catch (Exception e) {
-            _log.error(e);
-        }
+	public String getChangeLog() {
+		return StringPool.BLANK;
+	}
 
-        try {
-            return new FileInputStream(localFile);
-        } catch (FileNotFoundException ex) {
-            throw new SystemException(ex.getMessage(), ex);
-        }
-    }
+	public InputStream getContentStream(boolean incrementCounter)
+			throws PortalException, SystemException {
+		try {
+			DLAppHelperLocalServiceUtil.getFileAsStream(
+					PrincipalThreadLocal.getUserId(), getFileEntry(),
+					incrementCounter);
+		} catch (Exception e) {
+			_log.error(e);
+		}
 
-    public String getExtension() {
-        return FileUtil.getExtension(getTitle());
-    }
+		if (getModel() instanceof WebdavDocumentImpl) {
+			return ((WebdavDocumentImpl) getModel()).getContent().getStream();
+		} else {
+			throw new SystemException("Streams for documents are not supported");
+		}
 
-    public String getExtraSettings() {
-        return null;
-    }
+	}
 
-    public FileEntry getFileEntry() throws PortalException, SystemException {
-        if(fileEntry == null){
-            fileEntry = repository.fileToFileEntry(localFile, this);
-        }
-        return fileEntry;
-    }
+	public String getExtension() {
+		return FileUtil.getExtension(getTitle());
+	}
 
-    public long getFileEntryId() {
-        try {
-            return fileEntry.getFileEntryId();
-        } catch (Exception ex) {
-            _log.error(ex);
-        }
-        return 0;
-    }
+	public String getExtraSettings() {
+		return null;
+	}
 
-    public long getFileVersionId() {
-        return fileVersionId;
-    }
+	public FileEntry getFileEntry() throws PortalException, SystemException {
+		if (fileEntry == null) {
+			fileEntry = repository.fileToFileEntry(localFile, this);
+		}
+		return fileEntry;
+	}
 
-    public String getIcon() {
-        return DLUtil.getFileIcon(getExtension());
-    }
+	public long getFileEntryId() {
+		try {
+			return fileEntry.getFileEntryId();
+		} catch (Exception ex) {
+			_log.error(ex);
+		}
+		return 0;
+	}
 
-    public String getMimeType() {
-        return MimeTypesUtil.getContentType(localFile.getName());
-    }
+	public long getFileVersionId() {
+		return fileVersionId;
+	}
 
-    public long getSize() {
-        return localFile.length();
-    }
+	public String getIcon() {
+		return DLUtil.getFileIcon(getExtension());
+	}
 
-    public int getStatus() {
-        return 0;
-    }
+	public String getMimeType() {
+		return MimeTypesUtil.getContentType(localFile.getName());
+	}
 
-    public long getStatusByUserId() {
-        return 0;
-    }
+	public long getSize() {
+		if (getModel() instanceof WebdavDocumentImpl) {
+			return ((WebdavDocumentImpl) getModel()).getContent().getLength();
+		} else {
+			_log.error("Streams for documents are not supported");
+			return -1;
+		}
 
-    public String getStatusByUserName() {
-        return null;
-    }
+	}
 
-    public String getStatusByUserUuid() throws SystemException {
-        return null;
-    }
+	public int getStatus() {
+		return 0;
+	}
 
-    public Date getStatusDate() {
-        return getModifiedDate();
-    }
+	public long getStatusByUserId() {
+		return 0;
+	}
 
-    public String getTitle() {
-        return localFile.getName();
-    }
+	public String getStatusByUserName() {
+		return null;
+	}
 
-    public String getVersion() {
-        return DLFileEntryConstants.VERSION_DEFAULT;
-    }
+	public String getStatusByUserUuid() throws SystemException {
+		return null;
+	}
 
-    public boolean isApproved() {
-        return true;
-    }
+	public Date getStatusDate() {
+		return getModifiedDate();
+	}
 
-    public boolean isDraft() {
-        return false;
-    }
+	public String getTitle() {
+		return localFile.getName();
+	}
 
-    public boolean isExpired() {
-        return false;
-    }
+	public String getVersion() {
+		return DLFileEntryConstants.VERSION_DEFAULT;
+	}
 
-    public boolean isPending() {
-        return false;
-    }
+	public boolean isApproved() {
+		return true;
+	}
 
-    public long getPrimaryKey() {
-        return fileVersionId;
-    }
+	public boolean isDraft() {
+		return false;
+	}
 
-    public FileVersion toEscapedModel() {
-        return this;
-    }
+	public boolean isExpired() {
+		return false;
+	}
 
-    public FileVersion toUnescapedModel() {
+	public boolean isPending() {
+		return false;
+	}
+
+	public long getPrimaryKey() {
+		return fileVersionId;
+	}
+
+	public FileVersion toEscapedModel() {
 		return this;
 	}
 
-    public Class<?> getModelClass() {
-        return DLFileVersion.class;
-    }
+	public FileVersion toUnescapedModel() {
+		return this;
+	}
 
-    @Override
-    public String getModelClassName() {
-        return DLFileVersion.class.getName();
-    }
+	public Class<?> getModelClass() {
+		return DLFileVersion.class;
+	}
 
-    @Override
-    public void setPrimaryKey(long primaryKey) {
-        fileVersionId = primaryKey;
-    }
-    
-    @Override
-    public String getName() {
-        return getTitle();
-    }
+	@Override
+	public String getModelClassName() {
+		return DLFileVersion.class.getName();
+	}
+
+	@Override
+	public void setPrimaryKey(long primaryKey) {
+		fileVersionId = primaryKey;
+	}
+
+	@Override
+	public String getName() {
+		return getTitle();
+	}
 
 	public StagedModelType getStagedModelType() {
 		return new StagedModelType(FileVersion.class);

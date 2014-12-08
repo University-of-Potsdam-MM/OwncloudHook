@@ -21,12 +21,14 @@ import com.liferay.portal.kernel.repository.LocalRepository;
 import com.liferay.portal.kernel.util.*;
 import com.liferay.portal.security.auth.PrincipalException;
 import com.liferay.portlet.expando.model.*;
+
 import cz.topolik.fsrepo.mapper.FileSystemRepositoryMapper;
 import cz.topolik.fsrepo.mapper.FileSystemRepositoryIndexer;
 import cz.topolik.fsrepo.mapper.FileSystemRepositoryEnvironment;
 import cz.topolik.fsrepo.model.FileSystemFolder;
 import cz.topolik.fsrepo.model.FileSystemFileEntry;
 import cz.topolik.fsrepo.model.FileSystemFileVersion;
+
 import com.liferay.portal.NoSuchRepositoryEntryException;
 import com.liferay.portal.kernel.dao.orm.DynamicQuery;
 import com.liferay.portal.kernel.dao.orm.DynamicQueryFactoryUtil;
@@ -64,15 +66,20 @@ import com.liferay.portlet.documentlibrary.service.persistence.DLFolderUtil;
 import com.liferay.portlet.expando.service.ExpandoColumnLocalServiceUtil;
 import com.liferay.portlet.expando.service.ExpandoTableLocalServiceUtil;
 import com.liferay.portlet.expando.service.ExpandoValueLocalServiceUtil;
-import java.io.File;
-import java.io.FileInputStream;
+
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+
+import org.apache.chemistry.opencmis.inmemory.storedobj.api.Fileable;
+import org.apache.chemistry.opencmis.inmemory.storedobj.api.StoredObject;
+import org.up.liferay.webdav.WebdavFolderImpl;
+import org.up.liferay.webdav.WebdavIdDecoderAndEncoder;
+import org.up.liferay.webdav.WebdavObjectStore;
+
 import static cz.topolik.fsrepo.Constants.*;
 
 /**
@@ -101,6 +108,8 @@ public class LocalFileSystemRepository extends BaseRepositoryImpl {
             if (_log.isInfoEnabled()) {
                 _log.info("Initializing FileSystemRepository for: " + getRootFolder());
             }
+                                                
+            
             environment = new FileSystemRepositoryEnvironment();
             environment.setRepository(this);
             environment.setMapper(new FileSystemRepositoryMapper(environment));
@@ -124,9 +133,6 @@ public class LocalFileSystemRepository extends BaseRepositoryImpl {
 //                }
 //                environment.getIndexer().reIndex(true);
 //            }
-        } catch (FileNotFoundException e) {
-            _log.error(e);
-            throw new SystemException(e);
         } catch (PortalException e) {
             _log.error(e);
             throw e;
@@ -707,7 +713,7 @@ public class LocalFileSystemRepository extends BaseRepositoryImpl {
      */
 
 
-    protected RepositoryEntry findEntryFromExpando(File file) throws SystemException {
+    protected RepositoryEntry findEntryFromExpando(Fileable file) throws SystemException {
         String className = RepositoryEntry.class.getName();
         long companyId = getCompanyId();
         ExpandoColumn col = ExpandoColumnLocalServiceUtil.getDefaultTableColumn(companyId, className, Constants.ABSOLUTE_PATH);
@@ -734,7 +740,7 @@ public class LocalFileSystemRepository extends BaseRepositoryImpl {
         }
     }
 
-    protected RepositoryEntry retrieveRepositoryEntry(File file, Class modelClass) throws SystemException {
+    protected RepositoryEntry retrieveRepositoryEntry(Fileable file, Class modelClass) throws SystemException {
         RepositoryEntry repositoryEntry = findEntryFromExpando(file);
 
         if (repositoryEntry != null) {
@@ -787,11 +793,11 @@ public class LocalFileSystemRepository extends BaseRepositoryImpl {
         return new FileSystemFolder(this, entry.getUuid(), entry.getRepositoryEntryId(), folder);
     }
 
-    public FileVersion fileToFileVersion(File file) throws SystemException {
+    public FileVersion fileToFileVersion(Fileable file) throws SystemException {
         return fileToFileVersion(file, null);
     }
 
-    public FileVersion fileToFileVersion(File file, FileEntry fileEntry) throws SystemException {
+    public FileVersion fileToFileVersion(Fileable file, FileEntry fileEntry) throws SystemException {
         RepositoryEntry entry = retrieveRepositoryEntry(file, DLFileEntry.class);
 
         if (!LocalFileSystemPermissionsUtil.containsFileEntry(getGroupId(), entry.getRepositoryEntryId(), ActionKeys.VIEW)) {
@@ -803,11 +809,11 @@ public class LocalFileSystemRepository extends BaseRepositoryImpl {
         return fileVersion;
     }
 
-    public FileEntry fileToFileEntry(File file) throws SystemException {
+    public FileEntry fileToFileEntry(Fileable file) throws SystemException {
         return fileToFileEntry(file, null);
     }
 
-    public FileEntry fileToFileEntry(File file, FileVersion fileVersion) throws SystemException {
+    public FileEntry fileToFileEntry(Fileable file, FileVersion fileVersion) throws SystemException {
         RepositoryEntry entry = retrieveRepositoryEntry(file, DLFileEntry.class);
 
         if (!LocalFileSystemPermissionsUtil.containsFileEntry(getGroupId(), entry.getRepositoryEntryId(), ActionKeys.VIEW)) {
@@ -918,8 +924,8 @@ public class LocalFileSystemRepository extends BaseRepositoryImpl {
         return getFileFromExpando(entry);
     }
 
-    protected String getCombinedExpandoValue(File file) throws FileNotFoundException {
-        String relativePath = file.getAbsolutePath().substring(getRootFolder().getAbsolutePath().length());
+    protected String getCombinedExpandoValue(Fileable file) throws FileNotFoundException {    	
+        String relativePath = file.getId().substring(getRootFolder().getAbsolutePath().length());
         return String.valueOf(getRepositoryId() + "-" + relativePath);
     }
 
@@ -927,7 +933,7 @@ public class LocalFileSystemRepository extends BaseRepositoryImpl {
         ExpandoValueLocalServiceUtil.addValue(getCompanyId(), expandoColumn.getTableId(), expandoColumn.getColumnId(), entry.getPrimaryKey(), getCombinedExpandoValue(file));
     }
 
-    protected File getFileFromExpando(RepositoryEntry entry) throws FileNotFoundException, SystemException, PortalException {
+    protected Fileable getFileFromExpando(RepositoryEntry entry) throws FileNotFoundException, SystemException, PortalException {
         ExpandoValue expandoValue = ExpandoValueLocalServiceUtil.getValue(expandoColumn.getTableId(), expandoColumn.getColumnId(), entry.getPrimaryKey());
         if(expandoValue == null){
             throw new IllegalStateException("Database is corrupted! Please recreate this repository!");
@@ -937,23 +943,20 @@ public class LocalFileSystemRepository extends BaseRepositoryImpl {
         if (file == null) {
             throw new RuntimeException("There is no absolute path in Expando for Repository Entry [id]: [" + entry.getRepositoryEntryId() + "]");
         }
-        File f = new File(getRootFolder(), file);
-        if (!f.exists()) {
-            throw new FileNotFoundException("File no longer exists on the file system: " + f.getAbsolutePath());
-        }
-        return f;
+//        File f = new File(getRootFolder(), file);
+//        if (!f.exists()) {
+//            throw new FileNotFoundException("File no longer exists on the file system: " + f.getAbsolutePath());
+//        }
+        return getRootFolder();
     }
 
-    public File getRootFolder() throws FileNotFoundException {
+    public WebdavFolderImpl getRootFolder()  {
         String file = getTypeSettingsProperties().getProperty(ROOT_FOLDER);
         if (file == null) {
             throw new RuntimeException("There is no ROOT_FOLDER configured for the repository [repositoryId]: [" + getRepositoryId() + "]");
         }
-        File f = new File(file);
-        if (!f.exists()) {
-            throw new FileNotFoundException("Root folder no longer exists on the file system [folderPath, repositoryId] [" + f.getAbsolutePath() + ", " + getRepositoryId() + "]");
-        }
-        return f;
+        WebdavFolderImpl rootFolder = new WebdavFolderImpl(WebdavIdDecoderAndEncoder.LIFERAYROOTSYMBOL);
+        return rootFolder;
     }
 
     public boolean addGuestPermissions() {

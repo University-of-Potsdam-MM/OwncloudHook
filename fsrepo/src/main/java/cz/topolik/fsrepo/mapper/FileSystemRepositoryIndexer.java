@@ -20,10 +20,16 @@ import com.liferay.portal.kernel.repository.RepositoryException;
 import com.liferay.portal.kernel.util.Time;
 import com.liferay.portal.service.LockLocalServiceUtil;
 import com.liferay.portal.service.UserLocalServiceUtil;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
+
+import org.apache.chemistry.opencmis.inmemory.storedobj.api.Fileable;
+import org.apache.chemistry.opencmis.inmemory.storedobj.api.StoredObject;
+import org.up.liferay.webdav.WebdavFolderImpl;
+import org.up.liferay.webdav.WebdavObjectStore;
 
 /**
  *
@@ -34,27 +40,25 @@ public class FileSystemRepositoryIndexer {
     private static Log _log = LogFactoryUtil.getLog(FileSystemRepositoryIndexer.class);
     private FileSystemRepositoryEnvironment environment;
     private Thread asyncThread;
-    private final List<File> filesToIndex = new ArrayList<File>();
+    private final List<Fileable> filesToIndex = new ArrayList<Fileable>();
+	private WebdavObjectStore sm;
 
     public FileSystemRepositoryIndexer(FileSystemRepositoryEnvironment environment) {
         this.environment = environment;
+//        this.sm = sm;
     }
 
-    public List<File> getActuallyIndexedFiles() {
+    public List<Fileable> getActuallyIndexedFiles() {
         synchronized (filesToIndex) {
-            List<File> result = new ArrayList<File>(filesToIndex.size());
+            List<Fileable> result = new ArrayList<Fileable>(filesToIndex.size());
             result.addAll(filesToIndex);
             return result;
         }
     }
 
     public boolean reIndex(boolean async) throws RepositoryException {
-        final File rootFolder;
-        try {
-            rootFolder = environment.getRepository().getRootFolder();
-        } catch (FileNotFoundException ex) {
-            throw new RepositoryException(ex.getMessage(), ex);
-        }
+        final WebdavFolderImpl rootFolder = environment.getRepository().getRootFolder();
+       
         try {
             final long companyId = environment.getRepository().getCompanyId();
             long defaultUserId = UserLocalServiceUtil.getDefaultUserId(companyId);
@@ -125,24 +129,24 @@ public class FileSystemRepositoryIndexer {
         }
     }
 
-    protected void run(File file) {
+    protected void run(StoredObject file) {
         if (asyncThread == null || !asyncThread.isInterrupted()) {
             index(file);
 
-            if (file.isDirectory() && file.canRead()) {
-                for (File subFolder : file.listFiles()) {
+            if (file instanceof WebdavFolderImpl) {
+                for (Fileable subFolder : sm.getFolderChildren((WebdavFolderImpl)file, 30, 0, null).getChildren()) {
                     run(subFolder);
                 }
             }
         }
     }
 
-    protected void index(File file) {
+    protected void index(StoredObject file) {
         if (_log.isDebugEnabled()) {
-            _log.debug("Indexing: " + file.getAbsolutePath());
+            _log.debug("Indexing: " + file.getId());
         }
         synchronized (filesToIndex) {
-            filesToIndex.add(file);
+            filesToIndex.add((Fileable) file);
         }
     }
 }
