@@ -149,7 +149,8 @@ public class WebdavDocumentImpl extends DocumentImpl implements VersionedDocumen
 
 	@Override
 	public String getCheckedOutBy() {
-		return InMemoryServiceContext.getCallContext().getUsername();
+//		return InMemoryServiceContext.getCallContext().getUsername();
+		return null;
 	}
 
 	@Override

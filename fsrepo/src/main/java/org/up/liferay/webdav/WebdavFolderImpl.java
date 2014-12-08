@@ -100,7 +100,9 @@ public class WebdavFolderImpl extends FolderImpl implements VersionedDocument,
 
 	@Override
 	public String getCheckedOutBy() {
-		return InMemoryServiceContext.getCallContext().getUsername();
+//		return InMemoryServiceContext.getCallContext().getUsername();
+		
+		return null;
 	}
 
 	@Override
