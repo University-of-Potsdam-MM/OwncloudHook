@@ -690,7 +690,7 @@ public class LocalFileSystemRepository extends BaseRepositoryImpl {
 			throw new SystemException(
 					"Destination parent folder doesn't exist: " + parentFolder);
 		}
-		if (!dstFile.exists()) {
+		if (dstFile.exists()) {
 			throw new SystemException("Destination file does exist: " + dstFile);
 		}
 		if (fileToMove.canWrite() && parentFolder.canWrite()) {
