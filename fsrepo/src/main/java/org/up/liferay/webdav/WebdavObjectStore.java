@@ -298,7 +298,7 @@ public class WebdavObjectStore extends ObjectStoreImpl {
 		String listedPath = WebdavIdDecoderAndEncoder
 				.encodedIdToWebdav(encodedId);
 		long before = System.currentTimeMillis();
-		log.debug("showing resources for: " + listedPath);
+		log.warn("showing resources for: " + listedPath);
 		
 		
 
