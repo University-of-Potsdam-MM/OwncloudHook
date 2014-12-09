@@ -13,6 +13,18 @@
  */
 package cz.topolik.fsrepo.model;
 
+import java.io.Serializable;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
+
+import org.apache.chemistry.opencmis.inmemory.storedobj.api.Fileable;
+import org.apache.chemistry.opencmis.inmemory.storedobj.impl.DocumentVersionImpl;
+import org.up.liferay.webdav.WebdavDocumentImpl;
+import org.up.liferay.webdav.WebdavFolderImpl;
+
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.log.Log;
@@ -27,17 +39,6 @@ import com.liferay.portlet.expando.model.ExpandoBridge;
 import com.liferay.portlet.expando.util.ExpandoBridgeFactoryUtil;
 
 import cz.topolik.fsrepo.LocalFileSystemRepository;
-
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.Serializable;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
-
-import org.apache.chemistry.opencmis.inmemory.storedobj.api.Fileable;
 
 /**
  * @author Tomas Polesovsky
@@ -237,24 +238,34 @@ public abstract class FileSystemModel {
         return localFile;
     }
 
-//    public Folder getParentFolder() throws PortalException, SystemException {
-//        try {
-//            if (parentFolder != null) {
-//                return parentFolder;
-//            }
-//            File parentFile = localFile.getParentFile();
-//            File rootFolder = repository.getRootFolder();
-//            if (parentFile.getAbsolutePath().length() <= rootFolder.getAbsolutePath().length()) {
-//                Folder mountFolder = DLAppLocalServiceUtil.getMountFolder(getRepositoryId());
-//                parentFolder = mountFolder;
-//            } else {
-//                parentFolder = repository.fileToFolder(parentFile);
-//            }
-//            return parentFolder;
-//        } catch (FileNotFoundException ex) {
-//            throw new SystemException("Cannot get parent folder for [folder]: ["+localFile.getAbsolutePath()+"]", ex);
-//        }
-//    }
+    public Folder getParentFolder() throws PortalException, SystemException {
+        try {
+            if (parentFolder != null) {
+                return parentFolder;
+            }
+            
+            Fileable parentFile;
+			if (localFile instanceof WebdavDocumentImpl) {
+            	localFile = (WebdavDocumentImpl) localFile;
+            	parentFile = (Fileable) ((WebdavDocumentImpl) localFile).getParentDocument();
+            } else {
+            	localFile = (WebdavFolderImpl) localFile;
+            	parentFile = (Fileable) ((WebdavFolderImpl) localFile).getParentDocument();
+            }
+            
+            
+            Fileable rootFolder = repository.getRootFolder();
+            if (parentFile.getId().length() <= rootFolder.getId().length()) {
+                Folder mountFolder = DLAppLocalServiceUtil.getMountFolder(getRepositoryId());
+                parentFolder = mountFolder;
+            } else {
+                parentFolder = repository.fileToFolder(parentFile);
+            }
+            return parentFolder;
+        } catch (Exception ex) {
+            throw new SystemException("Cannot get parent folder for [folder]: ["+localFile.getId()+"]", ex);
+        }
+    }
     
     
     public abstract long getPrimaryKey();

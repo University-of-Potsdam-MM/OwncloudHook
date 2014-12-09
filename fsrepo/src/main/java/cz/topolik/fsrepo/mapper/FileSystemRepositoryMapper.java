@@ -51,17 +51,17 @@ public class FileSystemRepositoryMapper {
         }
     }
 
-    public File mappedIdToFile2(String mappedId) throws FileNotFoundException, SystemException {
-        synchronized (this) {
-            if (null == getPrefs().getValue(mappedId, null)) {
-                _log.error("Cannot find checksum: " + mappedId + ". " +
-                        "System is not in consistent state - trying to find something that wasn't indexed! " +
-                        "Please force the repository to reindex using 'fsrepo.reindex.on.startup=true' in portal-ext.properties and reboot the portal!");
-                throw new FileNotFoundException("Internal error, file cannot be found!");
-            }
-        }
-        return new File(getPrefs().getValue(mappedId, null));
-    }
+//    public File mappedIdToFile2(String mappedId) throws FileNotFoundException, SystemException {
+//        synchronized (this) {
+//            if (null == getPrefs().getValue(mappedId, null)) {
+//                _log.error("Cannot find checksum: " + mappedId + ". " +
+//                        "System is not in consistent state - trying to find something that wasn't indexed! " +
+//                        "Please force the repository to reindex using 'fsrepo.reindex.on.startup=true' in portal-ext.properties and reboot the portal!");
+//                throw new FileNotFoundException("Internal error, file cannot be found!");
+//            }
+//        }
+//        return new File(getPrefs().getValue(mappedId, null));
+//    }
 
     public String fileToMappedId(Fileable file) {
         return fileToMappedId(file, true);
