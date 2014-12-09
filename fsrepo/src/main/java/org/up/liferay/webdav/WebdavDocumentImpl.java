@@ -90,16 +90,7 @@ public class WebdavDocumentImpl extends DocumentImpl implements VersionedDocumen
 	}
 
 	private void setInputStream(ContentStreamImpl steam) {
-		try {			
-			WebdavEndpoint endpoint = LocalFileSystemRepository.getWebdavRepository().getOrRefreshSardineEndpoint();
-			log.warn("getting bytes for"+endpoint.getEndpoint()+decodedId);
-			InputStream webdavBytes = endpoint.getSardine().get(endpoint.getEndpoint()+decodedId);
-			ByteArrayInputStream tmpFile = new ByteArrayInputStream(IOUtils.toByteArray(webdavBytes));					
-			steam.setStream(IOUtils.toBufferedInputStream(tmpFile));			
-		} catch (IOException e) {	
-			log.error("could not get inputstream for: " + this.decodedId);
-			e.printStackTrace();
-		}
+		LocalFileSystemRepository.getWebdavRepository().setInputStream(steam, decodedId);
 	}
 
 	@Override
