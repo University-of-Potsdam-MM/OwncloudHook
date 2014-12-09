@@ -24,16 +24,16 @@ import com.github.sardine.DavResource;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 
+import cz.topolik.fsrepo.LocalFileSystemRepository;
+
 public class WebdavDocumentImpl extends DocumentImpl implements VersionedDocument, DocumentVersion {
-	private String decodedId;
-	private WebdavObjectStore objectStore;
+	private String decodedId;	
 	
 
 	private static Log log = LogFactoryUtil
 			.getLog(WebdavDocumentImpl.class);
 
-	public WebdavDocumentImpl(DavResource davResource, WebdavObjectStore objectStore) {			
-		this.objectStore = objectStore;
+	public WebdavDocumentImpl(DavResource davResource) {					
 		String id = WebdavIdDecoderAndEncoder.webdavToIdEncoded(davResource);			
 		setDefaults(id);
 		setWebdavContentDefaults();		
@@ -42,8 +42,8 @@ public class WebdavDocumentImpl extends DocumentImpl implements VersionedDocumen
 		
 	}
 
-	public WebdavDocumentImpl(String encodedId, WebdavObjectStore objectStore) {			
-		this.objectStore = objectStore;
+	public WebdavDocumentImpl(String encodedId) {			
+		
 		setDefaults(encodedId);
 		setWebdavContentDefaults();		
 		setDebugProperties();			
@@ -91,7 +91,8 @@ public class WebdavDocumentImpl extends DocumentImpl implements VersionedDocumen
 
 	private void setInputStream(ContentStreamImpl steam) {
 		try {			
-			WebdavEndpoint endpoint = objectStore.getOrRefreshSardineEndpoint();
+			WebdavEndpoint endpoint = LocalFileSystemRepository.getWebdavRepository().getOrRefreshSardineEndpoint();
+			log.warn("getting bytes for"+endpoint.getEndpoint()+decodedId);
 			InputStream webdavBytes = endpoint.getSardine().get(endpoint.getEndpoint()+decodedId);
 			ByteArrayInputStream tmpFile = new ByteArrayInputStream(IOUtils.toByteArray(webdavBytes));					
 			steam.setStream(IOUtils.toBufferedInputStream(tmpFile));			
@@ -206,16 +207,16 @@ public class WebdavDocumentImpl extends DocumentImpl implements VersionedDocumen
 	}
 
 	public boolean exists() {
-		return objectStore.exists(this);		
+		return LocalFileSystemRepository.getWebdavRepository().exists(this);		
 	}
 
 	public boolean renameTo(WebdavDocumentImpl dstFile) {
-		objectStore.rename(this.getId(), dstFile.getId());
+		LocalFileSystemRepository.getWebdavRepository().rename(this.getId(), dstFile.getId());
 		return true;
 	}
 
 	public void delete() {
-		objectStore.deleteDirectory(this.getId());
+		LocalFileSystemRepository.getWebdavRepository().deleteDirectory(this.getId());
 	}
 	
 

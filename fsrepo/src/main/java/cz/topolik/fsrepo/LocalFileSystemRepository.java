@@ -272,7 +272,7 @@ public class LocalFileSystemRepository extends BaseRepositoryImpl {
 		WebdavFolderImpl directory = (WebdavFolderImpl) folderIdToFile(folderId);
 		if (directory.exists(getWebdavRepository()) && directory.canWrite()) {
 //			Fileable file = new File(directory, sourceFileName);
-			WebdavDocumentImpl documentImpl = new WebdavDocumentImpl(directory.getId()+sourceFileName, getWebdavRepository());
+			WebdavDocumentImpl documentImpl = new WebdavDocumentImpl(directory.getId()+sourceFileName);
 			try {
 				return fileToFileEntry(createFileWithInputStream(mimeType, title, is, size, documentImpl));
 //				StreamUtil.transfer(is, new FileOutputStream(file), true);
@@ -392,7 +392,7 @@ public class LocalFileSystemRepository extends BaseRepositoryImpl {
 			_log.error(ex);
 			throw new SystemException(ex);
 		}
-		return fileToFileEntry(new WebdavDocumentImpl(newFileId, getWebdavRepository()));
+		return fileToFileEntry(new WebdavDocumentImpl(newFileId));
 	}
 
 	public void deleteFileEntry(long fileEntryId) throws PortalException,
@@ -513,7 +513,7 @@ public class LocalFileSystemRepository extends BaseRepositoryImpl {
 			throws PortalException, SystemException {
 		LocalFileSystemPermissionsUtil.checkFolder(getGroupId(), folderId,
 				ActionKeys.VIEW);
-		FileEntry entry = fileToFileEntry(new WebdavDocumentImpl(folderIdToFile(folderId).getId()+	title, getWebdavRepository()));
+		FileEntry entry = fileToFileEntry(new WebdavDocumentImpl(folderIdToFile(folderId).getId()+	title));
 		if (entry == null) {
 			throw new PrincipalException();
 		}
@@ -680,7 +680,7 @@ public class LocalFileSystemRepository extends BaseRepositoryImpl {
 				ActionKeys.ADD_DOCUMENT);
 		WebdavDocumentImpl fileToMove = (WebdavDocumentImpl) fileEntryIdToFile(fileEntryId);
 		WebdavFolderImpl parentFolder = (WebdavFolderImpl) folderIdToFile(newFolderId);
-		WebdavDocumentImpl dstFile = new WebdavDocumentImpl(parentFolder.getId() + fileToMove.getName(), getWebdavRepository());
+		WebdavDocumentImpl dstFile = new WebdavDocumentImpl(parentFolder.getId() + fileToMove.getName());
 
 		if (!fileToMove.exists()) {
 			throw new SystemException("Source file doesn't exist: "
@@ -825,7 +825,7 @@ public class LocalFileSystemRepository extends BaseRepositoryImpl {
 		LocalFileSystemPermissionsUtil.checkFileEntry(getGroupId(),
 				fileEntryId, ActionKeys.UPDATE);
 		WebdavDocumentImpl file = (WebdavDocumentImpl) fileEntryIdToFile(fileEntryId);
-		WebdavDocumentImpl dstFile = new WebdavDocumentImpl(WebdavIdDecoderAndEncoder.decodedIdToParentEncoded(file.getId())+ title, getWebdavRepository());
+		WebdavDocumentImpl dstFile = new WebdavDocumentImpl(WebdavIdDecoderAndEncoder.decodedIdToParentEncoded(file.getId())+ title);
 		boolean toRename = false;
 		if (!file.canWrite()) {
 			throw new SystemException("Cannot modify file: " + file);
@@ -1107,7 +1107,8 @@ public class LocalFileSystemRepository extends BaseRepositoryImpl {
 			}
 
 			try {
-				return getFileFromRepositoryEntry(repositoryEntry);
+				Fileable result = getFileFromRepositoryEntry(repositoryEntry); 
+				return  result;
 			} catch (FileNotFoundException ex) {
 				RepositoryEntryUtil.remove(repositoryEntry
 						.getRepositoryEntryId());
@@ -1163,6 +1164,7 @@ public class LocalFileSystemRepository extends BaseRepositoryImpl {
 					"Database is corrupted! Please recreate this repository!");
 		}
 		String value = expandoValue.getString();
+		value = value.replace("-2F", "-%2F");
 		String file = value.substring(value.indexOf("-") + 1);
 		if (file == null) {
 			throw new RuntimeException(
@@ -1175,7 +1177,8 @@ public class LocalFileSystemRepository extends BaseRepositoryImpl {
 		// FileNotFoundException("File no longer exists on the file system: " +
 		// f.getAbsolutePath());
 		// }
-		return getRootFolder();
+//		return getRootFolder();
+		return (Fileable) getWebdavRepository().getObjectById(file);
 	}
 
 	public WebdavFolderImpl getRootFolder() {

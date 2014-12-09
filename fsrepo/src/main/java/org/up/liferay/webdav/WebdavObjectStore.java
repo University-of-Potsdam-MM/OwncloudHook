@@ -162,7 +162,7 @@ public class WebdavObjectStore extends ObjectStoreImpl {
 					folderChildren.add(folderResult);
 				} else {
 					DocumentImpl documentImpl = new WebdavDocumentImpl(
-							davResource, this);
+							davResource);
 					folderChildren.add(documentImpl);
 				}
 			}
@@ -208,7 +208,7 @@ public class WebdavObjectStore extends ObjectStoreImpl {
 					return result;
 				} else {
 					WebdavDocumentImpl result = new WebdavDocumentImpl(
-							objectId, this);
+							objectId);
 					//endpoint.getSardine().shutdown();
 					return result;
 				}
