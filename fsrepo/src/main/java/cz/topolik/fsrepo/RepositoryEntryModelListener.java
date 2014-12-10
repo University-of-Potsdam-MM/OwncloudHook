@@ -11,7 +11,7 @@
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
  * details.
  */
-package org.up.liferay.hooks.documentsandmedia;
+package cz.topolik.fsrepo;
 
 import com.liferay.portal.ModelListenerException;
 import com.liferay.portal.model.ModelListener;

@@ -11,7 +11,7 @@
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
  * details.
  */
-package org.up.liferay.hooks.documentsandmedia;
+package cz.topolik.fsrepo;
 
 import com.liferay.portal.kernel.dao.orm.QueryUtil;
 import com.liferay.portal.kernel.events.ActionException;
@@ -23,10 +23,7 @@ import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.model.Repository;
 import com.liferay.portal.service.RepositoryLocalServiceUtil;
-
 import java.util.List;
-
-import org.up.liferay.hooks.documentsandmedia.OwncloudCMISRepository;
 
 /**
  *
@@ -56,12 +53,9 @@ public class RepositoryStartupAction extends SimpleAction {
     }
 
     protected void init(Repository repo) throws PortalException, SystemException {
-        if (OwncloudCMISRepository.class.getName().equals(repo.getClassName())) {
+        if (LocalFileSystemRepository.class.getName().equals(repo.getClassName())) {
             // repository is initialized also during this instantiation
             RepositoryLocalServiceUtil.getRepositoryImpl(repo.getRepositoryId());
         }
-        
-        
-        
     }
 }
