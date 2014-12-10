@@ -9,16 +9,19 @@ import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.httpclient.HttpClient;
 import org.apache.commons.httpclient.HttpStatus;
 import org.apache.commons.httpclient.methods.PostMethod;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.up.liferay.webdav.WebdavConfigurationLoader;
 import org.up.liferay.webdav.WebdavObjectStore;
+
+import com.liferay.portal.kernel.log.Log;
+import com.liferay.portal.kernel.log.LogFactoryUtil;
 
 
 public class OwncloudShareCreator {
 	
-	private static final Logger log = LoggerFactory
-			.getLogger(OwncloudShareCreator.class.getName());
+//	private static final Logger log = LoggerFactory
+//			.getLogger(OwncloudShareCreator.class.getName());
+	
+	private static Log log = LogFactoryUtil.getLog(OwncloudShareCreator.class);
 	
 	public synchronized void createShare(Set<String> users, final String authorName, final String authorpasswd, final String sharepath, WebdavObjectStore store) {					
 		users.remove(authorName);
@@ -28,8 +31,7 @@ public class OwncloudShareCreator {
 			store.rename(sharepath, sharepath+"backup"+new Date(System.currentTimeMillis()));
 			Thread t = new Thread(new Runnable() {				
 				@Override
-				public void run() {
-					log.debug("start creating shares for " + sharepath + "User: " + user);	
+				public void run() {					
 					createShare(user, authorName, authorpasswd, sharepath);
 					log.debug("finished creating shares" + sharepath + "User: " + user);
 				}
@@ -59,8 +61,7 @@ public class OwncloudShareCreator {
 			int returnCode = client.executeMethod(method);
 
 			if (returnCode == HttpStatus.SC_NOT_IMPLEMENTED) {
-				System.err
-						.println("The Post method is not implemented by this URI");
+				log.error("The Post method is not implemented by this URI");
 				// still consume the response body
 				method.getResponseBodyAsString();
 			} else {
@@ -68,7 +69,7 @@ public class OwncloudShareCreator {
 						method.getResponseBodyAsStream()));
 				String readLine;
 				while (((readLine = br.readLine()) != null)) {
-					System.err.println(readLine);
+					log.warn(readLine);
 				}
 			}
 		} catch (Exception e) {
@@ -79,7 +80,7 @@ public class OwncloudShareCreator {
 				try {
 					br.close();
 				} catch (Exception fe) {
-					System.err.println("The reader could not be closed after creating share");
+					log.error("The reader could not be closed after creating share");
 				}
 		}
 	}

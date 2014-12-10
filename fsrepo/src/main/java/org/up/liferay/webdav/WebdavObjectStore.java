@@ -86,10 +86,14 @@ public class WebdavObjectStore extends ObjectStoreImpl {
 		return completePath;
 	}
 
-	public String createFolder(String folderName, String parentIdEncoded) {
+	public WebdavFolderImpl createFolder(String folderName, String parentIdEncoded) {
 		String parentIdDecoded = WebdavIdDecoderAndEncoder
 				.decode(parentIdEncoded);
 		String path = parentIdDecoded + folderName;
+		return createFolder(path);
+	}
+	
+	public WebdavFolderImpl createFolder(String path) {
 		String webdavpath = endpoint.getEndpoint() + path;
 		try {
 			if (!endpoint.getSardine().exists(webdavpath)) {
@@ -98,7 +102,7 @@ public class WebdavObjectStore extends ObjectStoreImpl {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		return WebdavIdDecoderAndEncoder.encode(path);
+		return new WebdavFolderImpl(WebdavIdDecoderAndEncoder.encode(path));
 	}
 
 	public String createRootFolder(String folderName) {
