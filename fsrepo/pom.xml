@@ -1,0 +1,243 @@
+<?xml version="1.0"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.up</groupId>
+	<artifactId>liferay-owncloud-hook</artifactId>
+	<packaging>war</packaging>
+	<name>liferay-owncloud-hook Hook</name>
+	<version>3.1</version>
+
+	<!-- <repositories> -->
+	<!-- <repository> -->
+	<!-- <id>com.springsource.repository.bundles.release</id> -->
+	<!-- <name>SpringSource Enterprise Bundle Repository - SpringSource Bundle 
+		Releases</name> -->
+	<!-- <url>http://repository.springsource.com/maven/bundles/release</url> -->
+	<!-- </repository> -->
+	<!-- <repository> -->
+	<!-- <id>com.springsource.repository.bundles.external</id> -->
+	<!-- <name>SpringSource Enterprise Bundle Repository - External Bundle Releases</name> -->
+	<!-- <url>http://repository.springsource.com/maven/bundles/external</url> -->
+	<!-- </repository> -->
+
+
+
+	<!-- <repositories> -->
+	<!-- <repository> -->
+	<!-- <id>central</id> -->
+	<!-- <url>http://repo1.maven.org/maven2/</url> -->
+	<!-- </repository> -->
+	<!-- <repository> -->
+	<!-- <id>apache-releases</id> -->
+	<!-- <url>https://repository.apache.org/content/repositories/releases/</url> -->
+	<!-- </repository> -->
+	<!-- <repository> -->
+	<!-- <id>spring-releases</id> -->
+	<!-- <url>http://repo.springsource.org/libs-release-remote/</url> -->
+	<!-- </repository> -->
+
+	<!-- <repository> -->
+	<!-- <id>ibiblio.org-releases</id> -->
+	<!-- <url>http://mirrors.ibiblio.org/maven2/</url> -->
+	<!-- </repository> -->
+
+	<!-- </repositories> -->
+
+	<!-- <repositories> -->
+	<!-- <repository> -->
+	<!-- <id>stuffrepo</id> -->
+	<!-- <name>OpenCMIS Server Support</name> -->
+	<!-- <url>http://repo1.maven.org/maven2/org/apache/chemistry/opencmis/chemistry-opencmis-server-support/0.12.0/</url> -->
+	<!-- </repository> -->
+	<!-- </repositories> -->
+
+	<properties>
+		<liferay.version>6.2.1</liferay.version>
+		<liferay.maven.plugin.version>6.2.1</liferay.maven.plugin.version>
+	</properties>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>com.liferay.maven.plugins</groupId>
+				<artifactId>liferay-maven-plugin</artifactId>
+				<version>${liferay.maven.plugin.version}</version>
+				<configuration>
+					<autoDeployDir>${liferay.auto.deploy.dir}</autoDeployDir>
+					<appServerDeployDir>${liferay.app.server.deploy.dir}</appServerDeployDir>
+					<appServerLibGlobalDir>${liferay.app.server.lib.global.dir}</appServerLibGlobalDir>
+					<appServerPortalDir>${liferay.app.server.portal.dir}</appServerPortalDir>
+					<liferayVersion>${liferay.version}</liferayVersion>
+					<pluginType>hook</pluginType>
+					<packagingExcludes>
+						WEB-INF/lib/commons-logging*.jar,
+						WEB-INF/lib/log4j*.jar,
+					</packagingExcludes>
+				</configuration>
+			</plugin>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.5</version>
+				<configuration>
+					<encoding>UTF-8</encoding>
+					<source>1.6</source>
+					<target>1.6</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<artifactId>maven-resources-plugin</artifactId>
+				<version>2.5</version>
+				<configuration>
+					<encoding>UTF-8</encoding>
+				</configuration>
+			</plugin>
+			<!-- <plugin> -->
+			<!-- <artifactId>maven-war-plugin</artifactId> -->
+			<!-- <version>2.5</version> -->
+			<!-- <configuration> -->
+			<!-- <packagingExcludes> -->
+			<!-- WEB-INF/lib/commons-logging*.jar, -->
+			<!-- WEB-INF/lib/log4j*.jar, -->
+			<!-- WEB-INF/lib/slf4j*.jar -->
+			<!-- </packagingExcludes> -->
+			<!-- </configuration> -->
+			<!-- </plugin> -->
+		</plugins>
+	</build>
+	<dependencies>
+		<dependency>
+			<groupId>com.liferay.portal</groupId>
+			<artifactId>portal-service</artifactId>
+			<version>${liferay.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<!-- <dependency> -->
+		<!-- <groupId>com.liferay.portal</groupId> -->
+		<!-- <artifactId>util-java</artifactId> -->
+		<!-- <version>${liferay.version}</version> -->
+		<!-- <scope>provided</scope> -->
+		<!-- </dependency> -->
+		<dependency>
+			<groupId>javax.portlet</groupId>
+			<artifactId>portlet-api</artifactId>
+			<version>2.0</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>2.4</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet.jsp</groupId>
+			<artifactId>jsp-api</artifactId>
+			<version>2.0</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.github.lookfirst</groupId>
+			<artifactId>sardine</artifactId>
+			<version>5.1</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>2.4</version>
+		</dependency>
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+			<version>14.0</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-httpclient</groupId>
+			<artifactId>commons-httpclient</artifactId>
+			<version>3.1</version>
+		</dependency>
+
+		<!-- <dependency> -->
+		<!-- <groupId>org.apache.chemistry.opencmis</groupId> -->
+		<!-- <artifactId>chemistry-opencmis-server-inmemory</artifactId> -->
+		<!-- <version>0.12.0</version> -->
+		<!-- </dependency> -->
+
+		<!-- <dependency> -->
+		<!-- <groupId>org.apache.chemistry.opencmis</groupId> -->
+		<!-- <artifactId>chemistry-opencmis-server-inmemory</artifactId> -->
+		<!-- <version>0.12.0</version> -->
+		<!-- <type>war</type> -->
+		<!-- </dependency> -->
+
+		<dependency>
+			<groupId>org.apache.chemistry.opencmis</groupId>
+			<artifactId>chemistry-opencmis-commons-api</artifactId>
+			<version>0.12.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.chemistry.opencmis</groupId>
+			<artifactId>chemistry-opencmis-commons-impl</artifactId>
+			<version>0.12.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.chemistry.opencmis</groupId>
+			<artifactId>chemistry-opencmis-client-bindings</artifactId>
+			<version>0.12.0</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.chemistry.opencmis</groupId>
+			<artifactId>chemistry-opencmis-test-util</artifactId>
+			<version>0.12.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.chemistry.opencmis</groupId>
+			<artifactId>chemistry-opencmis-server-support</artifactId>
+			<version>0.12.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.chemistry.opencmis</groupId>
+			<artifactId>chemistry-opencmis-server-bindings</artifactId>
+			<version>0.12.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.chemistry.opencmis</groupId>
+			<artifactId>chemistry-opencmis-server-bindings-war</artifactId>
+			<version>0.12.0</version>
+			<scope>provided</scope>
+			<type>war</type>
+		</dependency>
+
+		<dependency>
+			<groupId>com.liferay.portal</groupId>
+			<artifactId>util-java</artifactId>
+			<version>6.2.1</version>
+			<scope>provided</scope>
+		</dependency>
+
+
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.8.1</version>
+		</dependency>
+
+	</dependencies>
+
+	<profiles>
+		<profile>
+			<id>julians-maven-profil</id>
+			<properties>
+				<liferay.version>6.2.1</liferay.version>
+				<liferay.maven.plugin.version>6.2.1</liferay.maven.plugin.version>
+				<liferay.auto.deploy.dir>C:\dev\liferay\bundles\deploy</liferay.auto.deploy.dir>
+				<liferay.app.server.deploy.dir>C:\dev\liferay\bundles\tomcat-7.0.42\webapps</liferay.app.server.deploy.dir>
+				<liferay.app.server.lib.global.dir>C:\dev\liferay\bundles\tomcat-7.0.42\lib\ext</liferay.app.server.lib.global.dir>
+				<liferay.app.server.portal.dir>C:\dev\liferay\bundles\tomcat-7.0.42\webapps\ROOT</liferay.app.server.portal.dir>
+			</properties>
+		</profile>
+
+	</profiles>
+</project>
