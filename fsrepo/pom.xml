@@ -9,53 +9,15 @@
 	<name>liferay-owncloud-hook Hook</name>
 	<version>3.1</version>
 
-	<!-- <repositories> -->
-	<!-- <repository> -->
-	<!-- <id>com.springsource.repository.bundles.release</id> -->
-	<!-- <name>SpringSource Enterprise Bundle Repository - SpringSource Bundle 
-		Releases</name> -->
-	<!-- <url>http://repository.springsource.com/maven/bundles/release</url> -->
-	<!-- </repository> -->
-	<!-- <repository> -->
-	<!-- <id>com.springsource.repository.bundles.external</id> -->
-	<!-- <name>SpringSource Enterprise Bundle Repository - External Bundle Releases</name> -->
-	<!-- <url>http://repository.springsource.com/maven/bundles/external</url> -->
-	<!-- </repository> -->
 
-
-
-	<!-- <repositories> -->
-	<!-- <repository> -->
-	<!-- <id>central</id> -->
-	<!-- <url>http://repo1.maven.org/maven2/</url> -->
-	<!-- </repository> -->
-	<!-- <repository> -->
-	<!-- <id>apache-releases</id> -->
-	<!-- <url>https://repository.apache.org/content/repositories/releases/</url> -->
-	<!-- </repository> -->
-	<!-- <repository> -->
-	<!-- <id>spring-releases</id> -->
-	<!-- <url>http://repo.springsource.org/libs-release-remote/</url> -->
-	<!-- </repository> -->
-
-	<!-- <repository> -->
-	<!-- <id>ibiblio.org-releases</id> -->
-	<!-- <url>http://mirrors.ibiblio.org/maven2/</url> -->
-	<!-- </repository> -->
-
-	<!-- </repositories> -->
-
-	<!-- <repositories> -->
-	<!-- <repository> -->
-	<!-- <id>stuffrepo</id> -->
-	<!-- <name>OpenCMIS Server Support</name> -->
-	<!-- <url>http://repo1.maven.org/maven2/org/apache/chemistry/opencmis/chemistry-opencmis-server-support/0.12.0/</url> -->
-	<!-- </repository> -->
-	<!-- </repositories> -->
 
 	<properties>
 		<liferay.version>6.2.1</liferay.version>
-		<liferay.maven.plugin.version>6.2.1</liferay.maven.plugin.version>
+		<liferay.maven.plugin.version>6.2.1</liferay.maven.plugin.version>		
+		<liferay.auto.deploy.dir>C:\dev\liferay\bundles\deploy</liferay.auto.deploy.dir>
+<!-- 		<liferay.app.server.deploy.dir>C:\dev\liferay\bundles\tomcat-7.0.42\webapps</liferay.app.server.deploy.dir> -->
+<!-- 		<liferay.app.server.lib.global.dir>C:\dev\liferay\bundles\tomcat-7.0.42\lib\ext</liferay.app.server.lib.global.dir> -->
+<!-- 		<liferay.app.server.portal.dir>C:\dev\liferay\bundles\tomcat-7.0.42\webapps\ROOT</liferay.app.server.portal.dir> -->
 	</properties>
 
 	<build>
