@@ -54,3 +54,6 @@ liferay-owncloud-hook/target/liferay-owncloud-hook-0.1/WEB-INF/liferay-plugin-pa
 liferay-owncloud-hook/target/liferay-owncloud-hook-0.1/WEB-INF/web.xml
 liferay-owncloud-hook/target/m2e-wtp/web-resources/.gitignore
 liferay-owncloud-hook/target/maven-archiver/pom.properties
+PLEentryGrid/target/
+*.cache.js
+*.cache.*
