@@ -33,8 +33,17 @@ public class WorkspaceUtilService {
 		String filterString = "Gruppenarbeit";
 		return filterSitesByTemplateName(filterString);
 	}
+	
+	public static List<Group> getOtherSites() throws PortalException, SystemException {
+		List<Group> result = getAllUserSites();		
+		result.removeAll(getAllPortfolioSites());
+		result.removeAll(getAllCourseSites());
+		result.removeAll(getAllGruppenarbeitssitesSites());
+		return result;
+	}
 
 	public static List<Group> filterSitesByTemplateName(String filterString) throws PortalException, SystemException
+	
 			 {
 		List<Group> userGroups = getAllUserSites();
 		List<Group> result = new LinkedList<Group>();
@@ -51,4 +60,6 @@ public class WorkspaceUtilService {
 		}	
 		return result;
 	}
+	
+	
 }

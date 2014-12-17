@@ -111,6 +111,23 @@ public class MyPortletUI extends UI {
 		
 		convertGroupsToSlides(workspaceSlides, gruppenArbeiten, filterLabel3);
 		
+		
+		List<Group> andere = null;
+		String filterLabel4 = "Andere";
+		
+		try {
+			andere = WorkspaceUtilService.getOtherSites();
+		} catch (PortalException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		} catch (SystemException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}	
+		
+		convertGroupsToSlides(workspaceSlides, andere, filterLabel4);
+		
+		
 //		printDebug(layout, courses, filterLabel);
 //		printDebug(layout, portfolios, filterLabel2);
 //		printDebug(layout, gruppenArbeiten, filterLabel3);
