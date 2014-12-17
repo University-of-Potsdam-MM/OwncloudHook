@@ -32,6 +32,9 @@ import com.liferay.portlet.documentlibrary.service.DLAppHelperLocalServiceUtil;
 import com.liferay.portlet.documentlibrary.util.DLUtil;
 
 import cz.topolik.fsrepo.LocalFileSystemRepository;
+import de.unipotsdam.elis.chemistry.opencmis.inmemory.storedobj.api.Fileable;
+import de.unipotsdam.elis.webdav.WebdavDocumentImpl;
+import de.unipotsdam.elis.webdav.WebdavFolderImpl;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -40,10 +43,6 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
-import org.apache.chemistry.opencmis.inmemory.storedobj.api.Fileable;
-import org.up.liferay.webdav.WebdavDocumentImpl;
-import org.up.liferay.webdav.WebdavFolderImpl;
 
 /**
  * @author Tomas Polesovsky

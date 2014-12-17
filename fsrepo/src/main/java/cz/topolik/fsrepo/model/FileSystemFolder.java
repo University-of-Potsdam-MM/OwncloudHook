@@ -21,13 +21,12 @@ import com.liferay.portlet.documentlibrary.model.DLFolder;
 import com.liferay.portlet.documentlibrary.model.DLFolderConstants;
 
 import cz.topolik.fsrepo.LocalFileSystemRepository;
+import de.unipotsdam.elis.webdav.WebdavFolderImpl;
 
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-
-import org.up.liferay.webdav.WebdavFolderImpl;
 
 /**
  * @author Tomas Polesovsky

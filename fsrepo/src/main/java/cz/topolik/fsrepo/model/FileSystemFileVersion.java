@@ -30,15 +30,14 @@ import com.liferay.portlet.documentlibrary.service.DLAppHelperLocalServiceUtil;
 import com.liferay.portlet.documentlibrary.util.DLUtil;
 
 import cz.topolik.fsrepo.LocalFileSystemRepository;
+import de.unipotsdam.elis.chemistry.opencmis.inmemory.storedobj.api.Fileable;
+import de.unipotsdam.elis.webdav.WebdavDocumentImpl;
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.util.Date;
-
-import org.apache.chemistry.opencmis.inmemory.storedobj.api.Fileable;
-import org.up.liferay.webdav.WebdavDocumentImpl;
 
 /**
  * @author Tomas Polesovsky

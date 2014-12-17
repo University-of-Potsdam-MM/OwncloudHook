@@ -24,14 +24,13 @@ import javax.portlet.PortletPreferences;
 import javax.portlet.ReadOnlyException;
 import javax.portlet.ValidatorException;
 
-import org.apache.chemistry.opencmis.inmemory.storedobj.api.Fileable;
-
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.service.PortalPreferencesLocalServiceUtil;
 
 import cz.topolik.fsrepo.Constants;
+import de.unipotsdam.elis.chemistry.opencmis.inmemory.storedobj.api.Fileable;
 
 /**
  * @author Tomas Polesovsky

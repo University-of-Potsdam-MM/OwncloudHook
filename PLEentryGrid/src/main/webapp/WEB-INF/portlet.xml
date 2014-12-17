@@ -7,15 +7,15 @@
 	version="2.0">
 
 	<portlet>
-		<description>This portlet shows sites grouped by their templates. Implemented for templates with name "Portfolio", "Gruppenarbeit" or "Kurs"</description>
+		<description>This portlet shows sites grouped by their templates. Implemented for templates with name "template1", "template2" or "template3"</description>
 		<portlet-name>workspaces overview</portlet-name>
 		<display-name>Workspaces Übersicht</display-name>
 
 		<portlet-class>com.vaadin.server.VaadinPortlet</portlet-class>
-
+		
 		<init-param>
 			<name>UI</name>
-			<value>org.up.ple.MyPortletUI</value>
+			<value>de.unipotsdam.workspacegrid.MyPortletUI</value>
 		</init-param>
 
 		<init-param>

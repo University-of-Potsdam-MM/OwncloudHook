@@ -20,11 +20,6 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
-import org.apache.chemistry.opencmis.inmemory.storedobj.api.Fileable;
-import org.apache.chemistry.opencmis.inmemory.storedobj.impl.DocumentVersionImpl;
-import org.up.liferay.webdav.WebdavDocumentImpl;
-import org.up.liferay.webdav.WebdavFolderImpl;
-
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.log.Log;
@@ -39,6 +34,10 @@ import com.liferay.portlet.expando.model.ExpandoBridge;
 import com.liferay.portlet.expando.util.ExpandoBridgeFactoryUtil;
 
 import cz.topolik.fsrepo.LocalFileSystemRepository;
+import de.unipotsdam.elis.chemistry.opencmis.inmemory.storedobj.api.Fileable;
+import de.unipotsdam.elis.chemistry.opencmis.inmemory.storedobj.impl.DocumentVersionImpl;
+import de.unipotsdam.elis.webdav.WebdavDocumentImpl;
+import de.unipotsdam.elis.webdav.WebdavFolderImpl;
 
 /**
  * @author Tomas Polesovsky

@@ -29,12 +29,6 @@ import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.chemistry.opencmis.commons.impl.dataobjects.ContentStreamImpl;
-import org.apache.chemistry.opencmis.inmemory.storedobj.api.Fileable;
-import org.up.liferay.owncloud.OwncloudService;
-import org.up.liferay.webdav.WebdavDocumentImpl;
-import org.up.liferay.webdav.WebdavFolderImpl;
-import org.up.liferay.webdav.WebdavIdDecoderAndEncoder;
-import org.up.liferay.webdav.WebdavObjectStore;
 
 import com.google.common.cache.CacheBuilder;
 import com.google.common.cache.CacheLoader;
@@ -101,6 +95,12 @@ import cz.topolik.fsrepo.mapper.FileSystemRepositoryMapper;
 import cz.topolik.fsrepo.model.FileSystemFileEntry;
 import cz.topolik.fsrepo.model.FileSystemFileVersion;
 import cz.topolik.fsrepo.model.FileSystemFolder;
+import de.unipotsdam.elis.chemistry.opencmis.inmemory.storedobj.api.Fileable;
+import de.unipotsdam.elis.owncloud.OwncloudService;
+import de.unipotsdam.elis.webdav.WebdavDocumentImpl;
+import de.unipotsdam.elis.webdav.WebdavFolderImpl;
+import de.unipotsdam.elis.webdav.WebdavIdDecoderAndEncoder;
+import de.unipotsdam.elis.webdav.WebdavObjectStore;
 
 /**
  * @author Tomas Polesovsky

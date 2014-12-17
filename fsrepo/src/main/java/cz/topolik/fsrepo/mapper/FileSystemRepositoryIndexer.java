@@ -21,15 +21,15 @@ import com.liferay.portal.kernel.util.Time;
 import com.liferay.portal.service.LockLocalServiceUtil;
 import com.liferay.portal.service.UserLocalServiceUtil;
 
+import de.unipotsdam.elis.chemistry.opencmis.inmemory.storedobj.api.Fileable;
+import de.unipotsdam.elis.chemistry.opencmis.inmemory.storedobj.api.StoredObject;
+import de.unipotsdam.elis.webdav.WebdavFolderImpl;
+import de.unipotsdam.elis.webdav.WebdavObjectStore;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
-
-import org.apache.chemistry.opencmis.inmemory.storedobj.api.Fileable;
-import org.apache.chemistry.opencmis.inmemory.storedobj.api.StoredObject;
-import org.up.liferay.webdav.WebdavFolderImpl;
-import org.up.liferay.webdav.WebdavObjectStore;
 
 /**
  *
