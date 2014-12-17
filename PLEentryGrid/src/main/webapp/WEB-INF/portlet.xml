@@ -7,9 +7,9 @@
 	version="2.0">
 
 	<portlet>
-		<description>Write a short description about your portlet.</description>
-		<portlet-name>My simple Vaadin portlet</portlet-name>
-		<display-name>My Vaadin portlet</display-name>
+		<description>This portlet shows sites grouped by their templates. Implemented for templates with name "Portfolio", "Gruppenarbeit" or "Kurs"</description>
+		<portlet-name>workspaces overview</portlet-name>
+		<display-name>Workspaces Übersicht</display-name>
 
 		<portlet-class>com.vaadin.server.VaadinPortlet</portlet-class>
 
@@ -30,8 +30,8 @@
 
 
 		<portlet-info>
-			<title>My Vaadin portlet</title>
-			<short-title>Hello World</short-title>
+			<title>Workspaces Übersicht</title>
+			<short-title>Workspaces</short-title>
 			<keywords>Vaadin 7</keywords>
 		</portlet-info>
 

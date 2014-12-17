@@ -3,7 +3,7 @@
 
 <liferay-portlet-app>
 	<portlet>
-		<portlet-name>My simple Vaadin portlet</portlet-name>
+		<portlet-name>workspaces overview</portlet-name>
 		<icon>/icon.png</icon>		
 		<header-portlet-css>/css/main.css</header-portlet-css>
 		<footer-portlet-javascript>

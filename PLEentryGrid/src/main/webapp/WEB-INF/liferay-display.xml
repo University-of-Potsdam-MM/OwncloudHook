@@ -3,7 +3,6 @@
 
 <display>
 	<category name="category.sample">
-		<portlet id="My simple Vaadin portlet" />
-		<portlet id="pleentrygridvaadinportlet"></portlet>
+		<portlet id="workspaces overview" />		
 	</category>
 </display>
