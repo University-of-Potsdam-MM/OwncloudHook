@@ -154,9 +154,7 @@ public class MyPortletUI extends UI {
 		for (Group course : courses) {								
 			try {
 				String courseUrL2 = PortalUtil.getPortalURL(CompanyLocalServiceUtil.getCompany(CompanyLocalServiceUtil.getCompanyIdByUserId(PrincipalThreadLocal.getUserId())).getVirtualHostname(), PortalUtil.getPortalPort(), true);								
-				String courseUrL = courseUrL2 + "/web/" + course.getName()+ "/home";
-				System.out.println(courseUrL);
-				
+				String courseUrL = courseUrL2 + "/web/" + course.getName()+ "/home";								
 				workspaceSlides.add(new WorkspaceSlide(course.getName(), filterLabel, Color.GREEN, new URL(courseUrL), WorkspaceUtilService.getNumberOfActivitiesForSite(course)));
 			} catch (Exception e) {
 				e.printStackTrace();
