@@ -17,6 +17,7 @@ public class WorkspaceSlideView extends CustomComponent {
 	private Link link_1;	
 	private Label label_1;
 	private WorkspaceSlide slide;
+	private Label label_2;
 
 	public WorkspaceSlideView(WorkspaceSlide slide) {
 		this.slide = slide;		
@@ -38,10 +39,21 @@ public class WorkspaceSlideView extends CustomComponent {
 		
 		setLabel();						
 		setRessource();
+		setActivities();
 //		setName();
 		
 		return horizontalLayout_1;
 	}
+
+	private void setActivities() {
+		label_2 = new Label();
+		label_2.setImmediate(false);
+		label_2.setWidth("40px");
+		label_2.setHeight("20px");
+		label_2.setValue(slide.getNumberOfNewActivities()+"");				
+		horizontalLayout_1.addComponent(label_2);
+	}
+
 
 	private void setLabel() {
 		// label_1

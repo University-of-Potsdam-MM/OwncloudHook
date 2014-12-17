@@ -8,8 +8,11 @@ import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.model.Group;
 import com.liferay.portal.model.User;
 import com.liferay.portal.security.auth.PrincipalThreadLocal;
+import com.liferay.portal.service.GroupLocalServiceUtil;
 import com.liferay.portal.service.LayoutSetPrototypeServiceUtil;
 import com.liferay.portal.service.UserLocalServiceUtil;
+import com.liferay.portlet.blogs.service.BlogsEntryLocalServiceUtil;
+import com.liferay.portlet.social.service.SocialActivityLocalServiceUtil;
 
 public class WorkspaceUtilService {
 	
@@ -59,6 +62,16 @@ public class WorkspaceUtilService {
 			}					
 		}	
 		return result;
+	}
+	
+	public static int getNumberOfActivitiesForSite(Group group) {		
+		try {
+			return SocialActivityLocalServiceUtil.getGroupActivitiesCount(group.getGroupId());
+		} catch (SystemException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return 0;
 	}
 	
 	

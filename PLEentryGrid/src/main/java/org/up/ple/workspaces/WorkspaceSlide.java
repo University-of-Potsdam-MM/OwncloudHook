@@ -14,13 +14,16 @@ public class WorkspaceSlide implements Serializable {
 	
 	private URL webLink;
 	private String name;
+
+	private int numberOfNewActivities;
 	public WorkspaceSlide(String name, String filterName,
-			Color markupColor, URL webLink) {
+			Color markupColor, URL webLink, int numberOfNewActivities) {
 		super();
 		this.filterName = filterName;		
 		this.markupColor = markupColor;
 		this.webLink = webLink;
 		this.setName(name);
+		this.setNumberOfNewActivities(numberOfNewActivities);
 	}
 	
 	public String getFilterName() {
@@ -51,6 +54,14 @@ public class WorkspaceSlide implements Serializable {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public int getNumberOfNewActivities() {
+		return numberOfNewActivities;
+	}
+
+	public void setNumberOfNewActivities(int numberOfNewActivities) {
+		this.numberOfNewActivities = numberOfNewActivities;
 	}
 
 	private Color markupColor;

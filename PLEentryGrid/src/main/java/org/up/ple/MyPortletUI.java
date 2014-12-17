@@ -157,7 +157,7 @@ public class MyPortletUI extends UI {
 				String courseUrL = courseUrL2 + "/web/" + course.getName()+ "/home";
 				System.out.println(courseUrL);
 				
-				workspaceSlides.add(new WorkspaceSlide(course.getName(), filterLabel, Color.GREEN, new URL(courseUrL)));
+				workspaceSlides.add(new WorkspaceSlide(course.getName(), filterLabel, Color.GREEN, new URL(courseUrL), WorkspaceUtilService.getNumberOfActivitiesForSite(course)));
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
