@@ -2,12 +2,27 @@ package de.unipotsdam.workspacegrid;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Locale;
 
+import com.liferay.portal.kernel.dao.orm.QueryUtil;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
+import com.liferay.portal.kernel.util.WebKeys;
 import com.liferay.portal.model.Group;
+import com.liferay.portal.model.Layout;
+import com.liferay.portal.model.LayoutPrototype;
+import com.liferay.portal.model.LayoutSetPrototype;
+import com.liferay.portal.security.auth.PrincipalThreadLocal;
+import com.liferay.portal.service.CompanyLocalServiceUtil;
+import com.liferay.portal.service.GroupLocalServiceUtil;
+import com.liferay.portal.service.LayoutLocalServiceUtil;
+import com.liferay.portal.service.LayoutPrototypeLocalServiceUtil;
+import com.liferay.portal.service.LayoutSetLocalServiceUtil;
+import com.liferay.portal.service.LayoutSetPrototypeServiceUtil;
+import com.liferay.portal.service.persistence.GroupUtil;
+import com.liferay.portal.theme.ThemeDisplay;
 import com.vaadin.annotations.Theme;
 import com.vaadin.annotations.Widgetset;
 import com.vaadin.server.VaadinRequest;
@@ -26,12 +41,14 @@ import de.unipotsdam.elis.workspacegrid.view.WorkspaceSlideView;
 public class MyPortletUI extends UI {
 
 	private static Log log = LogFactoryUtil.getLog(MyPortletUI.class);
+	
 
 	@Override
 	protected void init(VaadinRequest request) {
 		// final String portletContextName = getPortletContextName(request);
 		// final Integer numOfRegisteredUsers =
 		// getPortalCountOfRegisteredUsers();
+		final ThemeDisplay themeDisplay = (ThemeDisplay) request.getAttribute(WebKeys.THEME_DISPLAY);
 		final VerticalLayout layout = new VerticalLayout();
 		layout.setMargin(true);
 		setContent(layout);
@@ -44,6 +61,36 @@ public class MyPortletUI extends UI {
 		GridLayout gridLayout_1 = initGrid();
 		addWorkSpaceSlides(workspaceSlides, gridLayout_1);
 		layout.addComponent(gridLayout_1);
+		
+		
+		
+//		try {
+//																						
+//			long companyId = CompanyLocalServiceUtil.getCompanyIdByUserId(PrincipalThreadLocal.getUserId());
+//			List<LayoutSetPrototype> templates = LayoutSetPrototypeServiceUtil.search(companyId, Boolean.TRUE, null);
+//						
+//			for (LayoutSetPrototype defaultLayoutSetPrototype : templates) {
+//				// get the template and all the layouts in it				
+//				System.out.println("showing layouts for: "+ defaultLayoutSetPrototype.getName(Locale.getDefault()));
+//				
+//				List<Layout> prototypeLayouts = LayoutLocalServiceUtil.getLayouts(defaultLayoutSetPrototype.getGroupId(), true, 0);			
+//				for (Layout layout2 : prototypeLayouts) {
+//					System.out.println(layout2.getName(Locale.getDefault()));
+//				}
+//				
+//			}
+//			
+//		} catch (SystemException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		} catch (PortalException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		} catch (Exception e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//		
 	}
 
 	private void addWorkSpaceSlides(List<WorkspaceSlide> workspaceSlides,
