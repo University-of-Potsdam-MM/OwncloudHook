@@ -114,13 +114,7 @@ public class LocalFileSystemRepository extends BaseRepositoryImpl {
 	private FileSystemRepositoryEnvironment environment;
 	private LocalFileSystemLocalRepository localRepository;
 	private ExpandoColumn expandoColumn;	
-//	private static LoadingCache<String, Thread> shareCreatorCache = CacheBuilder.newBuilder().expireAfterWrite(10, TimeUnit.MINUTES).build(new CacheLoader<String, Thread>() {
-//
-//		@Override
-//		public Thread load(String key) throws Exception {
-//			
-//		}
-//	});
+
 	private long lastShareUpdate = System.currentTimeMillis()-30001;
 
 	public LocalFileSystemRepository() {
@@ -920,7 +914,7 @@ public class LocalFileSystemRepository extends BaseRepositoryImpl {
 					"Folder doesn't exist or cannot be changed: " + folder);
 		}
 		Fileable newFolder = new WebdavFolderImpl(folder.getParentId() + title);
-		this.getWebdavRepository().rename(folder.getId(), newFolder.getId());
+		LocalFileSystemRepository.getWebdavRepository().rename(folder.getId(), newFolder.getId());
 		return fileToFolder(newFolder);
 	}
 

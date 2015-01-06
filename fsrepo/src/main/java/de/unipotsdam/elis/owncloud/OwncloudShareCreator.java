@@ -19,9 +19,6 @@ import de.unipotsdam.elis.webdav.WebdavObjectStore;
 
 public class OwncloudShareCreator {
 	
-//	private static final Logger log = LoggerFactory
-//			.getLogger(OwncloudShareCreator.class.getName());
-	
 	private static Log log = LogFactoryUtil.getLog(OwncloudShareCreator.class);
 	
 	public synchronized void createShare(Set<String> users, final String authorName, final String authorpasswd, final String sharepath, WebdavObjectStore store) {					

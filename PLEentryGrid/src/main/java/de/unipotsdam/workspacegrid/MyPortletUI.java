@@ -40,15 +40,15 @@ import de.unipotsdam.elis.workspacegrid.view.WorkspaceSlideView;
 @Widgetset("org.up.ple.AppWidgetSet")
 public class MyPortletUI extends UI {
 
-	private static Log log = LogFactoryUtil.getLog(MyPortletUI.class);
 	
+	public final String finalWidth = "600px";
+	public final String finalLength = "200px";
+	public final String template1Name = "template1";
+	public final String template2Name = "template2";
+	public final String template3Name = "template3";
 
 	@Override
 	protected void init(VaadinRequest request) {
-		// final String portletContextName = getPortletContextName(request);
-		// final Integer numOfRegisteredUsers =
-		// getPortalCountOfRegisteredUsers();
-		final ThemeDisplay themeDisplay = (ThemeDisplay) request.getAttribute(WebKeys.THEME_DISPLAY);
 		final VerticalLayout layout = new VerticalLayout();
 		layout.setMargin(true);
 		setContent(layout);
@@ -61,38 +61,14 @@ public class MyPortletUI extends UI {
 		GridLayout gridLayout_1 = initGrid();
 		addWorkSpaceSlides(workspaceSlides, gridLayout_1);
 		layout.addComponent(gridLayout_1);
-		
-		
-		
-//		try {
-//																						
-//			long companyId = CompanyLocalServiceUtil.getCompanyIdByUserId(PrincipalThreadLocal.getUserId());
-//			List<LayoutSetPrototype> templates = LayoutSetPrototypeServiceUtil.search(companyId, Boolean.TRUE, null);
-//						
-//			for (LayoutSetPrototype defaultLayoutSetPrototype : templates) {
-//				// get the template and all the layouts in it				
-//				System.out.println("showing layouts for: "+ defaultLayoutSetPrototype.getName(Locale.getDefault()));
-//				
-//				List<Layout> prototypeLayouts = LayoutLocalServiceUtil.getLayouts(defaultLayoutSetPrototype.getGroupId(), true, 0);			
-//				for (Layout layout2 : prototypeLayouts) {
-//					System.out.println(layout2.getName(Locale.getDefault()));
-//				}
-//				
-//			}
-//			
-//		} catch (SystemException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		} catch (PortalException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		} catch (Exception e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-//		
+			
 	}
-
+	
+	/**
+	 *  converts workspaceSlides to display items
+	 * @param workspaceSlides
+	 * @param gridLayout_1
+	 */
 	private void addWorkSpaceSlides(List<WorkspaceSlide> workspaceSlides,
 			GridLayout gridLayout_1) {
 		for (WorkspaceSlide slide : workspaceSlides) {
@@ -102,16 +78,24 @@ public class MyPortletUI extends UI {
 		}
 	}
 
+	/**
+	 * create grid layout
+	 * @return
+	 */
 	private GridLayout initGrid() {
 		GridLayout gridLayout_1 = new GridLayout();
 		gridLayout_1.setColumns(6);
 		gridLayout_1.setRows(4);
-		gridLayout_1.setWidth("600px");
-		gridLayout_1.setHeight("200px");
+		gridLayout_1.setWidth(finalWidth); 
+		gridLayout_1.setHeight(finalLength);
 		gridLayout_1.setVisible(true);
 		return gridLayout_1;
 	}
 
+	/**
+	 * 
+	 * @param workspaceSlides
+	 */
 	private void addOtherSlides(List<WorkspaceSlide> workspaceSlides) {
 		List<Group> andere = null;
 		String filterLabel4 = "Andere";
@@ -128,6 +112,10 @@ public class MyPortletUI extends UI {
 				filterLabel4);
 	}
 
+	/**
+	 * add Workspaces filered by template1Name
+	 * @param workspaceSlides
+	 */
 	private void addGruppenarbeitSlides(List<WorkspaceSlide> workspaceSlides) {
 		List<Group> gruppenArbeiten = null;				
 		
@@ -142,9 +130,13 @@ public class MyPortletUI extends UI {
 		}
 
 		GroupToSlideConverter.convertGroupsToSlides(workspaceSlides,
-				gruppenArbeiten, "template1");
+				gruppenArbeiten, template1Name);
 	}
 
+	/**
+	 * add Workspaces filered by template2Name
+	 * @param workspaceSlides
+	 */
 	private void addPortfolioSites(List<WorkspaceSlide> workspaceSlides) {
 		List<Group> portfolios = null;		
 
@@ -157,9 +149,13 @@ public class MyPortletUI extends UI {
 		}
 
 		GroupToSlideConverter.convertGroupsToSlides(workspaceSlides,
-				portfolios, "template2");
+				portfolios, template2Name);
 	}
 
+	/**
+	 * add Workspaces filered by template3Name
+	 * @param workspaceSlides
+	 */
 	private void addCourseSites(List<WorkspaceSlide> workspaceSlides) {
 		List<Group> courses = null;		
 
@@ -172,30 +168,6 @@ public class MyPortletUI extends UI {
 		}
 
 		GroupToSlideConverter.convertGroupsToSlides(workspaceSlides, courses,
-				"template3");
-	}
-
-	// private String getPortletContextName(VaadinRequest request) {
-	// WrappedPortletSession wrappedPortletSession = (WrappedPortletSession)
-	// request
-	// .getWrappedSession();
-	// PortletSession portletSession = wrappedPortletSession
-	// .getPortletSession();
-	//
-	// final PortletContext context = portletSession.getPortletContext();
-	// final String portletContextName = context.getPortletContextName();
-	// return portletContextName;
-	// }
-	//
-	// private Integer getPortalCountOfRegisteredUsers() {
-	// Integer result = null;
-	//
-	// try {
-	// result = UserLocalServiceUtil.getUsersCount();
-	// } catch (SystemException e) {
-	// log.error(e);
-	// }
-	//
-	// return result;
-	// }
+				template3Name);
+	}	
 }

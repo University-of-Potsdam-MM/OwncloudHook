@@ -7,7 +7,11 @@
 	version="2.0">
 
 	<portlet>
-		<description>This portlet shows sites grouped by their templates. Implemented for templates with name "template1", "template2" or "template3"</description>
+		<description>This portlet shows sites grouped by their templates. Implemented for templates with name "template1", "template2" or "template3"
+					 It requires a 7 vaadin jar 
+					 
+					 https://vaadin.com/wiki/-/wiki/Main/Integrating+Vaadin+7+with+Liferay
+		</description>
 		<portlet-name>workspaces overview</portlet-name>
 		<display-name>Workspaces Übersicht</display-name>
 
