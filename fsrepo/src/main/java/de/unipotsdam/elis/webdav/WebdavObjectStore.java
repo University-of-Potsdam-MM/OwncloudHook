@@ -72,6 +72,8 @@ public class WebdavObjectStore extends ObjectStoreImpl {
 					contentStream.getLength());
 		} catch (IOException e) {
 			e.printStackTrace();
+		} finally {
+			cache.invalidateAll();
 		}
 
 		return WebdavIdDecoderAndEncoder.encode(path);
@@ -102,7 +104,10 @@ public class WebdavObjectStore extends ObjectStoreImpl {
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
-		}
+		} finally {
+			cache.invalidateAll();
+		}		
+		
 		return new WebdavFolderImpl(WebdavIdDecoderAndEncoder.encode(path));
 	}
 
@@ -114,7 +119,10 @@ public class WebdavObjectStore extends ObjectStoreImpl {
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
+		} finally {
+			cache.invalidateAll();
 		}
+		
 		return WebdavIdDecoderAndEncoder.encode(folderName);
 	}
 
@@ -272,7 +280,7 @@ public class WebdavObjectStore extends ObjectStoreImpl {
 				t.start();
 			}
 		}
-		log.warn(cache.stats());
+		log.debug(cache.stats());
 		return result;
 	}
 
@@ -282,7 +290,7 @@ public class WebdavObjectStore extends ObjectStoreImpl {
 		String listedPath = WebdavIdDecoderAndEncoder
 				.encodedIdToWebdav(encodedId);
 		long before = System.currentTimeMillis();
-		log.warn("showing resources for: " + listedPath);
+		log.debug("showing resources for: " + listedPath);
 
 		List<DavResource> resources = endpoint.getSardine().list(listedPath);
 		// the first element is always the directory itself
@@ -290,7 +298,7 @@ public class WebdavObjectStore extends ObjectStoreImpl {
 			resources.remove(0);
 		}
 		long now = System.currentTimeMillis();
-		log.warn("getting resource listing took: " + (now - before));
+		log.debug("getting resource listing took: " + (now - before));
 		// endpoint.getSardine().shutdown();
 		return resources;
 	}
@@ -324,6 +332,8 @@ public class WebdavObjectStore extends ObjectStoreImpl {
 			endpoint.getSardine().delete(finalPath);
 		} catch (IOException e) {
 			e.printStackTrace();
+		} finally {
+			cache.invalidateAll();
 		}
 	}
 
@@ -359,6 +369,8 @@ public class WebdavObjectStore extends ObjectStoreImpl {
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
+		} finally {
+			cache.invalidateAll();
 		}
 	}
 
@@ -389,7 +401,7 @@ public class WebdavObjectStore extends ObjectStoreImpl {
 
 	public void setInputStream(ContentStreamImpl steam, String decodedId) {
 		try {
-			log.warn("getting bytes for" + endpoint.getEndpoint() + decodedId);
+			log.debug("getting bytes for" + endpoint.getEndpoint() + decodedId);
 			InputStream webdavBytes = endpoint.getSardine().get(
 					endpoint.getEndpoint() + decodedId);
 			ByteArrayInputStream tmpFile = new ByteArrayInputStream(

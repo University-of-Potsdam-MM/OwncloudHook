@@ -18,7 +18,7 @@ public class WebdavConfigurationLoader {
 		String result = PortletProps.get("owncloudaddress");
 
 		if (result == null) {
-			_log.error("could not load owncloudaddress from properties");
+			_log.debug("could not load owncloudaddress from properties");
 			result = "https://boxup.uni-potsdam.de/remote.php/webdav";
 		}
 
@@ -29,7 +29,7 @@ public class WebdavConfigurationLoader {
 	public static final String getOwncloudShareAddress() {
 		String result = PortletProps.get("owncloudshareaddress");
 		if (result == null) {
-			_log.error("could not load owncloudaddress from properties");
+			_log.debug("could not load owncloudaddress from properties");
 			result = "https://boxup.uni-potsdam.de/ocs/v1.php/apps/files_sharing/api/v1/shares";
 		}
 		
