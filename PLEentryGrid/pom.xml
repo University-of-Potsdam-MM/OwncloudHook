@@ -289,9 +289,9 @@
 				<liferay.version>6.2.1</liferay.version>
 				<liferay.maven.plugin.version>6.2.1</liferay.maven.plugin.version>
 				<liferay.auto.deploy.dir>/opt/up/liferay6/6.2.1/bundles/deploy</liferay.auto.deploy.dir>
-				<liferay.app.server.deploy.dir>/opt/up/liferay6/6.2.1/bundles/tomcat-7.0.42\webapps</liferay.app.server.deploy.dir>
-				<liferay.app.server.lib.global.dir>/opt/up/liferay6/6.2.1/bundles/tomcat-7.0.42\lib\ext</liferay.app.server.lib.global.dir>
-				<liferay.app.server.portal.dir>/opt/up/liferay6/6.2.1/bundles/tomcat-7.0.42\webapps\ROOT</liferay.app.server.portal.dir>
+				<liferay.app.server.deploy.dir>/opt/up/liferay6/6.2.1/bundles/tomcat-7.0.42/webapps</liferay.app.server.deploy.dir>
+				<liferay.app.server.lib.global.dir>/opt/up/liferay6/6.2.1/bundles/tomcat-7.0.42/lib/ext</liferay.app.server.lib.global.dir>
+				<liferay.app.server.portal.dir>/opt/up/liferay6/6.2.1/bundles/tomcat-7.0.42/webapps/ROOT</liferay.app.server.portal.dir>
 			</properties>
 		</profile>
 
