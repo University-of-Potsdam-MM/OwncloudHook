@@ -124,12 +124,6 @@ public class FileSystemFileEntry extends FileSystemModel implements FileEntry {
 		return parentFolder;                
     }
 
-//    private Folder getParentFolder() {
-//    	WebdavFolderImpl parentDocument = (WebdavFolderImpl) getLocalFileCasted().getParentDocument();
-//    	
-//		return new FileSystemFolder(repository, null, Long.valueOf(parentDocument.getId()), parentDocument);
-//	}
-
 	public long getFolderId() {
         return getFolder().getFolderId();
     }

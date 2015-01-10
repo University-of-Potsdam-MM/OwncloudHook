@@ -2,6 +2,7 @@ package de.unipotsdam.elis.webdav;
 
 import com.github.sardine.Sardine;
 import com.github.sardine.SardineFactory;
+import com.github.sardine.impl.SardineImpl;
 
 public class WebdavEndpoint {
 	private Sardine sardine;
@@ -12,7 +13,7 @@ public class WebdavEndpoint {
 	public WebdavEndpoint(String username, String password) {		
 		this.sardine = SardineFactory.begin();
 		this.user = username;
-		this.password =  password;
+		this.password =  password;		
 		this.sardine.setCredentials(user,password);		
 		this.endpoint = WebdavConfigurationLoader.getOwnCloudAddress();		
 	}

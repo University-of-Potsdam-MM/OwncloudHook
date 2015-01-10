@@ -111,13 +111,15 @@ public class LocalFileSystemRepository extends BaseRepositoryImpl {
 
 	private static Log _log = LogFactoryUtil
 			.getLog(LocalFileSystemRepository.class);
+	private static boolean notInitialized;
 	private FileSystemRepositoryEnvironment environment;
 	private LocalFileSystemLocalRepository localRepository;
-	private ExpandoColumn expandoColumn;	
+	private ExpandoColumn expandoColumn;
 
-	private long lastShareUpdate = System.currentTimeMillis()-30001;
+	private long lastShareUpdate = System.currentTimeMillis() - 30001;
 
 	public LocalFileSystemRepository() {
+		setRepositoryId(RepositoryStartupAction.repoId);
 		localRepository = new LocalFileSystemLocalRepository(this);
 	}
 
@@ -125,13 +127,19 @@ public class LocalFileSystemRepository extends BaseRepositoryImpl {
 		long userId = PrincipalThreadLocal.getUserId();
 		String username = null;
 		String password = null;
-		try {
-			username = UserLocalServiceUtil.getUser(userId).getLogin();
-			password = PrincipalThreadLocal.getPassword();
-		} catch (PortalException e) {
-			e.printStackTrace();
-		} catch (SystemException e) {
-			e.printStackTrace();
+		if (userId == 0l) {
+			username = "test";
+			password = "test";
+		} else {
+			try {
+				username = UserLocalServiceUtil.getUser(userId).getLogin();
+				password = PrincipalThreadLocal.getPassword();
+				LocalFileSystemRepository.notInitialized = false;
+			} catch (PortalException e) {
+				LocalFileSystemRepository.notInitialized = true;
+			} catch (SystemException e) {
+				LocalFileSystemRepository.notInitialized = true;
+			}
 		}
 
 		return new WebdavObjectStore("A1", username, password);
@@ -914,7 +922,8 @@ public class LocalFileSystemRepository extends BaseRepositoryImpl {
 					"Folder doesn't exist or cannot be changed: " + folder);
 		}
 		Fileable newFolder = new WebdavFolderImpl(folder.getParentId() + title);
-		LocalFileSystemRepository.getWebdavRepository().rename(folder.getId(), newFolder.getId());
+		LocalFileSystemRepository.getWebdavRepository().rename(folder.getId(),
+				newFolder.getId());
 		return fileToFolder(newFolder);
 	}
 
@@ -1223,17 +1232,13 @@ public class LocalFileSystemRepository extends BaseRepositoryImpl {
 		WebdavFolderImpl rootFolder = new WebdavFolderImpl(
 				WebdavIdDecoderAndEncoder.LIFERAYROOTSYMBOL);
 
-		
 		try {
 			final String rootDefaultPath = getSiteName();
 			rootFolder.setId(WebdavIdDecoderAndEncoder.encode(rootDefaultPath));
-			getWebdavRepository().createFolder(rootDefaultPath);			
-			createShareInOwncloud();
-
-		} catch (PortalException e) {
-			e.printStackTrace();
-		} catch (SystemException e) {
-			e.printStackTrace();
+			getWebdavRepository().createFolder(rootDefaultPath);
+			createShareInOwncloud();			
+		} catch (Exception e) {
+			
 		}
 
 		return rootFolder;
@@ -1241,23 +1246,21 @@ public class LocalFileSystemRepository extends BaseRepositoryImpl {
 
 	private String getSiteName() throws PortalException, SystemException {
 		Group group = GroupLocalServiceUtil.getGroup(this.getGroupId());
-		String groupName = "liferay_workspace_"
-				+ group.getDescriptiveName();
+		String groupName = "liferay_workspace_" + group.getDescriptiveName();
 		final String rootDefaultPath = "/" + groupName + "/";
 		return rootDefaultPath;
 	}
 
-	private synchronized void createShareInOwncloud()
-			throws SystemException, PortalException {
-		
-		if (System.currentTimeMillis()-this.lastShareUpdate < 30000) {
+	private synchronized void createShareInOwncloud() throws SystemException,
+			PortalException {
+
+		if (System.currentTimeMillis() - this.lastShareUpdate < 30000) {
 			return;
 		}
-		
+
 		final String rootDefaultPath = getSiteName();
 		final List<User> users = UserLocalServiceUtil.getGroupUsers(this
 				.getGroupId());
-		
 
 		final Set<String> userStrings = new HashSet<String>();
 
@@ -1265,23 +1268,26 @@ public class LocalFileSystemRepository extends BaseRepositoryImpl {
 			userStrings.add(user.getLogin());
 		}
 
-		long userId = PrincipalThreadLocal.getUserId();
-		final String username = UserLocalServiceUtil.getUser(userId)
-				.getLogin();
-		final String password = PrincipalThreadLocal.getPassword();
-		final WebdavObjectStore objectStore = getWebdavRepository();
+		if (!notInitialized) {
+			long userId = PrincipalThreadLocal.getUserId();
+			final String username = UserLocalServiceUtil.getUser(userId)
+					.getLogin();
+			final String password = PrincipalThreadLocal.getPassword();
+			final WebdavObjectStore objectStore = getWebdavRepository();
 
-		Thread shareCreatorthread = new Thread(new Runnable() {
+			Thread shareCreatorthread = new Thread(new Runnable() {
 
-			@Override
-			public void run() {
-				OwncloudService owncloudService = new OwncloudService(objectStore);
-				owncloudService.createShare(getRepositoryId() + "",
-						rootDefaultPath, userStrings, username, password);
-			}
-		});
-		shareCreatorthread.start();
-		this.lastShareUpdate = System.currentTimeMillis();
+				@Override
+				public void run() {
+					OwncloudService owncloudService = new OwncloudService(
+							objectStore);
+					owncloudService.createShare(getRepositoryId() + "",
+							rootDefaultPath, userStrings, username, password);
+				}
+			});
+			shareCreatorthread.start();
+			this.lastShareUpdate = System.currentTimeMillis();
+		}
 	}
 
 	public boolean addGuestPermissions() {
@@ -1368,7 +1374,5 @@ public class LocalFileSystemRepository extends BaseRepositoryImpl {
 				.getThreadLocalCache(Lifecycle.REQUEST, cacheName);
 		threadLocalCache.put(cacheKey, value);
 	}
-	
-	
 
 }

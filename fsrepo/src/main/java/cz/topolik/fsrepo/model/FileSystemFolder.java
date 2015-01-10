@@ -17,11 +17,13 @@ import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.lar.StagedModelType;
 import com.liferay.portal.kernel.repository.model.Folder;
+import com.liferay.portal.model.RepositoryEntry;
 import com.liferay.portlet.documentlibrary.model.DLFolder;
 import com.liferay.portlet.documentlibrary.model.DLFolderConstants;
 
 import cz.topolik.fsrepo.LocalFileSystemRepository;
 import de.unipotsdam.elis.webdav.WebdavFolderImpl;
+import de.unipotsdam.elis.webdav.WebdavIdDecoderAndEncoder;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -40,6 +42,11 @@ public class FileSystemFolder extends FileSystemModel implements Folder {
         super(repository, uuid, folder);
         this.folder = folder;
         this.folderId = folderId;
+    }
+    
+    public FileSystemFolder(LocalFileSystemRepository repository, String uuid, WebdavFolderImpl folder) {
+        super(repository, uuid, folder);
+        this.folder = folder;        
     }
     
     public Object clone() {
@@ -88,24 +95,27 @@ public class FileSystemFolder extends FileSystemModel implements Folder {
 
     public long getParentFolderId() {
         try {
-            Folder f = getParentFolder();
+            Folder f = getParentFolder();            
+            System.out.println("computed parent folder id:" + f.getFolderId());
             return f == null ? DLFolderConstants.DEFAULT_PARENT_FOLDER_ID : f.getFolderId();
         } catch (Exception ex) {
+        	System.out.println("computed parent folder id:" + 0);
             ex.printStackTrace(System.err);
         }
+        
         return DLFolderConstants.DEFAULT_PARENT_FOLDER_ID;
     }
 
     public boolean isMountPoint() {
-        return false;
+    	return  (folder.getId().equals("/") || WebdavIdDecoderAndEncoder.encode("/").equals(folder.getId()));        
     }
 
     public boolean isRoot() {
         if (getParentFolderId() == DLFolderConstants.DEFAULT_PARENT_FOLDER_ID) {
             return true;
         } else {
-            return false;
-        }
+        	return  (folder.getId().equals("/") || WebdavIdDecoderAndEncoder.encode("/").equals(folder.getId()));
+        }                
     }
 
     public boolean isSupportsMultipleUpload() {
@@ -150,9 +160,4 @@ public class FileSystemFolder extends FileSystemModel implements Folder {
 		return new StagedModelType(Folder.class);
 	}
 
-	@Override
-	public Folder getParentFolder() throws PortalException, SystemException {
-		// TODO Auto-generated method stub
-		return null;
-	}
 }
