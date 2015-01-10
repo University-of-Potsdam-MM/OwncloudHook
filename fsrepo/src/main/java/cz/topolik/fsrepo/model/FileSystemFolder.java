@@ -95,11 +95,9 @@ public class FileSystemFolder extends FileSystemModel implements Folder {
 
     public long getParentFolderId() {
         try {
-            Folder f = getParentFolder();            
-            System.out.println("computed parent folder id:" + f.getFolderId());
+            Folder f = getParentFolder();                        
             return f == null ? DLFolderConstants.DEFAULT_PARENT_FOLDER_ID : f.getFolderId();
-        } catch (Exception ex) {
-        	System.out.println("computed parent folder id:" + 0);
+        } catch (Exception ex) {        	
             ex.printStackTrace(System.err);
         }
         
