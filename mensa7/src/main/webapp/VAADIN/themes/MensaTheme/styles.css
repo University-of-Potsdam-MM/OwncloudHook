@@ -1,0 +1,4888 @@
+.v-assistive-device-only {
+	position: absolute;
+	top: -2000px;
+	left: -2000px;
+	width: 10px;
+	overflow: hidden;
+}
+
+.v-radiobutton {
+	-webkit-user-select: none;
+}
+
+@-webkit-keyframes v-notification-animate-out {
+		100% {
+		opacity: 0;
+	}
+	}
+
+@-moz-keyframes v-notification-animate-out {
+		100% {
+		opacity: 0;
+	}
+	}
+
+@keyframes v-notification-animate-out {
+		100% {
+		opacity: 0;
+	}
+	}
+
+.v-vaadin-version:after {
+	content: "7.3.9";
+}
+
+.v-generated-body {
+	width: 100%;
+	height: 100%;
+	border: 0;
+	margin: 0;
+	overflow: hidden;
+}
+
+.v-modal-window-open {
+	overflow: hidden;
+}
+
+@font-face {
+	font-family: FontAwesome;
+	src: url(../base/fonts/fontawesome-webfont.eot);
+	src: url(../base/fonts/fontawesome-webfont.eot?#iefix) format("embedded-opentype"), url(../base/fonts/fontawesome-webfont.woff) format("woff"), url(../base/fonts/fontawesome-webfont.ttf) format("truetype"), url(../base/fonts/fontawesome-webfont.svg) format("svg");
+	font-weight: normal;
+	font-style: normal;
+}
+
+.FontAwesome {
+	font-family: FontAwesome;
+	font-style: normal;
+	font-weight: normal;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	display: inline-block;
+}
+
+.MensaTheme .v-widget {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	text-align: left;
+	display: inline-block;
+	white-space: normal;
+	vertical-align: bottom;
+	font-size: 11px;
+	line-height: normal;
+}
+
+.MensaTheme .v-absolutelayout-wrapper {
+	position: absolute;
+	overflow: hidden;
+}
+
+.MensaTheme .v-absolutelayout-margin, .MensaTheme .v-absolutelayout-canvas {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.MensaTheme .v-absolutelayout.v-has-height > div, .MensaTheme .v-absolutelayout.v-has-height > div > div {
+	height: 100%;
+}
+
+.MensaTheme .v-absolutelayout.v-has-width > div, .MensaTheme .v-absolutelayout.v-has-width > div > div {
+	width: 100%;
+}
+
+.MensaTheme .v-accordion {
+	position: relative;
+	outline: none;
+	overflow: visible;
+	text-align: left;
+	font-size: 0;
+}
+
+.MensaTheme .v-accordion-item {
+	position: relative;
+	display: inline-block;
+	width: 100%;
+}
+
+.MensaTheme .v-accordion-item-caption {
+	overflow: visible;
+	white-space: nowrap;
+	background: #eee;
+	border-bottom: 1px solid #ddd;
+}
+
+.MensaTheme .v-accordion-item-caption .v-caption {
+	cursor: pointer;
+	font-size: 11px;
+}
+
+.MensaTheme .v-accordion-item-open .v-accordion-item-caption .v-caption {
+	cursor: default;
+}
+
+.MensaTheme .v-accordion-item-content {
+	position: absolute;
+	width: 100%;
+}
+
+.MensaTheme .v-browserframe {
+	font-size: 0;
+}
+
+.v-webkit.v-ios .MensaTheme .v-browserframe {
+	-webkit-overflow-scrolling: touch;
+	overflow: auto;
+}
+
+.MensaTheme .v-browserframe > span {
+	font-size: 11px;
+}
+
+.MensaTheme .v-button {
+	display: inline-block;
+	zoom: 1;
+	text-align: center !important;
+	text-decoration: none;
+	border: 2px outset #ddd;
+	background: #eee;
+	cursor: pointer;
+	white-space: nowrap;
+	margin: 0;
+	padding: 0.2em 1em;
+	color: inherit;
+	font: inherit;
+	font-size: 11px;
+	line-height: normal;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.MensaTheme .v-button.v-disabled {
+	cursor: default;
+}
+
+.MensaTheme .v-button-wrap, .MensaTheme .v-button-caption {
+	vertical-align: baseline;
+	white-space: nowrap;
+	font: inherit;
+	color: inherit;
+	line-height: normal;
+}
+
+.MensaTheme .v-button .v-icon {
+	vertical-align: middle;
+	margin-right: 3px;
+	border: none;
+}
+
+.MensaTheme .v-button .v-errorindicator {
+	display: inline-block;
+	zoom: 1;
+	vertical-align: middle;
+	float: none;
+}
+
+.MensaTheme .v-button-link {
+	border: none;
+	text-align: left !important;
+	background: transparent;
+	padding: 0;
+	color: inherit;
+	-khtml-user-select: text;
+	-moz-user-select: text;
+	-ie-user-select: text;
+	user-select: text;
+}
+
+.v-sa .MensaTheme .v-button-link:focus {
+	outline-offset: -3px;
+}
+
+.MensaTheme .v-button-link .v-button-caption {
+	text-decoration: underline;
+	color: inherit;
+	text-align: left;
+}
+
+.MensaTheme .v-nativebutton .v-icon {
+	vertical-align: middle;
+	margin-right: 3px;
+	border: none;
+}
+
+.MensaTheme .v-nativebutton .v-errorindicator {
+	display: inline-block;
+	zoom: 1;
+	vertical-align: middle;
+	float: none;
+}
+
+.MensaTheme .v-nativebutton-link {
+	border: none;
+	text-align: left !important;
+	background: transparent;
+	padding: 0;
+	color: inherit;
+	-khtml-user-select: text;
+	-moz-user-select: text;
+	-ie-user-select: text;
+	user-select: text;
+}
+
+.MensaTheme .v-nativebutton-link .v-nativebutton-caption {
+	text-decoration: underline;
+	color: inherit;
+	text-align: left;
+}
+
+.MensaTheme .v-nativebutton {
+	text-align: center !important;
+	cursor: pointer;
+	white-space: nowrap;
+	margin: 0;
+	color: inherit;
+	font: inherit;
+	line-height: normal;
+}
+
+.MensaTheme .v-nativebutton .v-nativebutton-caption {
+	vertical-align: middle;
+	white-space: nowrap;
+	font: inherit;
+	color: inherit;
+}
+
+.MensaTheme .v-nativebutton .v-icon {
+	vertical-align: middle;
+	margin-right: 3px;
+}
+
+.MensaTheme .v-nativebutton .v-errorindicator {
+	display: inline-block;
+	zoom: 1;
+	float: none;
+}
+
+.v-ie .MensaTheme .v-nativebutton {
+	overflow: visible;
+	padding-left: 1em;
+	padding-right: 1em;
+}
+
+.v-ie .MensaTheme .v-nativebutton-link {
+	padding: 0;
+}
+
+.MensaTheme .v-checkbox {
+	display: block;
+}
+
+.MensaTheme .v-checkbox, .MensaTheme .v-checkbox label, .MensaTheme .v-checkbox input, .MensaTheme .v-checkbox .v-icon {
+	vertical-align: middle;
+	white-space: nowrap;
+}
+
+.MensaTheme .v-checkbox .v-icon {
+	margin: 0 2px;
+}
+
+.MensaTheme .v-checkbox .v-errorindicator {
+	float: none;
+	display: inline;
+	display: inline-block;
+	zoom: 1;
+}
+
+.MensaTheme .v-captionwrapper {
+	text-align: left;
+}
+
+.MensaTheme .v-caption {
+	overflow: hidden;
+	white-space: nowrap;
+	font-size: 11px;
+}
+
+.MensaTheme .v-errorindicator {
+	display: inline-block;
+}
+
+.MensaTheme .v-caption .v-icon {
+	display: inline-block;
+	padding-right: 2px;
+	vertical-align: middle;
+}
+
+.MensaTheme .v-caption .v-captiontext {
+	display: inline-block;
+	overflow: hidden;
+	vertical-align: middle;
+}
+
+.MensaTheme .v-caption .v-required-field-indicator {
+	display: inline-block;
+}
+
+.MensaTheme .v-colorpicker {
+	text-align: center;
+}
+
+.MensaTheme .v-colorpicker-button-color {
+	border: 1px solid silver;
+	float: left;
+	width: 10px;
+	height: 10px;
+	margin-top: 2px;
+	margin-right: 5px;
+}
+
+.MensaTheme .v-colorpicker-area {
+	border: 1px solid silver;
+	margin: 1px auto;
+}
+
+.MensaTheme .v-colorpicker-history {
+	margin: 5px;
+}
+
+.MensaTheme .v-colorpicker-history td {
+	border: 1px solid silver !important;
+}
+
+.MensaTheme .v-colorpicker-history td {
+	line-height: 15px;
+}
+
+.MensaTheme .v-colorpicker-popup {
+	width: 244px;
+}
+
+.MensaTheme .v-colorpicker-popup .v-scrollable {
+	background-color: #dddddd;
+}
+
+.MensaTheme .v-colorpicker-popup .v-tabsheet-content .v-scrollable {
+	background-color: #eaeaea;
+}
+
+.MensaTheme .v-colorpicker-popup .v-tabsheet-content .v-tabsheet-tabsheetpanel {
+	background: transparent;
+}
+
+.MensaTheme .v-colorpicker-popup .resize-button {
+	border: 0px solid silver;
+	background: url(../base/colorpicker/images/resizebg.png);
+	margin-top: 5px;
+}
+
+.MensaTheme .v-colorpicker-popup .resize-button-caption {
+	display: none;
+}
+
+.MensaTheme .v-colorpicker-popup .resize-button:hover {
+	background: url(../base/colorpicker/images/resizebg-selected.png);
+}
+
+.MensaTheme .v-colorpicker-popup .resize-button:focus {
+	outline: none;
+}
+
+.MensaTheme .v-colorpicker-gradient {
+	width: 220px;
+	height: 220px;
+	padding-left: 10px;
+	margin-top: 0px;
+}
+
+.MensaTheme .v-colorpicker-gradient .v-colorpicker-gradient-clicklayer {
+	background-color: white;
+	filter: alpha(opacity = 0);
+	opacity: 0;
+}
+
+.MensaTheme .v-colorpicker-popup .rgb-gradient .v-colorpicker-gradient-background {
+	width: 220px;
+	height: 220px;
+	background: url(../base/colorpicker/images/gradient2.png);
+}
+
+.MensaTheme .v-colorpicker-popup .hsv-gradient .v-colorpicker-gradient-foreground {
+	background: url(../base/colorpicker/images/gradient.png);
+}
+
+.MensaTheme .v-colorpicker-popup .v-colorpicker-gradient-lowerbox {
+	border-right: 1px solid white;
+	border-top: 1px solid white;
+}
+
+.MensaTheme .v-colorpicker-popup .v-colorpicker-gradient-higherbox {
+	border-left: 1px solid white;
+	border-bottom: 1px solid white;
+}
+
+.MensaTheme .v-colorpicker-popup .rgb-sliders {
+	width: 227px;
+	padding-left: 10px;
+	color: #444444;
+	text-shadow: 0 1px 0 #FFFFFF;
+}
+
+.MensaTheme .v-colorpicker-popup .rgb-sliders .red .v-slider-base {
+	background-color: red;
+}
+
+.MensaTheme .v-colorpicker-popup .rgb-sliders .green .v-slider-base {
+	background-color: green;
+}
+
+.MensaTheme .v-colorpicker-popup .rgb-sliders .blue .v-slider-base {
+	background-color: blue;
+}
+
+.MensaTheme .v-colorpicker-popup .hsv-sliders {
+	padding-left: 10px;
+	color: #444444;
+	text-shadow: 0 1px 0 #FFFFFF;
+}
+
+.MensaTheme .v-colorpicker-popup .hue-slider {
+	height: 10px;
+	border: 0px solid silver;
+	background-image: url(../base/colorpicker/images/slider_hue_bg.png);
+	background-color: transparent;
+	background-repeat: no-repeat;
+	background-position: 0 3px;
+	margin-top: 0px;
+}
+
+.MensaTheme .v-colorpicker-popup .hue-slider .v-slider-handle {
+	margin-top: -2px;
+}
+
+.MensaTheme .v-colorpicker-popup .hue-slider .v-slider-base {
+	border: 0px none;
+	height: 0px;
+	background-color: transparent;
+}
+
+.MensaTheme .v-colorpicker-popup .v-colorpicker-preview {
+	margin-top: 5px;
+	padding-left: 11px;
+	padding-right: 10px;
+	margin-bottom: 0px;
+}
+
+.MensaTheme .v-colorpicker-popup .v-absolutelayout-wrapper {
+	width: 100%;
+	height: 100%;
+}
+
+.MensaTheme .v-colorpicker-popup .v-colorpicker-preview-textfield {
+	background: none;
+	overflow: hidden;
+	overflow-y: hidden;
+	overflow-x: hidden;
+}
+
+.MensaTheme .v-colorpicker-popup .v-textfield-dark {
+	color: #FFFFFF;
+}
+
+.MensaTheme .v-colorpicker-popup .v-textfield-light {
+	color: #000000;
+}
+
+.MensaTheme .v-colorpicker-popup .colorselect {
+	margin-top: 5px;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+.MensaTheme .v-colorpicker-popup .v-tabsheet .v-colorpicker-grid {
+	height: 319px;
+}
+
+.MensaTheme .v-colorpicker-popup .colorselect td {
+	line-height: 15px;
+}
+
+.MensaTheme .v-colorpicker-popup .v-filterselect {
+	padding-right: 16px;
+}
+
+.MensaTheme .v-calendar-nresize DIV DIV {
+	cursor: n-resize !important;
+}
+
+.MensaTheme .v-calendar-sresize DIV DIV {
+	cursor: s-resize !important;
+}
+
+.MensaTheme .v-calendar {
+	background-color: #fff;
+}
+
+.MensaTheme .v-calendar-header-month, .MensaTheme .v-calendar-header-week {
+	border-bottom: 1px solid #c1c1c1;
+}
+
+.MensaTheme .v-calendar-header-day {
+	text-align: center;
+	color: #666;
+	font-size: 12px;
+	line-height: normal;
+}
+
+.MensaTheme .v-calendar-header-week .v-calendar-header-day:hover {
+	cursor: pointer;
+	color: #222;
+}
+
+.MensaTheme .v-calendar-header-day-today {
+	font-weight: bold;
+	color: #444;
+}
+
+.MensaTheme .v-calendar-header-month td:first-child {
+	padding-left: 19px;
+}
+
+.MensaTheme .v-calendar-header-week .v-calendar-back, .MensaTheme .v-calendar-header-week .v-calendar-next {
+	border: none;
+	padding: 0;
+	margin: 0;
+	height: 12px;
+	width: 12px;
+	overflow: hidden;
+	background: transparent url(../base/calendar/img/arrows.png) no-repeat 50% 0;
+	opacity: 0.3;
+	filter: alpha(opacity = 30);
+	cursor: default;
+}
+
+.MensaTheme .v-calendar-header-week .v-calendar-back:hover, .MensaTheme .v-calendar-header-week .v-calendar-next:hover {
+	opacity: 0.6;
+	filter: alpha(opacity = 60);
+}
+
+.MensaTheme .v-calendar-header-week .v-calendar-back:active, .MensaTheme .v-calendar-header-week .v-calendar-next:active {
+	opacity: 1;
+	filter: alpha(opacity = 100);
+}
+
+.MensaTheme .v-calendar-header-week .v-calendar-next {
+	background-position: 50% -12px;
+}
+
+.MensaTheme .v-calendar-month {
+	outline: none;
+}
+
+.MensaTheme .v-calendar-week-numbers {
+	width: 20px;
+	border-right: 1px solid #ccc;
+}
+
+.MensaTheme .v-calendar-week-number {
+	border: none;
+	background: transparent;
+	padding: 0;
+	margin: 0;
+	cursor: pointer;
+	opacity: 0.5;
+	width: 20px;
+	text-align: center;
+	border-bottom: 1px solid #ddd;
+}
+
+.MensaTheme .v-calendar-week-number:hover {
+	opacity: 1;
+}
+
+.MensaTheme .v-calendar-month-day {
+	border-bottom: 1px solid #ccc;
+	border-right: 1px solid #ccc;
+	outline: none;
+}
+
+.MensaTheme .v-calendar-month-day-today {
+	background-color: #e7f0f5;
+}
+
+.MensaTheme .v-calendar-month-day-selected {
+	background-color: #fffee7;
+}
+
+.MensaTheme .v-calendar-month-day-dragemphasis {
+	background-color: #a8a8a8;
+}
+
+.MensaTheme .v-calendar-month-day-scrollable {
+	overflow-y: scroll;
+}
+
+.MensaTheme .v-calendar-day-number {
+	height: 18px;
+	line-height: 18px;
+	font-size: 12px;
+	text-align: right;
+	padding-right: 3px;
+	white-space: nowrap;
+}
+
+.MensaTheme .v-calendar-day-number:hover {
+	cursor: pointer;
+	opacity: 0.6;
+	filter: alpha(opacity = 60);
+}
+
+.MensaTheme .v-calendar-month .v-calendar-spacer, .MensaTheme .v-calendar-month .v-calendar-bottom-spacer, .MensaTheme .v-calendar-month .v-calendar-bottom-spacer-empty {
+	height: 15px;
+	font-size: 11px;
+}
+
+.MensaTheme .v-calendar-month .v-calendar-bottom-spacer:hover {
+	cursor: pointer;
+	opacity: 0.6;
+	filter: alpha(opacity = 60);
+}
+
+.MensaTheme .v-calendar-event {
+	line-height: 14px;
+	font-size: 11px;
+	padding: 0 0 0 4px;
+	cursor: pointer;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	outline: none;
+}
+
+.MensaTheme .v-calendar-event-month {
+	margin-bottom: 1px;
+	white-space: nowrap;
+}
+
+.MensaTheme .v-calendar-event-month:hover {
+	text-decoration: underline;
+}
+
+.MensaTheme .v-calendar-event-all-day {
+	background: #999;
+	display: block;
+	margin-left: -2px;
+}
+
+.MensaTheme div.v-calendar-event-all-day {
+	color: #fff;
+	height: 14px;
+}
+
+.MensaTheme .v-calendar-event-continued-from {
+	margin-left: 0;
+}
+
+.MensaTheme .v-calendar-event-start {
+	-webkit-border-top-left-radius: 6px;
+	-webkit-border-bottom-left-radius: 6px;
+	-moz-border-radius-topleft: 6px;
+	-moz-border-radius-bottomleft: 6px;
+	border-top-left-radius: 6px;
+	border-bottom-left-radius: 6px;
+	margin-left: 0;
+}
+
+.MensaTheme .v-calendar-event-end {
+	-webkit-border-top-right-radius: 6px;
+	-webkit-border-bottom-right-radius: 6px;
+	-moz-border-radius-topright: 6px;
+	-moz-border-radius-bottomright: 6px;
+	border-top-right-radius: 6px;
+	border-bottom-right-radius: 6px;
+}
+
+.MensaTheme .v-calendar-week-wrapper {
+	position: relative;
+}
+
+.MensaTheme .v-calendar-times {
+	width: 51px;
+}
+
+.MensaTheme .v-calendar-time {
+	padding: 0 8px 7px 0;
+	margin-top: -7px;
+	text-align: right;
+	font-size: 11px;
+	color: #666;
+	border-right: 1px solid #ccc;
+}
+
+.MensaTheme .v-calendar-weekly-longevents {
+	border-left: 1px solid #ccc;
+	border-bottom: 2px solid #bbb;
+	margin-left: 50px;
+}
+
+.MensaTheme .v-calendar-weekly-longevents .v-calendar-datecell {
+	border-right: 1px solid #ccc;
+	padding: 1px 0 0;
+}
+
+.MensaTheme .v-calendar-weekly-longevents .v-calendar-event {
+	height: 14px;
+	margin-bottom: 1px;
+}
+
+.MensaTheme .v-calendar-weekly-longevents .v-calendar-event:hover {
+	text-decoration: underline;
+}
+
+.MensaTheme .v-calendar-day-times {
+	border-right: 1px solid #ccc;
+	outline: none;
+}
+
+.MensaTheme .v-calendar-day-times .v-datecellslot, .MensaTheme .v-calendar-day-times .v-datecellslot-even {
+	border-bottom: 1px solid #ccc;
+}
+
+.MensaTheme .v-calendar-day-times .v-datecellslot-even {
+	border-bottom-color: #eee;
+}
+
+.MensaTheme .v-calendar-day-times .v-daterange {
+	background-color: #a8a8a8;
+}
+
+.MensaTheme .v-calendar-day-times .v-reserved {
+	background-color: #FF3333;
+}
+
+.MensaTheme .v-calendar-day-times .dragemphasis {
+	background-color: #a8a8a8;
+}
+
+.MensaTheme .v-calendar-week-wrapper .v-calendar-event {
+	padding: 0;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	margin-top: -1px;
+}
+
+.MensaTheme .v-calendar-event-caption {
+	position: absolute;
+	z-index: 1;
+	top: 2px;
+	left: 4px;
+	width: 100%;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	line-height: normal;
+}
+
+.MensaTheme .v-calendar-event-content {
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	border: 1px solid #777;
+	background: #eee;
+	opacity: 0.8;
+	filter: alpha(opacity = 80);
+	height: 14px;
+}
+
+.MensaTheme .v-calendar-current-time {
+	position: absolute;
+	left: 0;
+	width: 100%;
+	height: 1px;
+	overflow: hidden;
+	background: #5a6c86;
+	opacity: 0.6;
+	filter: alpha(opacity = 60);
+	z-index: 2;
+}
+
+.MensaTheme .v-calendar-event-resizetop {
+	position: absolute;
+	cursor: n-resize;
+	height: 5%;
+	min-height: 3px;
+	top: 0;
+	width: 100%;
+	z-index: 1;
+}
+
+.MensaTheme .v-calendar-event-resizebottom {
+	position: absolute;
+	cursor: s-resize;
+	height: 5%;
+	min-height: 3px;
+	bottom: 0;
+	width: 100%;
+	z-index: 1;
+}
+
+.MensaTheme .v-calendar-month-sizedheight .v-calendar-month-day {
+	height: 100px;
+}
+
+.MensaTheme .v-calendar-month-sizedwidth .v-calendar-month-day {
+	width: 100px;
+}
+
+.MensaTheme .v-calendar-header-month-Hsized .v-calendar-header-day {
+	width: 101px;
+}
+
+.MensaTheme .v-calendar-header-month-Hsized td:first-child {
+	padding-left: 21px;
+}
+
+.MensaTheme .v-calendar-header-day-Hsized {
+	width: 200px;
+}
+
+.MensaTheme .v-calendar-week-numbers-Vsized .v-calendar-week-number {
+	height: 100px;
+	line-height: 100px;
+}
+
+.MensaTheme .v-calendar-week-wrapper-Vsized {
+	height: 400px;
+	overflow-x: hidden !important;
+}
+
+.MensaTheme .v-calendar-times-Vsized .v-calendar-time {
+	height: 38px;
+}
+
+.MensaTheme .v-calendar-times-Hsized .v-calendar-time {
+	width: 42px;
+}
+
+.MensaTheme .v-calendar-day-times-Vsized .v-datecellslot, .MensaTheme .v-calendar-day-times-Vsized .v-datecellslot-even {
+	height: 18px;
+}
+
+.MensaTheme .v-calendar-day-times-Hsized, .MensaTheme .v-calendar-day-times-Hsized .v-datecellslot, .MensaTheme .v-calendar-day-times-Hsized .v-datecellslot-even {
+	width: 200px;
+}
+
+.MensaTheme.v-app {
+	height: 100%;
+}
+
+.MensaTheme.v-app, .MensaTheme .v-window, .MensaTheme .v-popupview-popup, .MensaTheme .v-label, .MensaTheme .v-caption {
+	cursor: default;
+}
+
+.MensaTheme .v-window {
+	box-shadow: 0 5px 18px 0 rgba(0, 0, 0, 0.5);
+}
+
+.MensaTheme .v-datefield-popup, .MensaTheme .v-filterselect-suggestpopup, .MensaTheme .v-menubar-popup, .MensaTheme .v-slider-feedback, .MensaTheme .v-popupview-popup, .MensaTheme .v-contextmenu {
+	box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.5);
+}
+
+body .MensaTheme.v-app .v-app-loading {
+	background-image: url(../base/common/img/loading-indicator.gif);
+	background-repeat: no-repeat;
+	background-position: 50%;
+	width: 100%;
+	height: 100%;
+}
+
+.MensaTheme .v-ui {
+	height: 100%;
+	width: 100%;
+	outline: none;
+	position: relative;
+}
+
+.MensaTheme .v-ui.v-ui-embedded {
+	margin-top: -1px;
+	border-top: 1px solid transparent;
+}
+
+.MensaTheme .v-ui:active, .MensaTheme .v-ui:focus {
+	outline: none;
+}
+
+.MensaTheme.v-app select, .MensaTheme .v-window select {
+	margin: 0;
+}
+
+.MensaTheme .v-disabled {
+	opacity: 0.3;
+	filter: alpha(opacity=30);
+	cursor: default;
+}
+
+.MensaTheme .v-disabled * {
+	cursor: default;
+}
+
+* html .MensaTheme .v-disabled {
+	zoom: 1;
+}
+
+* + html .MensaTheme .v-disabled {
+	zoom: 1;
+}
+
+.MensaTheme .v-disabled .v-disabled {
+	opacity: 1;
+}
+
+.MensaTheme .v-required-field-indicator {
+	padding-left: 2px;
+	color: red;
+}
+
+.MensaTheme .v-form fieldset {
+	border: none;
+	padding: 0;
+	margin: 0;
+	height: 100%;
+}
+
+.MensaTheme .v-form-content {
+	height: 100%;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.MensaTheme .v-tooltip {
+	cursor: default;
+	background: #fff;
+	box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.5);
+}
+
+.MensaTheme .v-tooltip-text {
+	overflow: auto;
+}
+
+.MensaTheme .v-tooltip .v-errormessage {
+	overflow: auto;
+}
+
+.MensaTheme .v-contextmenu {
+	background: #fff;
+}
+
+.MensaTheme .v-contextmenu .gwt-MenuItem {
+	cursor: pointer;
+	vertical-align: middle;
+	padding: 0;
+	border: 0;
+	margin: 0;
+}
+
+.MensaTheme .v-contextmenu .gwt-MenuBar {
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+
+.MensaTheme .v-contextmenu .gwt-MenuItem div {
+	cursor: pointer;
+	vertical-align: middle;
+	white-space: nowrap;
+}
+
+.MensaTheme .v-contextmenu .gwt-MenuItem-selected div {
+	background: #aaa;
+	color: #fff;
+}
+
+.MensaTheme .v-contextmenu table {
+	border-collapse: collapse;
+	margin: 0;
+	padding: 0;
+}
+
+.MensaTheme .v-contextmenu .gwt-MenuItem img {
+	margin-right: 1em;
+	vertical-align: middle;
+}
+
+.MensaTheme .v-label pre {
+	margin: 0;
+}
+
+.MensaTheme .v-label-undef-w {
+	white-space: nowrap;
+}
+
+.MensaTheme .v-label h1, .MensaTheme .v-label h2, .MensaTheme .v-label h3, .MensaTheme .v-label h4, .MensaTheme .v-label h5, .MensaTheme .v-label h6 {
+	line-height: normal;
+}
+
+.MensaTheme .v-loading-indicator, .MensaTheme .v-loading-indicator-delay, .MensaTheme .v-loading-indicator-wait {
+	position: absolute;
+	top: 0;
+	right: 0;
+	z-index: 30000;
+	width: 31px;
+	height: 31px;
+	background: transparent url(../base/common/img/loading-indicator.gif);
+	margin-right: 5px;
+	margin-top: 5px;
+}
+
+.MensaTheme .v-loading-indicator-delay {
+	background-image: url(../base/common/img/loading-indicator-delay.gif);
+}
+
+.MensaTheme .v-loading-indicator-wait {
+	background-image: url(../base/common/img/loading-indicator-wait.gif);
+}
+
+.MensaTheme.v-app input[type="text"], .MensaTheme.v-app input[type="password"], .MensaTheme.v-app input[type="reset"], .MensaTheme.v-app select, .MensaTheme.v-app textarea, .MensaTheme .v-window input[type="text"], .MensaTheme .v-window input[type="password"], .MensaTheme .v-window input[type="reset"], .MensaTheme .v-window select, .MensaTheme .v-window textarea {
+	padding: 2px;
+}
+
+.MensaTheme input::-ms-clear {
+	display: none;
+}
+
+.MensaTheme .v-drag-element {
+	z-index: 60000;
+	position: absolute !important;
+	opacity: 0.5;
+	filter: alpha(opacity=50);
+	cursor: default;
+}
+
+.MensaTheme .v-clip {
+	overflow: hidden;
+}
+
+.MensaTheme .v-scrollable {
+	overflow: auto;
+	font-size: 0;
+	line-height: normal;
+}
+
+.v-ff .MensaTheme .v-scrollable {
+	font-size: 11px;
+}
+
+.v-ios.v-webkit .MensaTheme .v-scrollable {
+	-webkit-overflow-scrolling: touch;
+}
+
+.v-ios5.v-webkit .MensaTheme .v-scrollable {
+	-webkit-overflow-scrolling: none;
+}
+
+.MensaTheme .v-scrollable.v-panel-content > .v-widget {
+	vertical-align: middle;
+	overflow: hidden;
+}
+
+.MensaTheme.v-overlay-container {
+	width: 0;
+	height: 0;
+}
+
+.MensaTheme .v-vertical.v-margin-top, .MensaTheme .v-horizontal.v-margin-top {
+	padding-top: 12px;
+}
+
+.MensaTheme .v-vertical.v-margin-right, .MensaTheme .v-horizontal.v-margin-right {
+	padding-right: 12px;
+}
+
+.MensaTheme .v-vertical.v-margin-bottom, .MensaTheme .v-horizontal.v-margin-bottom {
+	padding-bottom: 12px;
+}
+
+.MensaTheme .v-vertical.v-margin-left, .MensaTheme .v-horizontal.v-margin-left {
+	padding-left: 12px;
+}
+
+.MensaTheme .v-gridlayout.v-layout-margin-top {
+	padding-top: 24px;
+}
+
+.MensaTheme .v-gridlayout, .MensaTheme .v-verticallayout, .MensaTheme .v-horizontallayout {
+	font-size: 0;
+	line-height: normal;
+}
+
+.MensaTheme .v-gridlayout.v-layout-margin-bottom {
+	padding-bottom: 24px;
+}
+
+.MensaTheme .v-gridlayout.v-layout-margin-left {
+	padding-left: 24px;
+}
+
+.MensaTheme .v-gridlayout.v-layout-margin-right {
+	padding-right: 24px;
+}
+
+.MensaTheme .v-gridlayout .v-layout-spacing-on {
+	padding-left: 12px;
+	padding-top: 12px;
+}
+
+.MensaTheme .v-spacing {
+	width: 6px;
+	height: 6px;
+}
+
+.MensaTheme .v-vertical, .MensaTheme .v-horizontal {
+	display: inline-block;
+}
+
+.MensaTheme div.v-layout.v-horizontal.v-widget {
+	white-space: nowrap;
+}
+
+.MensaTheme .v-layout.v-vertical > .v-expand, .MensaTheme .v-layout.v-horizontal > .v-expand {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	width: 100%;
+	height: 100%;
+}
+
+.MensaTheme .v-slot, .MensaTheme .v-spacing {
+	display: inline-block;
+	white-space: normal;
+	vertical-align: top;
+}
+
+.MensaTheme .v-vertical > .v-slot:after {
+	display: inline-block;
+	clear: both;
+	width: 0;
+	height: 0;
+	overflow: hidden;
+	line-height: 0;
+}
+
+.MensaTheme .v-vertical > .v-slot, .MensaTheme .v-vertical > .v-expand > .v-slot {
+	display: block;
+	clear: both;
+}
+
+.MensaTheme .v-horizontal > .v-slot, .MensaTheme .v-horizontal > .v-expand > .v-slot {
+	height: 100%;
+}
+
+.MensaTheme .v-horizontal > .v-expand > .v-slot {
+	position: relative;
+}
+
+.MensaTheme .v-vertical > .v-spacing, .MensaTheme .v-vertical > .v-expand > .v-spacing {
+	width: 0;
+	display: block;
+	clear: both;
+}
+
+.MensaTheme .v-horizontal > .v-spacing, .MensaTheme .v-horizontal > .v-expand > .v-spacing {
+	height: 0;
+}
+
+.MensaTheme .v-align-middle:before, .MensaTheme .v-align-bottom:before, .MensaTheme .v-expand > .v-align-middle:before, .MensaTheme .v-expand > .v-align-bottom:before {
+	content: "";
+	display: inline-block;
+	height: 100%;
+	vertical-align: middle;
+	width: 0;
+}
+
+.MensaTheme .v-align-middle, .MensaTheme .v-align-bottom {
+	white-space: nowrap;
+}
+
+.MensaTheme .v-align-middle > .v-widget, .MensaTheme .v-align-bottom > .v-widget {
+	display: inline-block;
+}
+
+.MensaTheme .v-align-middle, .MensaTheme .v-align-middle > .v-widget {
+	vertical-align: middle;
+}
+
+.MensaTheme .v-align-bottom, .MensaTheme .v-align-bottom > .v-widget {
+	vertical-align: bottom;
+}
+
+.MensaTheme .v-align-center {
+	text-align: center;
+}
+
+.MensaTheme .v-align-center > .v-widget {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.MensaTheme .v-align-right {
+	text-align: right;
+}
+
+.MensaTheme .v-align-right > .v-widget {
+	margin-left: auto;
+}
+
+.MensaTheme .v-has-caption, .MensaTheme .v-has-caption > .v-caption {
+	display: inline-block;
+}
+
+.MensaTheme .v-caption {
+	overflow: visible;
+	vertical-align: middle;
+}
+
+.MensaTheme .v-caption-on-left, .MensaTheme .v-caption-on-right {
+	white-space: nowrap;
+}
+
+.MensaTheme .v-caption-on-top > .v-caption, .MensaTheme .v-caption-on-bottom > .v-caption {
+	display: block;
+}
+
+.MensaTheme .v-caption-on-left > .v-caption {
+	padding-right: 0.5em;
+}
+
+.MensaTheme .v-caption-on-right > .v-caption {
+	vertical-align: top;
+}
+
+.MensaTheme .v-caption-on-left > .v-widget, .MensaTheme .v-caption-on-right > .v-widget {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.MensaTheme .v-has-caption.v-has-width > .v-widget {
+	width: 100% !important;
+}
+
+.MensaTheme .v-has-caption.v-has-height > .v-widget {
+	height: 100% !important;
+}
+
+.MensaTheme .v-errorindicator {
+	vertical-align: middle;
+}
+
+.MensaTheme .v-csslayout {
+	overflow: hidden;
+}
+
+.MensaTheme div.v-csslayout {
+	display: block;
+}
+
+.MensaTheme .v-csslayout-margin, .MensaTheme .v-csslayout-container {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.MensaTheme .v-has-width > .v-csslayout-margin, .MensaTheme .v-has-width > .v-csslayout-margin > .v-csslayout-container {
+	width: 100%;
+}
+
+.MensaTheme .v-has-height > .v-csslayout-margin, .MensaTheme .v-has-height > .v-csslayout-margin > .v-csslayout-container {
+	height: 100%;
+}
+
+.MensaTheme .v-csslayout-margin-top {
+	padding-top: 12px;
+}
+
+.MensaTheme .v-csslayout-margin-bottom {
+	padding-bottom: 12px;
+}
+
+.MensaTheme .v-csslayout-margin-left {
+	padding-left: 12px;
+}
+
+.MensaTheme .v-csslayout-margin-right {
+	padding-right: 12px;
+}
+
+.MensaTheme .v-customlayout {
+	overflow: hidden;
+}
+
+.MensaTheme .v-datefield {
+	white-space: nowrap;
+	display: inline-block;
+}
+
+.MensaTheme .v-datefield-textfield {
+	vertical-align: top;
+}
+
+.v-ie .MensaTheme .v-datefield-button:after {
+	content: "\200B";
+}
+
+.MensaTheme .v-datefield-button {
+	cursor: pointer;
+	vertical-align: top;
+}
+
+.MensaTheme .v-has-width > input.v-datefield-textfield {
+	width: 100%;
+}
+
+.MensaTheme .v-datefield-prompt .v-datefield-textfield {
+	color: #999;
+	font-style: italic;
+}
+
+.MensaTheme .v-datefield .v-datefield-button-readonly {
+	display: none;
+}
+
+.MensaTheme .v-datefield-calendarpanel table {
+	width: 100%;
+}
+
+.MensaTheme .v-datefield-calendarpanel td {
+	padding: 0;
+	margin: 0;
+}
+
+.MensaTheme .v-datefield-calendarpanel:focus {
+	outline: none;
+}
+
+.MensaTheme .v-datefield-calendarpanel-header td {
+	text-align: center;
+}
+
+.MensaTheme .v-datefield-calendarpanel-month {
+	text-align: center;
+	white-space: nowrap;
+}
+
+.MensaTheme .v-datefield-calendarpanel-weeknumber {
+	color: #999;
+	border-right: 1px solid #ddd;
+	font-size: 11.7px;
+}
+
+.MensaTheme .v-datefield-calendarpanel-day, .MensaTheme .v-datefield-calendarpanel-day-today {
+	cursor: pointer;
+}
+
+.MensaTheme .v-datefield-calendarpanel-day-today {
+	border: 1px solid #ddd;
+}
+
+.MensaTheme .v-disabled .v-datefield-calendarpanel-day, .MensaTheme .v-disabled .v-datefield-calendarpanel-day-today, .MensaTheme .v-disabled.v-datefield-popupcalendar .v-datefield-button {
+	cursor: default;
+}
+
+.MensaTheme .v-datefield-calendarpanel-day-disabled, .MensaTheme .v-datefield-calendarpanel-day-outside-range {
+	cursor: default;
+	opacity: 0.5;
+}
+
+.MensaTheme .v-datefield-calendarpanel-prevyear button.outside-range, .MensaTheme .v-datefield-calendarpanel-nextyear button.outside-range, .MensaTheme .v-datefield-calendarpanel-prevmonth button.outside-range, .MensaTheme .v-datefield-calendarpanel-nextmonth button.outside-range {
+	opacity: 0.5;
+}
+
+.MensaTheme .v-datefield-calendarpanel-day-selected {
+	cursor: default;
+	background: #333;
+	color: #fff;
+}
+
+.MensaTheme .v-datefield-calendarpanel-day-focused {
+	outline: 1px dotted black;
+}
+
+.MensaTheme .v-datefield-calendarpanel-day-offmonth {
+	color: #666;
+}
+
+.MensaTheme .v-datefield-time {
+	white-space: nowrap;
+}
+
+.MensaTheme .v-datefield-time .v-label {
+	display: inline;
+}
+
+.MensaTheme .v-datefield-popup {
+	background: #fff;
+}
+
+.v-ie9 .MensaTheme .v-datefield-popup, .v-ie10 .MensaTheme .v-datefield-popup, .v-ie11 .MensaTheme .v-datefield-popup {
+	box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.5);
+}
+
+.MensaTheme .v-datefield-popupcalendar input.v-datefield-textfield {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.MensaTheme .v-inline-datefield {
+	white-space: nowrap;
+	display: inline-block;
+}
+
+.MensaTheme .v-inline-datefield-textfield {
+	vertical-align: top;
+}
+
+.v-ie .MensaTheme .v-inline-datefield-button:after {
+	content: "\200B";
+}
+
+.MensaTheme .v-inline-datefield-button {
+	cursor: pointer;
+	vertical-align: top;
+}
+
+.MensaTheme .v-has-width > input.v-inline-datefield-textfield {
+	width: 100%;
+}
+
+.MensaTheme .v-inline-datefield-prompt .v-inline-datefield-textfield {
+	color: #999;
+	font-style: italic;
+}
+
+.MensaTheme .v-inline-datefield .v-inline-datefield-button-readonly {
+	display: none;
+}
+
+.MensaTheme .v-inline-datefield-calendarpanel table {
+	width: 100%;
+}
+
+.MensaTheme .v-inline-datefield-calendarpanel td {
+	padding: 0;
+	margin: 0;
+}
+
+.MensaTheme .v-inline-datefield-calendarpanel:focus {
+	outline: none;
+}
+
+.MensaTheme .v-inline-datefield-calendarpanel-header td {
+	text-align: center;
+}
+
+.MensaTheme .v-inline-datefield-calendarpanel-month {
+	text-align: center;
+	white-space: nowrap;
+}
+
+.MensaTheme .v-inline-datefield-calendarpanel-weeknumber {
+	color: #999;
+	border-right: 1px solid #ddd;
+	font-size: 11.7px;
+}
+
+.MensaTheme .v-inline-datefield-calendarpanel-day, .MensaTheme .v-inline-datefield-calendarpanel-day-today {
+	cursor: pointer;
+}
+
+.MensaTheme .v-inline-datefield-calendarpanel-day-today {
+	border: 1px solid #ddd;
+}
+
+.MensaTheme .v-disabled .v-inline-datefield-calendarpanel-day, .MensaTheme .v-disabled .v-inline-datefield-calendarpanel-day-today, .MensaTheme .v-disabled.v-inline-datefield-popupcalendar .v-inline-datefield-button {
+	cursor: default;
+}
+
+.MensaTheme .v-inline-datefield-calendarpanel-day-disabled, .MensaTheme .v-inline-datefield-calendarpanel-day-outside-range {
+	cursor: default;
+	opacity: 0.5;
+}
+
+.MensaTheme .v-inline-datefield-calendarpanel-prevyear button.outside-range, .MensaTheme .v-inline-datefield-calendarpanel-nextyear button.outside-range, .MensaTheme .v-inline-datefield-calendarpanel-prevmonth button.outside-range, .MensaTheme .v-inline-datefield-calendarpanel-nextmonth button.outside-range {
+	opacity: 0.5;
+}
+
+.MensaTheme .v-inline-datefield-calendarpanel-day-selected {
+	cursor: default;
+	background: #333;
+	color: #fff;
+}
+
+.MensaTheme .v-inline-datefield-calendarpanel-day-focused {
+	outline: 1px dotted black;
+}
+
+.MensaTheme .v-inline-datefield-calendarpanel-day-offmonth {
+	color: #666;
+}
+
+.MensaTheme .v-inline-datefield-time {
+	white-space: nowrap;
+}
+
+.MensaTheme .v-inline-datefield-time .v-label {
+	display: inline;
+}
+
+.MensaTheme .v-inline-datefield-popup {
+	background: #fff;
+}
+
+.v-ie9 .MensaTheme .v-inline-datefield-popup, .v-ie10 .MensaTheme .v-inline-datefield-popup, .v-ie11 .MensaTheme .v-inline-datefield-popup {
+	box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.5);
+}
+
+.MensaTheme .v-inline-datefield-popupcalendar input.v-inline-datefield-textfield {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.MensaTheme .v-ddwrapper {
+	padding: 2px;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	border-radius: 4px;
+	position: relative;
+	-ms-touch-action: none;
+	touch-action: none;
+}
+
+.MensaTheme [draggable=true] {
+	-khtml-user-drag: element;
+	-webkit-user-drag: element;
+	-khtml-user-select: none;
+	-webkit-user-select: none;
+}
+
+.v-ie .MensaTheme .v-ddwrapper a.drag-start {
+	display: block;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	width: 100%;
+	height: 100%;
+	opacity: 0;
+	background-color: cyan;
+	filter: alpha(opacity=0);
+}
+
+.MensaTheme .v-ddwrapper-over {
+	border: 2px solid #1d9dff;
+	background-color: #bcdcff;
+	padding: 0;
+}
+
+.MensaTheme .v-ddwrapper-over {
+	background-color: rgba(169, 209, 255, 0.6);
+}
+
+.MensaTheme .no-box-drag-hints .v-ddwrapper-over {
+	border: none;
+	background-color: transparent;
+	padding: 2px;
+}
+
+.MensaTheme.v-app .v-ddwrapper-over-top, .MensaTheme .v-window .v-ddwrapper-over-top, .MensaTheme .v-popupview-popup .v-ddwrapper-over-top {
+	border: none;
+	border-top: 2px solid #1d9dff;
+	background-color: transparent;
+	padding: 2px;
+	padding-top: 0;
+	-moz-border-radius: 0;
+	-webkit-border-radius: 0;
+	border-radius: 0;
+}
+
+.MensaTheme.v-app .v-ddwrapper-over-bottom, .MensaTheme .v-window .v-ddwrapper-over-bottom, .MensaTheme .v-popupview-popup .v-ddwrapper-over-bottom {
+	border: none;
+	border-bottom: 2px solid #1d9dff;
+	background-color: transparent;
+	padding: 2px;
+	padding-bottom: 0;
+	-moz-border-radius: 0;
+	-webkit-border-radius: 0;
+	border-radius: 0;
+}
+
+.MensaTheme.v-app .v-ddwrapper-over-left, .MensaTheme .v-window .v-ddwrapper-over-left, .MensaTheme .v-popupview-popup .v-ddwrapper-over-left {
+	border: none;
+	border-left: 2px solid #1d9dff;
+	background-color: transparent;
+	padding: 2px;
+	padding-left: 0;
+	-moz-border-radius: 0;
+	-webkit-border-radius: 0;
+	border-radius: 0;
+}
+
+.MensaTheme.v-app .v-ddwrapper-over-right, .MensaTheme .v-window .v-ddwrapper-over-right, .MensaTheme .v-popupview-popup .v-ddwrapper-over-right {
+	border: none;
+	border-right: 2px solid #1d9dff;
+	background-color: transparent;
+	padding: 2px;
+	padding-right: 0;
+	-moz-border-radius: 0;
+	-webkit-border-radius: 0;
+	border-radius: 0;
+}
+
+.MensaTheme .v-ddwrapper, .MensaTheme .v-ddwrapper-over, .MensaTheme.v-app .v-ddwrapper-over-top, .MensaTheme .v-window .v-ddwrapper-over-top, .MensaTheme .v-popupview-popup .v-ddwrapper-over-top, .MensaTheme.v-app .v-ddwrapper-over-bottom, .MensaTheme .v-window .v-ddwrapper-over-bottom, .MensaTheme .v-popupview-popup .v-ddwrapper-over-bottom, .MensaTheme.v-app .v-ddwrapper-over-left, .MensaTheme .v-window .v-ddwrapper-over-left, .MensaTheme .v-popupview-popup .v-ddwrapper-over-left, .MensaTheme.v-app .v-ddwrapper-over-right, .MensaTheme .v-window .v-ddwrapper-over-right, .MensaTheme .v-popupview-popup .v-ddwrapper-over-right {
+	border-color: rgba(0, 109, 232, 0.6);
+}
+
+.MensaTheme .v-ddwrapper-over-top:before, .MensaTheme .v-ddwrapper-over-bottom:after, .MensaTheme .v-ddwrapper-over-left:before, .MensaTheme .v-ddwrapper-over-right:before {
+	display: block;
+	position: absolute;
+	width: 6px;
+	height: 6px;
+	margin-top: -4px;
+	margin-left: -2px;
+	background: transparent url(../base/common/img/drag-slot-dot.png) no-repeat;
+}
+
+.MensaTheme .v-ddwrapper-over-bottom:after {
+	margin-top: -2px;
+}
+
+.MensaTheme .v-ddwrapper-over-left:before, .MensaTheme .v-ddwrapper-over-right:before {
+	background-position: 0 -6px;
+	margin-top: -2px;
+	margin-left: -4px;
+}
+
+.MensaTheme .v-ddwrapper-over-right:before {
+	position: relative;
+	margin-bottom: -4px;
+	margin-right: -4px;
+	margin-left: 0;
+	width: auto;
+	background-position: 100% -6px;
+}
+
+.MensaTheme .no-horizontal-drag-hints .v-ddwrapper-over-left {
+	padding-left: 2px;
+	border-left: none;
+}
+
+.MensaTheme .no-horizontal-drag-hints .v-ddwrapper-over-right {
+	padding-right: 2px;
+	border-right: none;
+}
+
+.MensaTheme .no-vertical-drag-hints .v-ddwrapper-over-top {
+	padding-top: 2px;
+	border-top: none;
+}
+
+.MensaTheme .no-vertical-drag-hints .v-ddwrapper-over-bottom {
+	padding-bottom: 2px;
+	border-bottom: none;
+}
+
+.MensaTheme .no-horizontal-drag-hints .v-ddwrapper-over-left:before, .MensaTheme .no-horizontal-drag-hints .v-ddwrapper-over-right:before, .MensaTheme .no-vertical-drag-hints .v-ddwrapper-over-top:before, .MensaTheme .no-vertical-drag-hints .v-ddwrapper-over-bottom:after {
+	display: none;
+}
+
+.MensaTheme .v-table .v-embedded-image {
+	display: inline-block;
+}
+
+.MensaTheme .v-formlayout.v-has-width > table {
+	width: 100%;
+}
+
+.MensaTheme .v-formlayout.v-has-height > table {
+	height: 100%;
+}
+
+.MensaTheme .v-formlayout-cell .v-errorindicator {
+	display: block;
+}
+
+.MensaTheme .v-formlayout-error-indicator {
+	width: 12px;
+}
+
+.MensaTheme .v-formlayout-captioncell {
+	text-align: right;
+	white-space: nowrap;
+}
+
+.MensaTheme .v-formlayout-errorcell, .MensaTheme .v-formlayout-captioncell {
+	width: 1px;
+}
+
+.MensaTheme .v-formlayout-captioncell .v-caption {
+	overflow: visible;
+}
+
+.MensaTheme .v-formlayout-spacing > tbody > .v-formlayout-row > .v-formlayout-captioncell, .MensaTheme .v-formlayout-spacing > tbody > .v-formlayout-row > .v-formlayout-contentcell, .MensaTheme .v-formlayout-spacing > tbody > .v-formlayout-row > .v-formlayout-errorcell {
+	padding-top: 6px;
+}
+
+.MensaTheme .v-formlayout-spacing > tbody > .v-formlayout-firstrow > .v-formlayout-captioncell, .MensaTheme .v-formlayout-spacing > tbody > .v-formlayout-firstrow > .v-formlayout-contentcell, .MensaTheme .v-formlayout-spacing > tbody > .v-formlayout-firstrow > .v-formlayout-errorcell {
+	padding-top: 0;
+}
+
+.MensaTheme .v-formlayout-margin-top > tbody > .v-formlayout-firstrow > .v-formlayout-captioncell, .MensaTheme .v-formlayout-margin-top > tbody > .v-formlayout-firstrow > .v-formlayout-contentcell, .MensaTheme .v-formlayout-margin-top > tbody > .v-formlayout-firstrow > .v-formlayout-errorcell {
+	padding-top: 12px;
+}
+
+.MensaTheme .v-formlayout-margin-bottom > tbody > .v-formlayout-lastrow > .v-formlayout-captioncell, .MensaTheme .v-formlayout-margin-bottom > tbody > .v-formlayout-lastrow > .v-formlayout-contentcell, .MensaTheme .v-formlayout-margin-bottom > tbody > .v-formlayout-lastrow > .v-formlayout-errorcell {
+	padding-bottom: 12px;
+}
+
+.MensaTheme .v-formlayout-margin-left > tbody > .v-formlayout-row > .v-formlayout-captioncell {
+	padding-left: 12px;
+}
+
+.MensaTheme .v-formlayout-margin-right > tbody > .v-formlayout-row > .v-formlayout-contentcell {
+	padding-right: 12px;
+}
+
+.MensaTheme .v-formlayout-captioncell .v-caption .v-required-field-indicator {
+	float: none;
+}
+
+.MensaTheme .v-gridlayout {
+	position: relative;
+}
+
+.MensaTheme .v-gridlayout-slot {
+	position: absolute;
+}
+
+.MensaTheme .v-gridlayout-margin-top {
+	padding-top: 12px;
+}
+
+.MensaTheme .v-gridlayout-margin-bottom {
+	padding-bottom: 12px;
+}
+
+.MensaTheme .v-gridlayout-margin-left {
+	padding-left: 12px;
+}
+
+.MensaTheme .v-gridlayout-margin-right {
+	padding-right: 12px;
+}
+
+.MensaTheme .v-gridlayout-spacing-on {
+	padding-left: 6px;
+	padding-top: 6px;
+	overflow: hidden;
+}
+
+.MensaTheme .v-gridlayout-spacing, .MensaTheme .v-gridlayout-spacing-off {
+	padding-left: 0;
+	padding-top: 0;
+}
+
+.MensaTheme .v-gridlayout-spacing-off {
+	overflow: hidden;
+}
+
+.MensaTheme .v-label {
+	overflow: hidden;
+}
+
+.MensaTheme .v-label.v-has-width {
+	white-space: normal;
+}
+
+.MensaTheme .v-link {
+	white-space: nowrap;
+}
+
+.MensaTheme .v-link a {
+	vertical-align: middle;
+	text-decoration: none;
+}
+
+.MensaTheme .v-link span {
+	text-decoration: underline;
+	vertical-align: middle;
+}
+
+.MensaTheme .v-disabled a {
+	cursor: default;
+}
+
+.MensaTheme .v-link img {
+	vertical-align: middle;
+	border: none;
+}
+
+.MensaTheme .v-loginform {
+	height: 140px;
+	width: 200px;
+}
+
+.MensaTheme .v-app-loginpage .v-button {
+	float: left;
+}
+
+.MensaTheme .v-menubar {
+	display: inline-block;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+.MensaTheme .v-menubar .v-menubar-menuitem {
+	cursor: default;
+	vertical-align: middle;
+	white-space: nowrap;
+	display: inline;
+	display: inline-block;
+	zoom: 1;
+}
+
+.MensaTheme .v-menubar .v-menubar-menuitem-caption .v-icon {
+	vertical-align: middle;
+	white-space: nowrap;
+}
+
+.MensaTheme .v-menubar-submenu {
+	background: #fff;
+}
+
+.MensaTheme .v-menubar-menuitem-selected {
+	background: #333;
+	color: #fff;
+}
+
+.MensaTheme .v-menubar-submenu .v-menubar-menuitem {
+	cursor: default;
+	display: block;
+	position: relative;
+	padding-right: 1.5em;
+}
+
+.MensaTheme .v-menubar-submenu .v-menubar-menuitem-caption {
+	display: block;
+}
+
+.MensaTheme .v-menubar-submenu .v-menubar-menuitem *, .MensaTheme .v-menubar-submenu .v-menubar-menuitem-caption * {
+	white-space: nowrap;
+}
+
+.MensaTheme .v-menubar-submenu-indicator {
+	display: none;
+	font-family: arial, helvetica, sans-serif;
+}
+
+.MensaTheme .v-menubar-submenu .v-menubar-submenu-indicator {
+	display: block;
+	position: absolute;
+	right: 0;
+	width: 1em;
+	height: 1em;
+	font-size: 11.7px;
+}
+
+.MensaTheme .v-menubar-menuitem-disabled, .MensaTheme .v-menubar span.v-menubar-menuitem-disabled:hover, .MensaTheme .v-menubar span.v-menubar-menuitem-disabled:focus, .MensaTheme .v-menubar span.v-menubar-menuitem-disabled:active {
+	color: #999;
+}
+
+.MensaTheme .v-menubar-more-menuitem {
+	font-family: arial, helvetica, sans-serif;
+}
+
+.MensaTheme .v-menubar-separator {
+	overflow: hidden;
+}
+
+.MensaTheme .v-menubar-separator span {
+	display: block;
+	text-indent: -9999px;
+	font-size: 1px;
+	line-height: 1px;
+	border-top: 1px solid #ddd;
+	margin: 3px 0 2px;
+	overflow: hidden;
+}
+
+.MensaTheme .v-menubar .v-icon, .MensaTheme .v-menubar-submenu .v-icon {
+	margin-right: 3px;
+}
+
+.MensaTheme .v-menubar:focus, .MensaTheme .v-menubar-popup:focus, .MensaTheme .v-menubar-popup .popupContent:focus, .MensaTheme .v-menubar-popup .popupContent .v-menubar-submenu:focus {
+	outline: none;
+}
+
+.MensaTheme .v-menubar-submenu-check-column .v-menubar-menuitem {
+	padding-left: 6px;
+}
+
+.MensaTheme .v-menubar-submenu-check-column .v-menubar-menuitem-caption {
+	padding-left: 18px;
+}
+
+.MensaTheme .v-menubar-submenu .v-menubar-menuitem-checked .v-menubar-menuitem-caption {
+	background: transparent url(../base/menubar/img/check.gif) no-repeat left;
+}
+
+.MensaTheme .v-Notification {
+	background: #999;
+	color: #fff;
+	cursor: pointer;
+	overflow: hidden;
+	padding: 1em;
+	max-width: 85%;
+	opacity: 0.9;
+	filter: alpha(opacity=90);
+}
+
+.MensaTheme .v-Notification h1, .MensaTheme .v-Notification p, .MensaTheme .v-Notification-error h1, .MensaTheme .v-Notification-error p, .MensaTheme .v-Notification-warning h1, .MensaTheme .v-Notification-warning p {
+	display: inline;
+	margin: 0 0.5em 0 0;
+}
+
+.MensaTheme .v-Notification-warning {
+	background: orange;
+}
+
+.MensaTheme .v-Notification-error {
+	background: red;
+}
+
+.MensaTheme .v-Notification-tray h1 {
+	display: block;
+}
+
+.MensaTheme .v-Notification-tray p {
+	display: block;
+}
+
+.MensaTheme .v-Notification-system {
+	background-color: red;
+}
+
+.MensaTheme .v-Notification-system h1 {
+	display: block;
+	margin: 0;
+}
+
+.MensaTheme .v-Notification-animate-out {
+	-webkit-animation: v-notification-animate-out 400ms;
+	-moz-animation: v-notification-animate-out 400ms;
+	animation: v-notification-animate-out 400ms;
+}
+
+.MensaTheme .v-Notification.v-position-top {
+	top: 0;
+}
+
+.MensaTheme .v-Notification.v-position-right {
+	right: 0;
+}
+
+.MensaTheme .v-Notification.v-position-bottom {
+	bottom: 0;
+}
+
+.MensaTheme .v-Notification.v-position-left {
+	left: 0;
+}
+
+.MensaTheme .v-Notification.v-position-assistive {
+	top: -9999px;
+	left: -9999px;
+}
+
+.MensaTheme .v-orderedlayout, .MensaTheme .v-horizontallayout, .MensaTheme .v-verticallayout {
+	position: relative;
+}
+
+.MensaTheme .v-orderedlayout-margin-top, .MensaTheme .v-horizontallayout-margin-top, .MensaTheme .v-verticallayout-margin-top {
+	padding-top: 12px;
+}
+
+.MensaTheme .v-orderedlayout-margin-right, .MensaTheme .v-horizontallayout-margin-right, .MensaTheme .v-verticallayout-margin-right {
+	padding-right: 12px;
+}
+
+.MensaTheme .v-orderedlayout-margin-bottom, .MensaTheme .v-horizontallayout-margin-bottom, .MensaTheme .v-verticallayout-margin-bottom {
+	padding-bottom: 12px;
+}
+
+.MensaTheme .v-orderedlayout-margin-left, .MensaTheme .v-horizontallayout-margin-left, .MensaTheme .v-verticallayout-margin-left {
+	padding-left: 12px;
+}
+
+.MensaTheme .v-orderedlayout-spacing-on, .MensaTheme .v-horizontallayout-spacing-on, .MensaTheme .v-verticallayout-spacing-on {
+	padding-top: 6px;
+	padding-left: 6px;
+}
+
+.MensaTheme .v-orderedlayout-spacing-off, .MensaTheme .v-horizontallayout-spacing-off, .MensaTheme .v-verticallayout-spacing-off {
+	padding-top: 0;
+	padding-left: 0;
+}
+
+.MensaTheme .v-horizontallayout-slot, .MensaTheme .v-verticallayout-slot {
+	position: absolute;
+}
+
+.MensaTheme .v-panel, .MensaTheme .v-panel-caption, .MensaTheme .v-panel-content, .MensaTheme .v-panel-deco, .MensaTheme .v-panel-light, .MensaTheme .v-panel-caption-light, .MensaTheme .v-panel-content-light, .MensaTheme .v-panel-deco-light {
+	outline: none;
+	text-align: left;
+}
+
+.MensaTheme .v-panel-caption .v-errorindicator {
+	float: none;
+	display: inline;
+}
+
+.MensaTheme .v-panel-caption .v-icon {
+	display: inline;
+	vertical-align: middle;
+}
+
+.MensaTheme .v-panel-caption span {
+	vertical-align: middle;
+}
+
+.MensaTheme .v-panel-caption {
+	white-space: nowrap;
+	overflow: hidden;
+	font-weight: bold;
+}
+
+.MensaTheme .v-panel-nocaption {
+	overflow: hidden;
+}
+
+.MensaTheme .v-panel-content {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.MensaTheme .v-panel.v-has-width > .v-panel-content {
+	width: 100%;
+}
+
+.MensaTheme .v-panel.v-has-height > .v-panel-content {
+	height: 100%;
+}
+
+.MensaTheme .v-popupview {
+	cursor: pointer;
+	text-decoration: underline;
+	white-space: nowrap;
+}
+
+.MensaTheme .v-popupview-popup {
+	overflow: auto;
+}
+
+.MensaTheme .v-popupview-loading {
+	width: 30px;
+	height: 30px;
+	background: transparent url(../base/common/img/ajax-loader-medium.gif) no-repeat 50%;
+}
+
+.MensaTheme .v-progressbar {
+	width: 150px;
+}
+
+.MensaTheme .v-progressbar-wrapper {
+	height: 7px;
+	border: 1px solid #ddd;
+}
+
+.MensaTheme .v-progressbar-indicator {
+	height: 7px;
+	background: #ddd;
+}
+
+.MensaTheme div.v-progressbar-indeterminate {
+	height: 20px;
+	width: 20px;
+	background: #fff url(../base/common/img/ajax-loader-medium.gif) no-repeat 50%;
+	border-radius: 4px;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+}
+
+.MensaTheme .v-progressbar-indeterminate .v-progressbar-wrapper, .MensaTheme .v-progressbar-indeterminate .v-progressbar-indicator, .MensaTheme .v-progressbar-indeterminate-disabled .v-progressbar-wrapper, .MensaTheme .v-progressbar-indeterminate-disabled .v-progressbar-indicator {
+	display: none;
+}
+
+.MensaTheme div.v-progressbar-indeterminate-disabled {
+	height: 20px;
+	width: 20px;
+	background: transparent;
+}
+
+.MensaTheme .v-progressindicator {
+	width: 150px;
+}
+
+.MensaTheme .v-progressindicator-wrapper {
+	height: 7px;
+	border: 1px solid #ddd;
+}
+
+.MensaTheme .v-progressindicator-indicator {
+	height: 7px;
+	background: #ddd;
+}
+
+.MensaTheme div.v-progressindicator-indeterminate {
+	height: 20px;
+	width: 20px;
+	background: #fff url(../base/common/img/ajax-loader-medium.gif) no-repeat 50%;
+	border-radius: 4px;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+}
+
+.MensaTheme .v-progressindicator-indeterminate .v-progressindicator-wrapper, .MensaTheme .v-progressindicator-indeterminate .v-progressindicator-indicator, .MensaTheme .v-progressindicator-indeterminate-disabled .v-progressindicator-wrapper, .MensaTheme .v-progressindicator-indeterminate-disabled .v-progressindicator-indicator {
+	display: none;
+}
+
+.MensaTheme div.v-progressindicator-indeterminate-disabled {
+	height: 20px;
+	width: 20px;
+	background: transparent;
+}
+
+.MensaTheme .v-select {
+	text-align: left;
+}
+
+.MensaTheme .v-select-optiongroup .v-select-option {
+	display: block;
+	white-space: nowrap;
+}
+
+.MensaTheme .v-select-optiongroup .v-icon {
+	vertical-align: middle;
+	white-space: nowrap;
+	margin: 0 2px;
+}
+
+.v-ie .MensaTheme .v-select-optiongroup .v-select-option {
+	zoom: 1;
+}
+
+.MensaTheme .v-select-select {
+	display: block;
+}
+
+.MensaTheme .v-select-twincol {
+	white-space: nowrap;
+}
+
+.MensaTheme .v-select-twincol-options {
+	float: left;
+}
+
+.MensaTheme .v-select-twincol-caption-left {
+	float: left;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.MensaTheme .v-select-twincol-selections {
+	font-weight: bold;
+}
+
+.MensaTheme .v-select-twincol-caption-right {
+	float: right;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.MensaTheme .v-select-twincol-buttons {
+	float: left;
+	text-align: center;
+}
+
+.MensaTheme .v-select-twincol-buttons .v-select-twincol-deco {
+	clear: both;
+}
+
+.MensaTheme .v-select-twincol .v-textfield {
+	display: block;
+	float: left;
+	clear: left;
+}
+
+.MensaTheme .v-select-twincol .v-button {
+	float: left;
+}
+
+.MensaTheme .v-select-twincol-buttons .v-button {
+	float: none;
+}
+
+.MensaTheme .v-filterselect {
+	white-space: nowrap;
+	text-align: left;
+	display: inline-block;
+	padding-right: 1em;
+}
+
+.MensaTheme .v-filterselect .v-icon {
+	float: left;
+}
+
+.MensaTheme.v-app .v-filterselect-input, .MensaTheme .v-window .v-filterselect-input, .MensaTheme .v-popupview-popup .v-filterselect-input {
+	margin: 0;
+	float: left;
+	-webkit-border-radius: 0px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.MensaTheme .v-filterselect-prompt .v-filterselect-input {
+	color: #999;
+	font-style: italic;
+}
+
+.MensaTheme .v-filterselect-button {
+	display: inline-block;
+	cursor: pointer;
+	width: 1em;
+	margin-right: -1em;
+	height: 1em;
+	background: transparent url(../base/common/img/sprites.png) no-repeat -5px -8px;
+}
+
+.MensaTheme .v-filterselect.v-readonly .v-filterselect-button {
+	display: none;
+}
+
+.MensaTheme .v-filterselect.v-readonly, .MensaTheme .v-filterselect.v-readonly .v-filterselect-input {
+	background: transparent;
+}
+
+.MensaTheme .v-filterselect-suggestpopup {
+	background: #fff;
+	border: 1px solid #eee;
+}
+
+.MensaTheme .v-filterselect-suggestmenu table {
+	border-collapse: collapse;
+	border: none;
+	vertical-align: top;
+}
+
+.MensaTheme .v-filterselect-suggestmenu .gwt-MenuItem {
+	white-space: nowrap;
+}
+
+.MensaTheme .v-filterselect-suggestmenu .gwt-MenuItem .v-icon {
+	margin-right: 3px;
+	vertical-align: middle;
+}
+
+.MensaTheme .v-filterselect-suggestmenu .gwt-MenuItem span {
+	vertical-align: middle;
+}
+
+.MensaTheme .v-filterselect-suggestmenu .gwt-MenuItem-selected {
+	background: #333;
+	color: #fff;
+}
+
+.MensaTheme .v-filterselect-nextpage, .MensaTheme .v-filterselect-nextpage-off, .MensaTheme .v-filterselect-prevpage-off, .MensaTheme .v-filterselect-prevpage {
+	width: 100%;
+	background: #aaa;
+	text-align: center;
+	overflow: hidden;
+	cursor: pointer;
+}
+
+.MensaTheme .v-filterselect-nextpage-off, .MensaTheme .v-filterselect-prevpage-off {
+	color: #666;
+	opacity: 0.5;
+	filter: alpha(opacity=50);
+	cursor: default;
+}
+
+.MensaTheme .v-filterselect-nextpage-off span, .MensaTheme .v-filterselect-prevpage-off span {
+	cursor: default;
+}
+
+.MensaTheme .v-filterselect-status {
+	white-space: nowrap;
+	text-align: center;
+}
+
+.MensaTheme .v-filterselect-no-input .v-filterselect-input {
+	cursor: default;
+}
+
+.MensaTheme .v-shadow {
+	position: absolute;
+	display: none;
+	pointer-events: none;
+}
+
+.v-ie8 .MensaTheme .v-shadow {
+	display: block;
+}
+
+.MensaTheme .v-shadow .top-left {
+	position: absolute;
+	overflow: hidden;
+	top: -3px;
+	left: -5px;
+	width: 10px;
+	height: 10px;
+	background: transparent url(../base/shadow/img/top-left.png);
+}
+
+.MensaTheme .v-shadow .top {
+	position: absolute;
+	overflow: hidden;
+	top: -3px;
+	left: 5px;
+	height: 10px;
+	right: 5px;
+	background: transparent url(../base/shadow/img/top.png);
+}
+
+.MensaTheme .v-shadow .top-right {
+	position: absolute;
+	overflow: hidden;
+	top: -3px;
+	right: -5px;
+	width: 10px;
+	height: 10px;
+	background: transparent url(../base/shadow/img/top-right.png);
+}
+
+.MensaTheme .v-shadow .left {
+	position: absolute;
+	overflow: hidden;
+	top: 7px;
+	left: -5px;
+	width: 10px;
+	bottom: 3px;
+	background: transparent url(../base/shadow/img/left.png);
+}
+
+.MensaTheme .v-shadow .center {
+	position: absolute;
+	overflow: hidden;
+	top: 7px;
+	left: 5px;
+	bottom: 3px;
+	right: 5px;
+	background: transparent url(../base/shadow/img/center.png);
+}
+
+.MensaTheme .v-shadow .right {
+	position: absolute;
+	overflow: hidden;
+	top: 7px;
+	right: -5px;
+	width: 10px;
+	bottom: 3px;
+	background: transparent url(../base/shadow/img/right.png);
+}
+
+.MensaTheme .v-shadow .bottom-left {
+	position: absolute;
+	overflow: hidden;
+	bottom: -7px;
+	left: -5px;
+	width: 10px;
+	height: 10px;
+	background: transparent url(../base/shadow/img/bottom-left.png);
+}
+
+.MensaTheme .v-shadow .bottom {
+	position: absolute;
+	overflow: hidden;
+	bottom: -7px;
+	left: 5px;
+	right: 5px;
+	height: 10px;
+	background: transparent url(../base/shadow/img/bottom.png);
+}
+
+.MensaTheme .v-shadow .bottom-right {
+	position: absolute;
+	overflow: hidden;
+	bottom: -7px;
+	right: -5px;
+	width: 10px;
+	height: 10px;
+	background: transparent url(../base/shadow/img/bottom-right.png);
+}
+
+.MensaTheme .v-slider {
+	margin: 5px 0;
+}
+
+.MensaTheme .v-slider-base {
+	height: 2px;
+	border-top: 1px solid #ddd;
+	background: #eee;
+	border-left: 1px solid #ddd;
+	border-right: 1px solid #eee;
+}
+
+.MensaTheme .v-slider-handle {
+	background: #aaa;
+	width: 12px;
+	height: 12px;
+	margin-top: -5px;
+	font-size: 0;
+	-ms-touch-action: none;
+	touch-action: none;
+}
+
+.MensaTheme .v-slider-vertical {
+	width: 2px;
+	height: auto;
+	margin: 0 5px;
+	border: none;
+	border-left: 1px solid #cccfd0;
+	border-right: 1px solid #cccfd0;
+}
+
+.MensaTheme .v-slider-vertical .v-slider-base {
+	width: 2px;
+	border-bottom: 1px solid #eee;
+	border-right: none;
+}
+
+.MensaTheme .v-slider-vertical .v-slider-handle {
+	width: 12px;
+	height: 12px;
+	font-size: 0;
+	margin-left: -5px;
+}
+
+.MensaTheme .v-slider-feedback {
+	padding: 2px 5px;
+	background: #444;
+	color: #fff;
+	font-size: 11px;
+	line-height: 13px;
+	font-weight: bold;
+	font-family: Arial, Helvetica, sans-serif;
+	border-radius: 4px;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	margin: -2px 0 0 2px;
+	text-shadow: 0 1px 0 #000;
+}
+
+.MensaTheme .v-splitpanel-horizontal, .MensaTheme .v-splitpanel-vertical {
+	overflow: hidden;
+}
+
+.MensaTheme .v-splitpanel-hsplitter {
+	width: 6px;
+}
+
+.MensaTheme .v-splitpanel-hsplitter div {
+	width: 6px;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	background: #ddd;
+	cursor: e-resize;
+	cursor: col-resize;
+	-ms-touch-action: none;
+	touch-action: none;
+}
+
+.MensaTheme .v-disabled .v-splitpanel-hsplitter div {
+	cursor: default;
+}
+
+.MensaTheme .v-splitpanel-vsplitter {
+	height: 6px;
+}
+
+.MensaTheme .v-splitpanel-vsplitter div {
+	height: 6px;
+	background: #ddd;
+	cursor: s-resize;
+	cursor: row-resize;
+	-ms-touch-action: none;
+	touch-action: none;
+}
+
+.MensaTheme .v-disabled .v-splitpanel-vsplitter div {
+	cursor: default;
+}
+
+.MensaTheme .v-table {
+	overflow: hidden;
+	text-align: left;
+}
+
+.MensaTheme .v-table-header-wrap {
+	overflow: hidden;
+	border: 1px solid #aaa;
+	border-bottom: none;
+	background: #efefef;
+}
+
+.MensaTheme .v-table-header table, .MensaTheme .v-table-table {
+	border-spacing: 0;
+	border-collapse: separate;
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+.MensaTheme .v-table-table {
+	font-size: 11px;
+}
+
+.MensaTheme .v-table-header td {
+	padding: 0;
+}
+
+.MensaTheme .v-table-header-cell, .MensaTheme .v-table-header-cell-asc, .MensaTheme .v-table-header-cell-desc {
+	cursor: pointer;
+}
+
+.MensaTheme .v-table.v-disabled .v-table-header-cell, .MensaTheme .v-table.v-disabled .v-table-header-cell-asc, .MensaTheme .v-table.v-disabled .v-table-header-cell-desc {
+	cursor: default;
+}
+
+.MensaTheme .v-table-footer-wrap {
+	overflow: hidden;
+	border: 1px solid #aaa;
+	border-top: none;
+	background: #efefef;
+}
+
+.MensaTheme .v-table-footer table {
+	border-spacing: 0;
+	border-collapse: collapse;
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+.MensaTheme .v-table-footer td {
+	padding: 0;
+	border-right: 1px solid #aaa;
+}
+
+.MensaTheme .v-table-footer-cell {
+	cursor: pointer;
+}
+
+.MensaTheme .v-table-footer-container {
+	float: right;
+	padding-right: 6px;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+.MensaTheme .v-table-resizer {
+	display: block;
+	height: 1.2em;
+	float: right;
+	background: #aaa;
+	cursor: e-resize;
+	cursor: col-resize;
+	width: 1px;
+	overflow: hidden;
+}
+
+.MensaTheme .v-table.v-disabled .v-table-resizer {
+	cursor: default;
+}
+
+.MensaTheme .v-table-caption-container {
+	overflow: hidden;
+	white-space: nowrap;
+	margin-left: 6px;
+}
+
+.MensaTheme .v-table-caption-container-align-right {
+	float: right;
+}
+
+.MensaTheme .v-table-sort-indicator {
+	width: 0px;
+	height: 1.2em;
+	float: right;
+}
+
+.MensaTheme .v-table-header-cell-asc .v-table-sort-indicator, .MensaTheme .v-table-header-cell-desc .v-table-sort-indicator {
+	width: 16px;
+	height: 1.2em;
+	float: right;
+}
+
+.MensaTheme .v-table-header-cell-asc .v-table-sort-indicator {
+	background: transparent url(../base/common/img/sprites.png) no-repeat right 6px;
+}
+
+.MensaTheme .v-table-header-cell-desc .v-table-sort-indicator {
+	background: transparent url(../base/common/img/sprites.png) no-repeat right -10px;
+}
+
+.MensaTheme .v-table-caption-container-align-center {
+	text-align: center;
+}
+
+.MensaTheme .v-table-caption-container-align-right {
+	text-align: right;
+}
+
+.MensaTheme .v-table-caption-container .v-icon, .MensaTheme .v-table-header-drag .v-icon {
+	vertical-align: middle;
+}
+
+.MensaTheme .v-table-body {
+	border: 1px solid #aaa;
+}
+
+.MensaTheme .v-table-row-spacer {
+	height: 10px;
+	overflow: hidden;
+}
+
+.MensaTheme .v-table-row, .MensaTheme .v-table-row-odd {
+	background: #fff;
+	border: 0;
+	margin: 0;
+	padding: 0;
+	cursor: pointer;
+}
+
+.MensaTheme .v-table-generated-row {
+	background: #efefef;
+}
+
+.MensaTheme .v-table-body-noselection .v-table-row, .MensaTheme .v-table-body-noselection .v-table-row-odd {
+	cursor: default;
+}
+
+.MensaTheme .v-table .v-selected {
+	background: #999;
+	color: #fff;
+}
+
+.MensaTheme .v-table-cell-content {
+	white-space: nowrap;
+	overflow: hidden;
+	padding: 0 6px;
+	border-right: 1px solid #aaa;
+}
+
+.MensaTheme .v-table-cell-wrapper {
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+.MensaTheme .v-table-cell-wrapper-align-center {
+	text-align: center;
+}
+
+.MensaTheme .v-table-cell-wrapper-align-right {
+	text-align: right;
+}
+
+.MensaTheme .v-table-column-selector {
+	float: right;
+	background: transparent url(../base/common/img/sprites.png) no-repeat 4px -37px;
+	margin: -1.2em 0 0 0;
+	height: 1.2em;
+	width: 14px;
+	position: relative;
+	cursor: pointer;
+}
+
+.MensaTheme .v-table.v-disabled .v-table-column-selector {
+	cursor: default;
+}
+
+.MensaTheme .v-table-focus-slot-left {
+	border-left: 2px solid #999;
+	float: none;
+	margin-bottom: -1.2em;
+	width: auto;
+	background: transparent;
+	border-right: 1px solid #aaa;
+}
+
+.MensaTheme .v-table-focus-slot-right {
+	border-right: 2px solid #999;
+	margin-left: -2px;
+}
+
+.MensaTheme .v-table-header-drag {
+	position: absolute;
+	background: #efefef;
+	border: 1px solid #eee;
+	opacity: 0.9;
+	filter: alpha(opacity=90);
+	margin-top: 20px;
+	z-index: 30000;
+}
+
+.MensaTheme .v-table-header-drag .v-icon {
+	vertical-align: middle;
+}
+
+.MensaTheme .v-table-scrollposition {
+	width: 160px;
+	background: #eee;
+	border: 1px solid #aaa;
+}
+
+.MensaTheme .v-table-scrollposition span {
+	display: block;
+	text-align: center;
+}
+
+.MensaTheme .v-table-body:focus, .MensaTheme .v-table-body-wrapper:focus {
+	outline: none;
+}
+
+.MensaTheme .v-table-body.focused {
+	border-color: #388ddd;
+}
+
+.MensaTheme .v-table-focus .v-table-cell-content {
+	border-top: 1px dotted #0066bd;
+	border-bottom: 1px dotted #0066bd;
+}
+
+.MensaTheme .v-table-focus .v-table-cell-wrapper {
+	margin-top: -1px;
+	margin-bottom: -1px;
+}
+
+.MensaTheme .v-off {
+	color: #ddd;
+}
+
+.MensaTheme .v-table-drag .v-table-body {
+	border-color: #1d9dff;
+}
+
+.MensaTheme .v-table-row-drag-middle .v-table-cell-content {
+	background-color: #bcdcff;
+}
+
+.MensaTheme .v-table-row-drag-top .v-table-cell-content {
+	border-top: 2px solid #1d9dff;
+}
+
+.MensaTheme .v-table-row-drag-top .v-table-cell-wrapper {
+	margin-top: -2px;
+}
+
+.MensaTheme .v-table-row-drag-bottom .v-table-cell-content {
+	border-bottom: 2px solid #1d9dff;
+}
+
+.MensaTheme .v-table-row-drag-bottom .v-table-cell-wrapper {
+	margin-bottom: -2px;
+}
+
+.MensaTheme .v-table-row-drag-top .v-table-cell-content:first-child:before, .MensaTheme .v-table-row-drag-bottom .v-table-cell-content:first-child:after {
+	display: block;
+	position: absolute;
+	width: 6px;
+	height: 6px;
+	margin-top: -4px;
+	margin-left: -6px;
+	background: transparent url(../base/common/img/drag-slot-dot.png);
+}
+
+.v-ff .MensaTheme .v-table-row-drag-bottom .v-table-cell-content:first-child:after, .v-ie .MensaTheme .v-table-row-drag-bottom .v-table-cell-content:first-child:after {
+	margin-top: -2px;
+}
+
+.MensaTheme .v-tabsheet, .MensaTheme .v-tabsheet-content, .MensaTheme .v-tabsheet-deco {
+	outline: none;
+	text-align: left;
+}
+
+.MensaTheme .v-tabsheet-tabs {
+	empty-cells: hide;
+	border-collapse: collapse;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	width: 100%;
+	overflow: hidden;
+}
+
+.MensaTheme .v-tabsheet-tabitemcell:focus {
+	outline: none;
+}
+
+.MensaTheme .v-tabsheet-tabitemcell, .MensaTheme .v-tabsheet-spacertd {
+	margin: 0;
+	padding: 0;
+	vertical-align: bottom;
+}
+
+.MensaTheme .v-tabsheet-spacertd {
+	width: 100%;
+}
+
+.MensaTheme .v-tabsheet-spacertd div {
+	border-left: 1px solid #aaa;
+	border-bottom: 1px solid #aaa;
+	height: 1em;
+	padding: 0.2em 0;
+}
+
+.MensaTheme .v-tabsheet-hidetabs > .v-tabsheet-tabcontainer {
+	display: none;
+}
+
+.MensaTheme .v-tabsheet-scroller {
+	white-space: nowrap;
+	text-align: right;
+	margin-top: -1em;
+}
+
+.MensaTheme .v-disabled .v-tabsheet-scroller {
+	display: none;
+}
+
+.MensaTheme .v-tabsheet-scrollerPrev, .MensaTheme .v-tabsheet-scrollerNext, .MensaTheme .v-tabsheet-scrollerPrev-disabled, .MensaTheme .v-tabsheet-scrollerNext-disabled {
+	border: 1px solid #aaa;
+	background: #fff;
+	width: 12px;
+	height: 1em;
+	cursor: pointer;
+}
+
+.MensaTheme .v-tabsheet-scrollerPrev-disabled, .MensaTheme .v-tabsheet-scrollerNext-disabled {
+	opacity: 0.5;
+	cursor: default;
+}
+
+.MensaTheme .v-tabsheet-tabs .v-caption, .MensaTheme .v-tabsheet-tabs .v-caption span {
+	white-space: nowrap;
+}
+
+.MensaTheme .v-tabsheet-caption-close {
+	display: inline;
+	display: inline-block;
+	zoom: 1;
+	width: 16px;
+	height: 16px;
+	text-align: center;
+	font-weight: bold;
+	cursor: pointer;
+	vertical-align: middle;
+	user-select: none;
+	-khtml-user-select: none;
+	-ms-user-select: none;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+}
+
+.MensaTheme .v-tabsheet .v-disabled .v-tabsheet-caption-close {
+	cursor: default;
+	visibility: hidden;
+}
+
+.MensaTheme .v-tabsheet-tabitem:hover .v-tabsheet-caption-close {
+	visibility: visible;
+}
+
+.MensaTheme .v-tabsheet-tabitem {
+	border: 1px solid #aaa;
+	border-right: none;
+	cursor: pointer;
+	padding: 0.2em 0.5em;
+}
+
+.MensaTheme .v-tabsheet-tabitem .v-caption {
+	cursor: inherit;
+}
+
+.MensaTheme .v-tabsheet.v-disabled .v-tabsheet-tabitem, .MensaTheme .v-tabsheet-tabitemcell-disabled .v-tabsheet-tabitem {
+	cursor: default;
+}
+
+.MensaTheme .v-tabsheet-tabitem-selected {
+	cursor: default;
+	border-bottom-color: #fff;
+}
+
+.MensaTheme .v-tabsheet-tabitem-selected .v-caption {
+	cursor: default;
+}
+
+.MensaTheme .v-tabsheet-tabitem-focus .v-captiontext {
+	text-decoration: underline;
+}
+
+.MensaTheme .v-tabsheet-tabitem-selected.v-tabsheet-tabitem-focus .v-captiontext {
+	text-decoration: inherit;
+}
+
+.MensaTheme .v-tabsheet-content {
+	border: 1px solid #aaa;
+	border-top: none;
+	border-bottom: none;
+	position: relative;
+}
+
+.MensaTheme .v-tabsheet-deco {
+	height: 1px;
+	background: #aaa;
+	overflow: hidden;
+}
+
+.MensaTheme .v-tabsheet-hidetabs .v-tabsheet-content {
+	border: none;
+}
+
+.MensaTheme .v-tabsheet-hidetabs .v-tabsheet-deco {
+	height: 0;
+}
+
+.MensaTheme .v-textfield {
+	text-align: left;
+}
+
+.MensaTheme .v-textarea {
+	resize: none;
+	white-space: pre-wrap;
+}
+
+.MensaTheme input.v-textfield-prompt, .MensaTheme textarea.v-textarea-prompt {
+	color: #999;
+	font-style: italic;
+}
+
+.MensaTheme input.v-textfield-readonly, .MensaTheme textarea.v-textarea-readonly {
+	background: transparent;
+	border: none;
+	resize: none;
+}
+
+.MensaTheme input.v-disabled, .MensaTheme textarea.v-disabled {
+	resize: none;
+}
+
+.MensaTheme input.v-textfield-readonly:focus, .MensaTheme textarea.v-textarea-readonly:focus {
+	outline: none;
+}
+
+.v-sa .MensaTheme input:focus, .v-sa .MensaTheme textarea:focus {
+	outline-width: medium;
+}
+
+.MensaTheme .v-richtextarea {
+	border: 1px solid #aaa;
+	overflow: hidden;
+}
+
+.MensaTheme .v-richtextarea .gwt-RichTextArea {
+	background: #fff;
+	border: none;
+}
+
+.MensaTheme .v-richtextarea .gwt-HTML {
+	height: 100%;
+	font-size: 11px;
+}
+
+.MensaTheme .v-richtextarea .gwt-RichTextToolbar {
+	white-space: nowrap;
+	background: #959595 url(../base/textfield/img/richtext-toolbar-bg.png) repeat-x 0 -42px;
+	border-bottom: 1px solid #7d7d7d;
+	padding: 2px;
+	overflow: hidden;
+}
+
+.MensaTheme .v-richtextarea .gwt-RichTextToolbar-top {
+	padding-bottom: 1px;
+	overflow: hidden;
+	white-space: normal;
+}
+
+.MensaTheme .v-richtextarea .gwt-RichTextToolbar-bottom {
+	clear: left;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+.MensaTheme .v-richtextarea .gwt-RichTextToolbar .gwt-ToggleButton, .MensaTheme .v-richtextarea .gwt-RichTextToolbar .gwt-PushButton {
+	float: left;
+	display: inline;
+	width: 22px;
+	height: 21px;
+	overflow: hidden;
+	background: transparent url(../base/textfield/img/richtext-toolbar-bg.png) repeat-x;
+	cursor: pointer;
+	margin-right: 2px;
+	text-align: center;
+}
+
+.MensaTheme .v-richtextarea .gwt-RichTextToolbar .gwt-ToggleButton-down, .MensaTheme .v-richtextarea .gwt-RichTextToolbar .gwt-PushButton-down, .MensaTheme .v-richtextarea .gwt-RichTextToolbar .gwt-ToggleButton-down-hovering, .MensaTheme .v-richtextarea .gwt-RichTextToolbar .gwt-PushButton-down-hovering {
+	background-position: 0 -21px;
+}
+
+.MensaTheme .v-richtextarea .gwt-RichTextToolbar .gwt-ListBox {
+	width: 24.5%;
+	margin-right: 2px;
+}
+
+.MensaTheme .v-richtextarea-readonly {
+	border: none;
+}
+
+.MensaTheme .v-tree {
+	text-align: left;
+	padding: 1px 0;
+	outline: none;
+}
+
+.MensaTheme .v-tree-node {
+	background: transparent url(../base/common/img/sprites.png) no-repeat 5px -37px;
+	padding: 1px 0;
+}
+
+.MensaTheme .v-tree-node-caption:focus {
+	outline: none;
+}
+
+.MensaTheme div.v-tree-node-leaf {
+	background: transparent;
+}
+
+.MensaTheme .v-tree-node-expanded {
+	background: transparent url(../base/common/img/sprites.png) no-repeat -5px -10px;
+}
+
+.MensaTheme .v-tree-node-caption {
+	margin-left: 1em;
+}
+
+.MensaTheme .v-tree-node span {
+	cursor: pointer;
+}
+
+.MensaTheme .v-tree-node-caption div {
+	white-space: nowrap;
+}
+
+.MensaTheme .v-tree-node-caption span, .MensaTheme .v-tree-node-caption .v-icon {
+	vertical-align: middle;
+}
+
+.MensaTheme .v-tree-node-selected span {
+	background: #999;
+	color: #fff;
+}
+
+.MensaTheme .v-tree-node-children {
+	padding-left: 1em;
+}
+
+.MensaTheme .v-tree .v-tree-node-drag-top {
+	border-top: 2px solid #1d9dff;
+	margin-top: -1px;
+	padding-top: 0;
+}
+
+.MensaTheme .v-tree .v-tree-node-drag-bottom {
+	border-bottom: 2px solid #1d9dff;
+	margin-bottom: -1px;
+	padding-bottom: 0;
+}
+
+.MensaTheme .v-tree .v-tree-node-drag-top:before, .MensaTheme .v-tree .v-tree-node-drag-bottom:after, .MensaTheme .v-tree .v-tree-node-caption-drag-center:after {
+	display: block;
+	position: absolute;
+	width: 6px;
+	height: 6px;
+	margin-top: -4px;
+	background: transparent url(../base/common/img/drag-slot-dot.png);
+}
+
+.MensaTheme .v-tree .v-tree-node-drag-bottom:after {
+	margin-top: -2px;
+}
+
+.MensaTheme .v-tree .v-tree-node-caption-drag-center:after {
+	margin-left: 14px;
+}
+
+.v-ff .MensaTheme .v-tree .v-tree-node-caption-drag-center:after, .v-ie .MensaTheme .v-tree .v-tree-node-caption-drag-center:after {
+	margin-top: -2px;
+}
+
+.MensaTheme .v-tree .v-tree-node-drag-top {
+	background-position: 5px -38px;
+}
+
+.MensaTheme .v-tree .v-tree-node-drag-top.v-tree-node-expanded {
+	background-position: -5px -11px;
+}
+
+.MensaTheme .v-tree .v-tree-node-caption-drag-center div {
+	border: 2px solid #1d9dff;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	border-radius: 4px;
+	margin: -2px 2px -2px -2px;
+	background-color: #bcdcff;
+}
+
+.MensaTheme .v-tree .v-tree-node-caption-drag-center div {
+	background-color: rgba(169, 209, 255, 0.6);
+}
+
+.MensaTheme .v-tree .v-tree-node-caption-drag-center div, .MensaTheme .v-tree .v-tree-node-drag-top, .MensaTheme .v-tree .v-tree-node-drag-bottom {
+	border-color: rgba(0, 109, 232, 0.6);
+}
+
+.MensaTheme .v-tree-connectors .v-tree-node-caption {
+	padding-top: 1px;
+}
+
+.MensaTheme .v-tree-connectors .v-tree-node {
+	background: transparent url(../base/tree/img/connector-expand.png) no-repeat 2px -52px;
+}
+
+.MensaTheme .v-tree-connectors .v-tree-node-expanded {
+	background: transparent url(../base/tree/img/connector-collapse.png) no-repeat 2px -52px;
+}
+
+.MensaTheme .v-tree-connectors .v-tree-node-last {
+	background: transparent url(../base/tree/img/connector-expand-last.png) no-repeat 2px -52px;
+}
+
+.MensaTheme .v-tree-connectors .v-tree-node-expanded.v-tree-node-last {
+	background: transparent url(../base/tree/img/connector-collapse-last.png) no-repeat 2px -52px;
+}
+
+.MensaTheme .v-tree-connectors .v-tree-node-leaf {
+	background: transparent url(../base/tree/img/connector-leaf.png) repeat-y 2px 50%;
+}
+
+.MensaTheme .v-tree-connectors .v-tree-node-leaf-last {
+	background: transparent url(../base/tree/img/connector-leaf-last.png) repeat-y 2px 50%;
+}
+
+.MensaTheme .v-tree-connectors .v-tree-node-children {
+	background: transparent url(../base/tree/img/connector.png) repeat-y 2px 0;
+}
+
+.MensaTheme .v-tree-connectors .v-tree-node-children-last {
+	background: transparent;
+}
+
+.MensaTheme .v-tree-connectors .v-tree-node-drag-top, .MensaTheme .v-tree-connectors .v-tree-node-expanded.v-tree-node-drag-top {
+	background-position: 2px -53px;
+}
+
+.MensaTheme .v-tree-connectors .v-tree-node-drag-top.v-tree-node-leaf {
+	background-position: 2px 50%;
+}
+
+.MensaTheme .v-treetable-treespacer {
+	display: inline-block;
+	background: transparent;
+	height: 10px;
+	width: 18px;
+	position: absolute;
+	left: 0;
+	top: 5px;
+}
+
+.MensaTheme .v-treetable-node-closed {
+	background: url(../base/treetable/img/arrow-right.png) right top no-repeat;
+}
+
+.MensaTheme .v-treetable-node-open {
+	background: url(../base/treetable/img/arrow-down.png) right top no-repeat;
+}
+
+.MensaTheme .v-treetable .v-checkbox {
+	display: inline-block;
+	padding-bottom: 4px;
+}
+
+.MensaTheme .v-treetable .v-table-row .v-table-cell-content, .MensaTheme .v-treetable .v-table-row-odd .v-table-cell-content {
+	z-index: 10;
+}
+
+.MensaTheme .v-treetable .v-table-cell-wrapper {
+	position: relative;
+}
+
+.MensaTheme .v-treetable .v-table-body .v-table-table .v-table-row-animating {
+	zoom: 1;
+	z-index: 1;
+}
+
+.MensaTheme .v-treetable .v-table-body .v-table-table .v-table-row-animating, .MensaTheme .v-treetable .v-table-body .v-table-table .v-table-row-animating .v-table-cell-content {
+	background: transparent;
+}
+
+.MensaTheme .v-treetable-animation-clone {
+	border-spacing: 0;
+	zoom: 1;
+}
+
+.MensaTheme div.v-treetable-animation-clone-wrapper {
+	position: absolute;
+	z-index: 2;
+	background-color: #fff;
+}
+
+.MensaTheme div.v-treetable-animation-clone-wrapper table.v-treetable-animation-clone {
+	background-color: #fff;
+}
+
+.MensaTheme div table.v-treetable-animation-clone tr.v-table-row, .MensaTheme div table.v-treetable-animation-clone tr.v-table-row-odd, .MensaTheme div table.v-treetable-animation-clone tr.v-table-row td.v-table-cell-content, .MensaTheme div table.v-treetable-animation-clone tr.v-table-row-odd td.v-table-cell-content {
+	visibility: visible;
+}
+
+.MensaTheme .v-upload {
+	white-space: nowrap;
+}
+
+.MensaTheme .v-upload-immediate {
+	position: relative;
+	margin: 0;
+	overflow: hidden;
+}
+
+.MensaTheme .v-upload-immediate .v-button {
+	width: 100%;
+}
+
+.v-ff .MensaTheme .v-upload-immediate, .v-op .MensaTheme .v-upload-immediate {
+	display: inline-block;
+}
+
+.MensaTheme .v-upload-immediate input {
+	opacity: 0;
+	filter: alpha(opacity=0);
+	z-index: 2;
+	position: absolute;
+	right: 0;
+	height: 21px;
+	text-align: right;
+	border: none;
+	background: transparent;
+}
+
+.MensaTheme .v-upload-immediate button {
+	position: relative;
+	left: 0;
+	top: 0;
+	width: 100%;
+	text-align: left;
+}
+
+.MensaTheme .v-window {
+	background: #fff;
+}
+
+.MensaTheme .v-window-contents {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.MensaTheme .v-window.v-has-width > div.popupContent, .MensaTheme .v-window.v-has-width .v-window-wrap, .MensaTheme .v-window.v-has-width .v-window-contents, .MensaTheme .v-window.v-has-width .v-window-contents > div {
+	width: 100%;
+}
+
+.MensaTheme .v-window.v-has-height > div.popupContent, .MensaTheme .v-window.v-has-height .v-window-wrap, .MensaTheme .v-window.v-has-height .v-window-contents, .MensaTheme .v-window.v-has-height .v-window-contents > div {
+	height: 100%;
+}
+
+.MensaTheme .v-window-outerheader {
+	padding: 0.3em 1em;
+	height: 1.6em;
+	position: relative;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.MensaTheme .v-window-outerheader, .MensaTheme .v-window-draggingCurtain {
+	cursor: move;
+}
+
+.MensaTheme .v-window-header {
+	font-weight: bold;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ie-user-select: none;
+	user-select: none;
+}
+
+.MensaTheme div.v-window-header {
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	-ms-text-overflow: ellipsis;
+	overflow: hidden;
+	padding: 0;
+}
+
+.MensaTheme .v-window-header .v-icon {
+	vertical-align: middle;
+}
+
+.MensaTheme .v-window-contents > div {
+	outline: none;
+}
+
+.MensaTheme .v-window-footer {
+	overflow: hidden;
+	zoom: 1;
+	height: 10px;
+	position: relative;
+	cursor: move;
+}
+
+.MensaTheme .v-window-resizebox {
+	width: 10px;
+	height: 10px;
+	background: #ddd;
+	overflow: hidden;
+	position: absolute;
+	right: 0;
+}
+
+.MensaTheme .v-window-resizebox, .MensaTheme .v-window-resizingCurtain {
+	cursor: se-resize;
+}
+
+.MensaTheme .v-window div.v-window-footer-noresize {
+	height: 0;
+}
+
+.MensaTheme .v-window-resizebox-disabled, .MensaTheme .v-window-restorebox-disabled, .MensaTheme .v-window-maximizebox-disabled {
+	cursor: default;
+	display: none;
+}
+
+.MensaTheme .v-window-closebox, .MensaTheme .v-window-restorebox, .MensaTheme .v-window-maximizebox {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 1em;
+	height: 1em;
+	cursor: pointer;
+	overflow: hidden;
+}
+
+.MensaTheme .v-window-maximizebox, .MensaTheme .v-window-restorebox {
+	right: 1.1em;
+}
+
+.MensaTheme .v-window-closebox {
+	background: red;
+}
+
+.MensaTheme .v-window-maximizebox {
+	background: blue;
+}
+
+.MensaTheme .v-window-restorebox {
+	background: yellow;
+}
+
+.MensaTheme .v-window-modalitycurtain {
+	top: 0;
+	left: 0;
+	background: #999;
+	opacity: 0.5;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	filter: alpha(opacity=50);
+}
+
+.MensaTheme .v-shadow-window {
+	position: absolute;
+	display: none;
+	pointer-events: none;
+}
+
+.v-ie8 .MensaTheme .v-shadow-window {
+	display: block;
+}
+
+.MensaTheme .v-shadow-window .top-left {
+	position: absolute;
+	overflow: hidden;
+	top: -10px;
+	left: -15px;
+	width: 28px;
+	height: 28px;
+	background: transparent url(../base/window/img/shadow/top-left.png);
+}
+
+.MensaTheme .v-shadow-window .top {
+	position: absolute;
+	overflow: hidden;
+	top: -10px;
+	left: 13px;
+	height: 28px;
+	right: 13px;
+	background: transparent url(../base/window/img/shadow/top.png);
+}
+
+.MensaTheme .v-shadow-window .top-right {
+	position: absolute;
+	overflow: hidden;
+	top: -10px;
+	right: -15px;
+	width: 28px;
+	height: 28px;
+	background: transparent url(../base/window/img/shadow/top-right.png);
+}
+
+.MensaTheme .v-shadow-window .left {
+	position: absolute;
+	overflow: hidden;
+	top: 18px;
+	left: -15px;
+	width: 28px;
+	bottom: 10px;
+	background: transparent url(../base/window/img/shadow/left.png);
+}
+
+.MensaTheme .v-shadow-window .center {
+	position: absolute;
+	overflow: hidden;
+	top: 18px;
+	left: 13px;
+	bottom: 10px;
+	right: 13px;
+	background: transparent url(../base/window/img/shadow/center.png);
+}
+
+.MensaTheme .v-shadow-window .right {
+	position: absolute;
+	overflow: hidden;
+	top: 18px;
+	right: -15px;
+	width: 28px;
+	bottom: 10px;
+	background: transparent url(../base/window/img/shadow/right.png);
+}
+
+.MensaTheme .v-shadow-window .bottom-left {
+	position: absolute;
+	overflow: hidden;
+	bottom: -18px;
+	left: -15px;
+	width: 28px;
+	height: 28px;
+	background: transparent url(../base/window/img/shadow/bottom-left.png);
+}
+
+.MensaTheme .v-shadow-window .bottom {
+	position: absolute;
+	overflow: hidden;
+	bottom: -18px;
+	left: 13px;
+	right: 13px;
+	height: 28px;
+	background: transparent url(../base/window/img/shadow/bottom.png);
+}
+
+.MensaTheme .v-shadow-window .bottom-right {
+	position: absolute;
+	overflow: hidden;
+	bottom: -18px;
+	right: -15px;
+	width: 28px;
+	height: 28px;
+	background: transparent url(../base/window/img/shadow/bottom-right.png);
+}
+
+.MensaTheme .v-accordion {
+	border: 1px solid #999;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+}
+
+.MensaTheme .v-accordion-item-caption {
+	color: #222;
+	text-shadow: 1px 1px #FFFFFF;
+	font-weight: bold;
+	background: #c0c2c5 url(/html/themes/classic/images/application/panel_header_bg.png) repeat-x scroll 0 0;
+	border-top: 1px solid #999;
+	border-bottom: none;
+	padding: 4px 5px 5px 5px;
+}
+
+.MensaTheme .v-accordion-item-caption .v-caption {
+	font-size: 12px;
+}
+
+.MensaTheme .v-accordion-item-first .v-accordion-item-caption {
+	border-top: none;
+	-webkit-border-radius: 4px 4px 0 0;
+	-moz-border-radius: 4px 4px 0 0;
+	border-radius: 4px 4px 0 0;
+}
+
+.MensaTheme .v-accordion-item-open .v-accordion-item-caption {
+	border-bottom: 1px solid #999;
+}
+
+.MensaTheme .v-button:focus {
+	outline: none;
+}
+
+.MensaTheme .v-button:hover .v-button-wrap {
+	background: #b9ced9 url(/html/themes/classic/images/application/state_hover_bg.png) repeat-x 0 0;
+	border-color: #627782;
+	color: #369;
+}
+
+.MensaTheme .v-button:active .v-button-wrap, .MensaTheme .v-button.v-pressed .v-button-wrap, .MensaTheme .v-button:focus .v-button-wrap {
+	background: #ebebeb url(/html/themes/classic/images/application/state_active_bg.png) repeat-x 0 0;
+	border-color: #555;
+}
+
+.MensaTheme .v-button {
+	padding: 0;
+	border: none;
+	height: 26px;
+	overflow: hidden;
+}
+
+.MensaTheme .v-nativebutton {
+	font-size: 11px;
+}
+
+.MensaTheme .v-button .v-button-wrap, .MensaTheme .v-disabled.v-button .v-button-wrap {
+	display: block;
+	font-size: 11px;
+	font-weight: bold;
+	border: 1px solid #c8c9ca;
+	border-right-color: #9e9e9e;
+	border-bottom-color: #9e9e9e;
+	background: #d4d4d4 url(/html/themes/classic/images/portlet/header_bg.png) repeat-x 0 0;
+	-webkit-background-origin: padding;
+	-moz-background-origin: padding;
+	padding: 4px 4px 0px 4px;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	line-height: 16px;
+	min-height: 16px;
+	text-shadow: 1px 1px #fff;
+	color: #34404f;
+	text-overflow: ellipsis;
+	height: 20px;
+}
+
+.MensaTheme .v-button-caption {
+	line-height: 16px;
+}
+
+.MensaTheme .v-button-link, .MensaTheme .v-disabled.v-button-link, .MensaTheme .v-button-link:focus, .MensaTheme .v-button-link:active, .MensaTheme .v-button-link:hover, .MensaTheme .v-button-link-pressed, .MensaTheme button.v-nativebutton-link, .MensaTheme .v-disabled.v-nativebutton-link, .MensaTheme button.v-nativebutton-link:focus, .MensaTheme button.v-nativebutton-link:active, .MensaTheme button.v-nativebutton-link:hover, .MensaTheme button.v-nativebutton-link-pressed, .MensaTheme .v-button.v-button-link .v-button-wrap, .MensaTheme .v-button.v-button-link:focus .v-button-wrap, .MensaTheme .v-button.v-button-link:active .v-button-wrap, .MensaTheme .v-disabled.v-button.v-button-link .v-button-wrap {
+	color: #5B677D;
+	font-weight: normal;
+	border: none;
+	border-style: none;
+	background: transparent;
+	padding: 0;
+	font-size: 11px;
+	-webkit-box-shadow: none;
+	-mox-box-shadow: none;
+	-webkit-border-radius: 0;
+	-moz-border-radius: 0;
+	border-radius: 0;
+	text-shadow: none;
+	height: auto;
+}
+
+.MensaTheme .v-button-link:hover {
+	color: #0066cc;
+	text-decoration: none;
+}
+
+.MensaTheme .v-button-link:focus, .v-sa .MensaTheme .v-button-link:focus {
+	outline: 1px dotted #1b699f;
+	outline-offset: -1px;
+}
+
+.v-sa .MensaTheme .v-button-link:focus {
+	outline-offset: -1px;
+}
+
+.MensaTheme .v-checkbox input {
+	margin-right: 3px;
+}
+
+.MensaTheme .v-colorpicker-button-color {
+	border: 1px solid #999999;
+}
+
+.MensaTheme .v-colorpicker-popup {
+	width: 252px;
+}
+
+.MensaTheme .v-colorpicker-popup .v-tabsheet .v-colorpicker-grid {
+	height: 312px;
+}
+
+.MensaTheme .v-colorpicker-popup .v-filterselect {
+	padding-right: 24px;
+}
+
+body .MensaTheme.v-app {
+	background-color: transparent;
+}
+
+.MensaTheme .v-caption {
+	font-weight: bold;
+}
+
+.MensaTheme .v-tooltip {
+	background-color: #fffcdd;
+	border: 1px solid #b8b295;
+	font-size: 11px;
+	color: #222;
+}
+
+.MensaTheme .v-tooltip-text {
+	padding: 2px 4px;
+}
+
+.MensaTheme .v-tooltip .v-errormessage {
+	padding: 3px 4px;
+	background: #ffecc6;
+	color: #b74100;
+	border: none;
+	border-top: 1px solid #fff3dc;
+}
+
+.MensaTheme .v-tooltip .v-errormessage h2 {
+	font-size: 16px;
+	font-weight: normal;
+	color: #ab3101;
+	margin: 2px 0 8px 0;
+}
+
+.MensaTheme .v-tooltip .v-errormessage h3 {
+	font-size: 13px;
+	font-weight: bold;
+	margin: 1px 0 4px 0;
+}
+
+.MensaTheme .v-contextmenu {
+	background: #ccc9c9 url(/html/themes/classic/images/application/menu_bg.png) repeat-x 0 0;
+	border: 1px solid;
+	border-color: #aeafb1 #777879 #777879 #aeafb1;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+}
+
+.MensaTheme .v-contextmenu table {
+	border-collapse: separate;
+}
+
+.MensaTheme .v-contextmenu .gwt-MenuItem {
+	padding: 3px 8px 2px 8px;
+	height: 16px;
+	color: #2c2f34;
+	text-shadow: -1px -1px #fff;
+	font-weight: bold;
+	border-bottom: 1px solid #bcbbbb;
+	border-top: 1px solid #eee;
+}
+
+.MensaTheme .v-contextmenu tr:last-child .gwt-MenuItem {
+	border-bottom-width: 0;
+}
+
+.MensaTheme .v-contextmenu .gwt-MenuItem img {
+	margin-right: 4px;
+}
+
+.MensaTheme .v-contextmenu .gwt-MenuItem-selected {
+	background-color: #5b677d;
+	color: #FFF;
+	text-shadow: -1px -1px #2c2f34;
+}
+
+.MensaTheme .v-contextmenu .gwt-MenuItem-selected div {
+	background: transparent;
+}
+
+.MensaTheme .v-datefield-popup {
+	padding: 3px;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+}
+
+.MensaTheme .v-datefield-calendarpanel-header {
+	height: 28px;
+}
+
+.MensaTheme .v-datefield-calendarpanel:focus {
+	outline: none;
+}
+
+.MensaTheme .v-datefield-calendarpanel-body {
+	text-align: right;
+	vertical-align: top;
+}
+
+.MensaTheme .v-datefield-popupcalendar .v-datefield-button {
+	background: transparent url(../liferay/common/buttons_sprites.png) no-repeat 0 -48px;
+	width: 24px;
+	height: 24px;
+	border: none;
+}
+
+.MensaTheme .v-datefield-popupcalendar .v-datefield-button:hover {
+	background-position: 0px -72px;
+}
+
+.MensaTheme .v-datefield-popupcalendar .v-datefield-button:focus {
+	background-position: 0px -96px;
+}
+
+.MensaTheme .v-datefield-month .v-datefield-calendarpanel-month, .MensaTheme .v-datefield-day .v-datefield-calendarpanel-month, .MensaTheme .v-datefield-full .v-datefield-calendarpanel-month {
+	width: 124px;
+}
+
+.MensaTheme .v-datefield-year .v-datefield-calendarpanel-month {
+	width: 35px;
+}
+
+.MensaTheme .v-datefield-calendarpanel-month {
+	background: transparent url(../liferay/datefield/datefield_sprites.png) repeat-x 0 -112px;
+	font-weight: bold;
+}
+
+.MensaTheme span.v-datefield-calendarpanel-month {
+	display: block;
+	text-align: center;
+	background: transparent;
+	overflow: hidden;
+	padding: 1px 3px 0;
+}
+
+.MensaTheme .v-datefield-calendarpanel-prevyear, .MensaTheme .v-datefield-calendarpanel-nextyear {
+	width: 22px;
+}
+
+.MensaTheme .v-datefield-calendarpanel-prevyear button, .MensaTheme .v-datefield-calendarpanel-prevmonth button, .MensaTheme .v-datefield-calendarpanel-nextmonth button, .MensaTheme .v-datefield-calendarpanel-nextyear button {
+	width: 22px;
+	height: 28px;
+	border: none;
+	background: transparent;
+	background-repeat: no-repeat;
+	background-image: url(../liferay/datefield/datefield_sprites.png);
+	background-position: 0 0;
+	overflow: hidden;
+	padding: 0;
+	text-indent: -9999px;
+	outline: none;
+	-webkit-border-radius: 0;
+	-moz-border-radius: 0;
+	border-radius: 0;
+}
+
+.v-ie .MensaTheme .v-datefield-calendarpanel-prevyear button, .v-ie .MensaTheme .v-datefield-calendarpanel-nextyear button, .v-ie .MensaTheme .v-datefield-calendarpanel-prevmonth button, .v-ie .MensaTheme .v-datefield-calendarpanel-nextmonth button {
+	text-indent: 0;
+	font-size: 1px;
+}
+
+.MensaTheme .v-datefield-calendarpanel-prevmonth button {
+	background-position: 0 -56px;
+}
+
+.MensaTheme .v-datefield-calendarpanel-prevmonth {
+	background: transparent url(../liferay/datefield/datefield_sprites.png) repeat-x 0 -112px;
+}
+
+.MensaTheme .v-datefield-calendarpanel-nextyear button {
+	background-position: 0 -28px;
+	width: 100%;
+	min-width: 22px;
+}
+
+.MensaTheme .v-datefield-calendarpanel-nextmonth button {
+	background-position: 0 -84px;
+}
+
+.MensaTheme .v-datefield-calendarpanel-nextmonth {
+	background: transparent url(../liferay/datefield/datefield_sprites.png) repeat-x 0 -112px;
+}
+
+.MensaTheme .v-datefield-calendarpanel-prevyear button {
+	width: 100%;
+	min-width: 22px;
+}
+
+.MensaTheme .v-datefield-calendarpanel-day {
+	display: block;
+	width: 22px;
+	margin: 0 0 3px 3px;
+	text-align: center;
+	background: #d4d4d4 url(/html/themes/classic/images/application/state_default_bg.png) repeat-x 0 0;
+	border-color: #c8c9ca #9e9e9e #9e9e9e #c8c9ca;
+	border-style: solid;
+	border-width: 1px;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+}
+
+.MensaTheme .v-datefield-calendarpanel-day-today {
+	font-weight: bold;
+}
+
+.MensaTheme .v-datefield-calendarpanel-day-selected {
+	background: #b5b5b5 url(/html/themes/classic/images/application/state_active_bg.png) repeat-x 0 0;
+	color: #000;
+	border-color: #555;
+}
+
+.MensaTheme .v-datefield-calendarpanel-day-focused {
+	outline: 1px dotted #555;
+}
+
+.MensaTheme .v-datefield-calendarpanel-weekdays {
+	text-align: center;
+}
+
+.MensaTheme .v-datefield-calendarpanel-weekdays strong {
+	font-weight: normal;
+}
+
+.MensaTheme .v-datefield-calendarpanel-weeknumber {
+	display: block;
+	border: none;
+	padding: 2px 0 2px 0;
+	margin: 0;
+	font-size: 9.9px;
+}
+
+.MensaTheme .v-datefield-calendarpanel-body table {
+	margin: 0 auto;
+	width: 200px;
+}
+
+.MensaTheme .v-inline-datefield-popup {
+	padding: 3px;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+}
+
+.MensaTheme .v-inline-datefield-calendarpanel-header {
+	height: 28px;
+}
+
+.MensaTheme .v-inline-datefield-calendarpanel:focus {
+	outline: none;
+}
+
+.MensaTheme .v-inline-datefield-calendarpanel-body {
+	text-align: right;
+	vertical-align: top;
+}
+
+.MensaTheme .v-inline-datefield-popupcalendar .v-inline-datefield-button {
+	background: transparent url(../liferay/common/buttons_sprites.png) no-repeat 0 -48px;
+	width: 24px;
+	height: 24px;
+	border: none;
+}
+
+.MensaTheme .v-inline-datefield-popupcalendar .v-inline-datefield-button:hover {
+	background-position: 0px -72px;
+}
+
+.MensaTheme .v-inline-datefield-popupcalendar .v-inline-datefield-button:focus {
+	background-position: 0px -96px;
+}
+
+.MensaTheme .v-inline-datefield-month .v-inline-datefield-calendarpanel-month, .MensaTheme .v-inline-datefield-day .v-inline-datefield-calendarpanel-month, .MensaTheme .v-inline-datefield-full .v-inline-datefield-calendarpanel-month {
+	width: 124px;
+}
+
+.MensaTheme .v-inline-datefield-year .v-inline-datefield-calendarpanel-month {
+	width: 35px;
+}
+
+.MensaTheme .v-inline-datefield-calendarpanel-month {
+	background: transparent url(../liferay/datefield/datefield_sprites.png) repeat-x 0 -112px;
+	font-weight: bold;
+}
+
+.MensaTheme span.v-inline-datefield-calendarpanel-month {
+	display: block;
+	text-align: center;
+	background: transparent;
+	overflow: hidden;
+	padding: 1px 3px 0;
+}
+
+.MensaTheme .v-inline-datefield-calendarpanel-prevyear, .MensaTheme .v-inline-datefield-calendarpanel-nextyear {
+	width: 22px;
+}
+
+.MensaTheme .v-inline-datefield-calendarpanel-prevyear button, .MensaTheme .v-inline-datefield-calendarpanel-prevmonth button, .MensaTheme .v-inline-datefield-calendarpanel-nextmonth button, .MensaTheme .v-inline-datefield-calendarpanel-nextyear button {
+	width: 22px;
+	height: 28px;
+	border: none;
+	background: transparent;
+	background-repeat: no-repeat;
+	background-image: url(../liferay/datefield/datefield_sprites.png);
+	background-position: 0 0;
+	overflow: hidden;
+	padding: 0;
+	text-indent: -9999px;
+	outline: none;
+	-webkit-border-radius: 0;
+	-moz-border-radius: 0;
+	border-radius: 0;
+}
+
+.v-ie .MensaTheme .v-inline-datefield-calendarpanel-prevyear button, .v-ie .MensaTheme .v-inline-datefield-calendarpanel-nextyear button, .v-ie .MensaTheme .v-inline-datefield-calendarpanel-prevmonth button, .v-ie .MensaTheme .v-inline-datefield-calendarpanel-nextmonth button {
+	text-indent: 0;
+	font-size: 1px;
+}
+
+.MensaTheme .v-inline-datefield-calendarpanel-prevmonth button {
+	background-position: 0 -56px;
+}
+
+.MensaTheme .v-inline-datefield-calendarpanel-prevmonth {
+	background: transparent url(../liferay/datefield/datefield_sprites.png) repeat-x 0 -112px;
+}
+
+.MensaTheme .v-inline-datefield-calendarpanel-nextyear button {
+	background-position: 0 -28px;
+	width: 100%;
+	min-width: 22px;
+}
+
+.MensaTheme .v-inline-datefield-calendarpanel-nextmonth button {
+	background-position: 0 -84px;
+}
+
+.MensaTheme .v-inline-datefield-calendarpanel-nextmonth {
+	background: transparent url(../liferay/datefield/datefield_sprites.png) repeat-x 0 -112px;
+}
+
+.MensaTheme .v-inline-datefield-calendarpanel-prevyear button {
+	width: 100%;
+	min-width: 22px;
+}
+
+.MensaTheme .v-inline-datefield-calendarpanel-day {
+	display: block;
+	width: 22px;
+	margin: 0 0 3px 3px;
+	text-align: center;
+	background: #d4d4d4 url(/html/themes/classic/images/application/state_default_bg.png) repeat-x 0 0;
+	border-color: #c8c9ca #9e9e9e #9e9e9e #c8c9ca;
+	border-style: solid;
+	border-width: 1px;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+}
+
+.MensaTheme .v-inline-datefield-calendarpanel-day-today {
+	font-weight: bold;
+}
+
+.MensaTheme .v-inline-datefield-calendarpanel-day-selected {
+	background: #b5b5b5 url(/html/themes/classic/images/application/state_active_bg.png) repeat-x 0 0;
+	color: #000;
+	border-color: #555;
+}
+
+.MensaTheme .v-inline-datefield-calendarpanel-day-focused {
+	outline: 1px dotted #555;
+}
+
+.MensaTheme .v-inline-datefield-calendarpanel-weekdays {
+	text-align: center;
+}
+
+.MensaTheme .v-inline-datefield-calendarpanel-weekdays strong {
+	font-weight: normal;
+}
+
+.MensaTheme .v-inline-datefield-calendarpanel-weeknumber {
+	display: block;
+	border: none;
+	padding: 2px 0 2px 0;
+	margin: 0;
+	font-size: 9.9px;
+}
+
+.MensaTheme .v-inline-datefield-calendarpanel-body table {
+	margin: 0 auto;
+	width: 200px;
+}
+
+.MensaTheme .v-inline-datefield {
+	line-height: 19px;
+}
+
+.MensaTheme .v-formlayout .v-caption {
+	font-weight: normal;
+}
+
+.MensaTheme .v-menubar {
+	background: #97A1AE url(/html/themes/classic/images/dockbar/dockbar_bg.png) repeat-x 0 0;
+	border-bottom: 1px solid #636364;
+}
+
+.MensaTheme .v-menubar-separator span {
+	display: none;
+}
+
+.MensaTheme .v-menubar-menuitem {
+	padding: 3px 8px;
+	line-height: 16px;
+	font-weight: bold;
+	color: #2c2f34;
+	text-shadow: -1px -1px #FFF;
+}
+
+.MensaTheme .v-menubar-menuitem-selected {
+	color: #FFF;
+	text-shadow: -1px -1px #2c2f34;
+}
+
+.MensaTheme .v-menubar-submenu {
+	background: #CCC9C9 url(/html/themes/classic/images/application/menu_bg.png) repeat-x 0 0;
+	border: 1px solid;
+	border-color: #aeafb1 #777879 #777879 #aeafb1;
+	-webkit-border-radius: 0 0 4px 4px;
+	-moz-border-radius: 0 0 4px 4px;
+	border-radius: 0 0 4px 4px;
+	padding: 2px 0;
+}
+
+.MensaTheme .v-menubar-submenu .v-menubar-submenu-indicator {
+	font-size: 9.9px;
+}
+
+.MensaTheme .v-menubar-submenu .v-menubar-menuitem {
+	color: #2c2f34;
+	font-weight: bold;
+	text-shadow: 1px 1px #fff;
+	padding: 1px 26px 1px 10px;
+	line-height: 16px;
+	border-bottom: 1px solid #bcbbbb;
+	border-top: 1px solid #eee;
+}
+
+.MensaTheme .v-menubar-submenu .v-menubar-menuitem:last-child {
+	border-bottom-width: 0;
+}
+
+.MensaTheme .v-menubar-submenu .v-menubar-menuitem-caption * {
+	vertical-align: middle;
+}
+
+.MensaTheme .v-menubar .v-menubar-menuitem-selected, .MensaTheme .v-menubar-submenu .v-menubar-menuitem-selected {
+	color: #fff;
+	text-shadow: 1px 1px #000;
+	background-color: #5b677d;
+}
+
+.MensaTheme .v-menubar-popup {
+	border-radius: 5px;
+}
+
+.MensaTheme .v-menubar-menuitem-disabled, .MensaTheme .v-menubar-submenu .v-menubar-menuitem-disabled, .MensaTheme .v-menubar span.v-menubar-menuitem-disabled:hover, .MensaTheme .v-menubar span.v-menubar-menuitem-disabled:focus, .MensaTheme .v-menubar span.v-menubar-menuitem-disabled:active {
+	color: #999;
+}
+
+.MensaTheme .v-Notification {
+	background: #dff4ff;
+	color: #34404F;
+	font-weight: bold;
+	cursor: pointer;
+	overflow: hidden;
+	padding: 1em;
+	max-width: 85%;
+	border: 1px solid #a7cedf;
+}
+
+.MensaTheme .v-Notification h1, .MensaTheme .v-Notification p, .MensaTheme .v-Notification-error h1, .MensaTheme .v-Notification-error p, .MensaTheme .v-Notification-warning h1, .MensaTheme .v-Notification-warning p {
+	display: inline;
+	margin: 0 0.5em 0 0;
+}
+
+.MensaTheme .v-Notification-warning {
+	background: #ffc;
+	border-color: #fc0;
+}
+
+.MensaTheme .v-Notification-error {
+	background-color: #ffdddd;
+	border-color: #ff0000;
+}
+
+.MensaTheme .v-Notification-tray {
+	color: #111111;
+	background-color: #e5e5e5;
+	border-color: #b5b5b5;
+}
+
+.MensaTheme .v-Notification-tray h1 {
+	display: block;
+}
+
+.MensaTheme .v-Notification-tray p {
+	display: block;
+}
+
+.MensaTheme .v-Notification-system {
+	background-color: #ffdddd;
+	border-color: #ff0000;
+}
+
+.MensaTheme .v-Notification-system h1 {
+	display: block;
+	margin: 0;
+}
+
+.MensaTheme .v-panel {
+	background: transparent url(../liferay/panel/top-left.png) no-repeat;
+}
+
+.MensaTheme .v-panel-caption, .MensaTheme .v-panel-nocaption {
+	text-shadow: 1px 1px #fff;
+	font-size: 12px;
+	color: #222;
+	margin-left: 4px;
+	background: transparent url(../liferay/panel/top-right.png) no-repeat right top;
+	padding: 5px 5px 10px 2px;
+	height: 12px;
+}
+
+.MensaTheme .v-panel-caption .v-icon {
+	padding-right: 2px;
+}
+
+.MensaTheme .v-panel-content {
+	border: 1px solid #999;
+	-webkit-border-radius: 0 0 4px 4px;
+	-moz-border-radius: 0 0 4px 4px;
+	border-radius: 0 0 4px 4px;
+}
+
+.MensaTheme .v-panel-light {
+	background: transparent;
+}
+
+.MensaTheme .v-panel-caption-light, .MensaTheme .v-panel-nocaption-light {
+	margin: 0;
+	border: none;
+	background: none;
+}
+
+.MensaTheme .v-panel-caption-light {
+	border-bottom: 1px solid #999;
+}
+
+.MensaTheme .v-panel-nocaption-light {
+	padding: 0;
+	height: 0;
+}
+
+.MensaTheme .v-panel-content-light {
+	border: none;
+}
+
+.MensaTheme .v-panel-content-light > div {
+	background: transparent;
+}
+
+.MensaTheme .v-panel-deco {
+	height: 0;
+	overflow: hidden;
+}
+
+.v-ie .MensaTheme .v-panel {
+	background: transparent;
+}
+
+.v-ie .MensaTheme .v-panel-caption, .v-ie .MensaTheme .v-panel-nocaption {
+	border: 1px solid #999;
+	border-bottom: none;
+	background: #c0c2c5 url(/html/themes/classic/images/application/panel_header_bg.png) repeat-x 0 0;
+	margin: 0;
+	padding-left: 5px;
+}
+
+.v-ie .MensaTheme .v-panel-caption-light, .v-ie .MensaTheme .v-panel-nocaption-light {
+	border: none;
+	background: transparent;
+}
+
+.v-ie .MensaTheme .v-panel-caption-light {
+	border-bottom: 1px solid #999;
+}
+
+.MensaTheme .v-popupview-popup {
+	background: #d4d4d4 url(/html/themes/classic/images/application/state_default_bg.png) repeat-x 0 0;
+	padding: 8px;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	border: 1px solid #c8c9ca;
+	border-color: #c8c9ca #9e9e9e #9e9e9e #c8c9ca;
+}
+
+.MensaTheme .v-progressindicator-wrapper {
+	background: #dfe2e4 url(../reindeer/progressindicator/img/base.gif) repeat-x;
+	border: 1px solid #bfbfbf;
+}
+
+.MensaTheme .v-disabled .v-progressindicator-wrapper {
+	background-image: url(../reindeer/progressindicator/img/disabled.gif);
+}
+
+.MensaTheme .v-progressindicator-indicator {
+	background: #f7f9f9 url(../reindeer/progressindicator/img/progress.png);
+}
+
+.MensaTheme .v-progressindicator-wrapper {
+	background: #dfe2e4 url(../reindeer/progressindicator/img/base.gif) repeat-x;
+	border: 1px solid #bfbfbf;
+}
+
+.MensaTheme .v-disabled .v-progressindicator-wrapper {
+	background-image: url(../reindeer/progressindicator/img/disabled.gif);
+}
+
+.MensaTheme .v-progressindicator-indicator {
+	background: #f7f9f9 url(../reindeer/progressindicator/img/progress.png);
+}
+
+.MensaTheme.v-app select, .MensaTheme .v-window select {
+	padding: 1px;
+}
+
+.MensaTheme select {
+	background-color: #fff;
+}
+
+.MensaTheme .v-filterselect {
+	padding-right: 24px;
+}
+
+.MensaTheme .v-filterselect-button {
+	width: 24px;
+	margin-right: -24px;
+	height: 24px;
+	background: transparent url(../liferay/common/buttons_sprites.png) no-repeat 0 0;
+}
+
+.MensaTheme .v-filterselect-button:hover {
+	background-position: 0px -24px;
+}
+
+.MensaTheme .v-filterselect-suggestpopup {
+	border: 1px solid #98C0F4;
+}
+
+.MensaTheme .v-filterselect-suggestmenu {
+	min-height: 2px;
+}
+
+.MensaTheme .v-filterselect-prevpage, .MensaTheme .v-filterselect-prevpage-off, .MensaTheme .v-filterselect-nextpage, .MensaTheme .v-filterselect-nextpage-off {
+	background-color: #fff;
+}
+
+.MensaTheme .v-filterselect-prevpage span, .MensaTheme .v-filterselect-prevpage-off span, .MensaTheme .v-filterselect-nextpage span, .MensaTheme .v-filterselect-nextpage-off span {
+	display: block;
+	height: 8px;
+	width: 16px;
+	margin-left: auto;
+	margin-right: auto;
+	text-indent: -99999px;
+}
+
+.MensaTheme .v-filterselect-prevpage span, .MensaTheme .v-filterselect-nextpage span {
+	background: transparent no-repeat 0 -4px;
+	background-image: url(/html/themes/classic/images/aui/icon_sprite.png);
+}
+
+.MensaTheme .v-filterselect-nextpage span {
+	background-position: -65px -4px;
+}
+
+.MensaTheme .v-filterselect-suggestmenu .gwt-MenuItem span {
+	display: block;
+	width: 100%;
+	height: 18px;
+	border: 1px solid #fff;
+	border-style: solid none;
+}
+
+.MensaTheme .v-filterselect-suggestmenu .gwt-MenuItem-selected span {
+	color: #000;
+	background: #dfe8f6;
+	border-color: #a3bae9;
+}
+
+.MensaTheme .v-filterselect-suggestmenu .gwt-MenuItem .v-icon {
+	float: left;
+}
+
+.MensaTheme .v-select-twincol-buttons .v-button-wrap {
+	padding-left: 11px;
+	padding-right: 11px;
+}
+
+.MensaTheme .v-slider {
+	border: 1px solid #9e9e9e;
+	border-right: 1px solid #c8c9ca;
+	border-bottom: 1px solid #c8c9ca;
+	margin: 4px 0;
+}
+
+.MensaTheme .v-slider-base {
+	height: 1px;
+}
+
+.MensaTheme .v-slider-vertical {
+	margin: 0 5px;
+	width: 2px;
+}
+
+.MensaTheme .v-slider-vertical .v-slider-base {
+	width: 1px;
+}
+
+.MensaTheme .v-slider-handle {
+	background: transparent url(/html/themes/classic/images/aui/icon_sprite.png) no-repeat -115px -147px;
+	width: 10px;
+	height: 10px;
+}
+
+.MensaTheme .v-splitpanel-hsplitter, .MensaTheme .v-splitpanel-hsplitter-locked {
+	font-size: 1px;
+	width: 3px;
+	background-color: #c8c9ca;
+}
+
+.MensaTheme .v-splitpanel-hsplitter div {
+	font-size: 1px;
+	width: 3px;
+	background: transparent;
+	background-repeat: no-repeat;
+	background-image: url(../liferay/splitpanel/hsplit.png);
+	background-position: center;
+}
+
+.MensaTheme .v-splitpanel-hsplitter-locked div {
+	font-size: 1px;
+	width: 3px;
+}
+
+.MensaTheme .v-splitpanel-vsplitter, .MensaTheme .v-splitpanel-vsplitter-locked {
+	font-size: 1px;
+	height: 3px;
+}
+
+.MensaTheme .v-splitpanel-vsplitter div {
+	font-size: 1px;
+	height: 3px;
+	background: transparent;
+	background-color: #c8c9ca;
+	background-repeat: no-repeat;
+	background-image: url(../liferay/splitpanel/vsplit.png);
+	background-position: center;
+}
+
+.MensaTheme .v-splitpanel-vsplitter-locked, .MensaTheme .v-splitpanel-vsplitter-locked div {
+	font-size: 1px;
+	height: 3px;
+	background-color: #c8c9ca;
+}
+
+.MensaTheme .v-splitpanel-hsplitter-small, .MensaTheme .v-splitpanel-hsplitter-small div, .MensaTheme .v-splitpanel-hsplitter-small-locked, .MensaTheme .v-splitpanel-hsplitter-small-locked div {
+	font-size: 1px;
+	width: 1px;
+	background: #c8c9ca;
+}
+
+.MensaTheme .v-splitpanel-vsplitter-small, .MensaTheme .v-splitpanel-vsplitter-small div, .MensaTheme .v-splitpanel-vsplitter-small-locked, .MensaTheme .v-splitpanel-vsplitter-small-locked div {
+	font-size: 1px;
+	height: 1px;
+	background: #c8c9ca;
+}
+
+.MensaTheme .v-table-body {
+	border: 1px solid #999;
+}
+
+.MensaTheme .v-table-body:focus, .MensaTheme .v-table-body-wrapper:focus {
+	outline: none;
+}
+
+.MensaTheme .v-table-body.focused {
+	border-color: #555;
+}
+
+.MensaTheme .v-table-focus .v-table-cell-content {
+	border-top: 1px dotted #555;
+	border-bottom: 1px dotted #555;
+}
+
+.MensaTheme .v-table-header-wrap, .MensaTheme .v-table-footer-wrap {
+	border-color: #999;
+	background: #c0c2c5 url(/html/themes/classic/images/application/panel_header_bg.png) repeat-x 0 0;
+	height: 26px;
+}
+
+.MensaTheme .v-table-footer-wrap {
+	border: 1px solid #999;
+	border-top: none;
+}
+
+.MensaTheme .v-table-footer td {
+	height: 100%;
+	border-right: 1px solid #999;
+	padding-bottom: 5px;
+	padding-top: 5px;
+}
+
+.MensaTheme .v-table-footer-container {
+	height: 16px;
+	float: right;
+	padding-right: 7px;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+.MensaTheme .v-table-caption-container {
+	color: #336699;
+	font-weight: bold;
+	font-size: 11px;
+	padding-left: 0px;
+	padding-top: 6px;
+}
+
+.MensaTheme .v-table-caption-container-align-right {
+	margin-left: 0;
+	margin-right: 6px;
+	padding-left: 0;
+}
+
+.MensaTheme .v-table-caption-container .v-icon {
+	height: 16px;
+	margin: -4px 3px 0 0;
+}
+
+.v-ie .MensaTheme .v-table-caption-container .v-icon {
+	margin-top: -2px;
+}
+
+.MensaTheme .v-table-header-cell-asc .v-table-sort-indicator {
+	background: transparent url(/html/themes/control_panel/images/arrows/05_up.png) no-repeat right 8px;
+	height: 26px;
+}
+
+.MensaTheme .v-table-header-cell-desc .v-table-sort-indicator {
+	background: transparent url(/html/themes/control_panel/images/arrows/05_down.png) no-repeat right 10px;
+	height: 26px;
+}
+
+.MensaTheme .v-table-resizer {
+	height: 26px;
+	background: #999;
+}
+
+.MensaTheme .v-table-focus-slot-left {
+	margin-bottom: -26px;
+	background: transparent;
+}
+
+.MensaTheme .v-table-column-selector {
+	background: transparent url(../liferay/table/columnselect.png);
+	width: 16px;
+	height: 26px;
+	margin: -26px 0 0;
+}
+
+.MensaTheme .v-table-row-odd {
+	background: #dde1e6;
+}
+
+.MensaTheme .v-table-row {
+	background: #eef0f2;
+}
+
+.MensaTheme .v-table-generated-row {
+	color: #336699;
+	font-weight: bold;
+	font-size: 11px;
+	padding-left: 0px;
+	padding-top: 6px;
+	background: #c0c2c5;
+}
+
+.MensaTheme .v-table .v-selected {
+	background-color: #5B677D;
+	color: #FFF;
+	text-shadow: -1px -1px #2C2F34;
+}
+
+.MensaTheme .v-table-cell-wrapper {
+	padding-top: 3px;
+	padding-bottom: 3px;
+}
+
+.MensaTheme .v-table-cell-content {
+	border-right: 1px solid #999;
+	padding: 0 6px;
+}
+
+.MensaTheme .v-table-cell-content:last-child {
+	border-right-color: transparent;
+}
+
+.MensaTheme .v-off {
+	color: #999;
+}
+
+.MensaTheme .v-tabsheet-content {
+	border: none;
+}
+
+.MensaTheme .v-tabsheet-deco {
+	background: transparent;
+}
+
+.MensaTheme .v-tabsheet-tabitem {
+	border: none;
+}
+
+.MensaTheme .v-tabsheet-tabitem .v-caption {
+	height: 14px;
+	padding: 3px 10px;
+}
+
+.MensaTheme .v-tabsheet-tabitem .v-captiontext {
+	color: #336699;
+	font-size: 11px;
+	font-weight: bold;
+	text-decoration: underline;
+}
+
+.MensaTheme .v-tabsheet-tabitem-selected .v-caption {
+	background: none repeat scroll 0 0 #333;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+}
+
+.MensaTheme .v-tabsheet-tabitem-selected .v-captiontext {
+	color: #fff;
+	text-decoration: none;
+	text-shadow: -1px -1px #000;
+}
+
+.MensaTheme .v-tabsheet-tabitem-selected {
+	position: relative;
+}
+
+.MensaTheme .v-tabsheet-tabitem-selected:after {
+	border: 10px solid;
+	border-bottom-width: 0;
+	border-color: #333 transparent transparent;
+	bottom: -6px;
+	content: "-";
+	display: block;
+	height: 0;
+	left: 50%;
+	margin-left: -10px;
+	position: absolute;
+	text-indent: -9999px;
+	width: 0;
+}
+
+.MensaTheme .v-tabsheet-tabs {
+	height: 35px;
+}
+
+.MensaTheme .v-tabsheet-tabcontainer, .MensaTheme .v-tabsheet-tabs {
+	overflow: visible !important;
+}
+
+.MensaTheme .v-tabsheet-tabitemcell-first .v-tabsheet-tabitem {
+	border-left: 1px solid #c8c9ca;
+	-webkit-border-radius: 4px 0 0 4px;
+	-moz-border-radius: 4px 0 0 4px;
+	border-radius: 4px 0 0 4px;
+}
+
+.MensaTheme .v-tabsheet-tabitemcell, .MensaTheme .v-tabsheet-spacertd {
+	vertical-align: top;
+}
+
+.MensaTheme .v-tabsheet-spacertd div {
+	height: 28px;
+	border: 1px solid #c8c9ca;
+	border-left: none;
+	-webkit-border-radius: 0 4px 4px 0;
+	-moz-border-radius: 0 4px 4px 0;
+	border-radius: 0 4px 4px 0;
+	padding: 0;
+}
+
+.MensaTheme .v-tabsheet-tabitem {
+	height: 20px;
+	border-top: 1px solid #c8c9ca;
+	border-bottom: 1px solid #c8c9ca;
+	padding: 4px;
+}
+
+.MensaTheme .v-tabsheet-scroller {
+	float: right;
+	width: 33px;
+	height: 28px;
+	margin-top: -35px;
+	background-color: #eef0f2;
+	border: 1px solid #c8c9ca;
+	border-left: none;
+	-webkit-border-radius: 0 4px 4px 0;
+	-moz-border-radius: 0 4px 4px 0;
+	border-radius: 0 4px 4px 0;
+	position: relative;
+}
+
+.MensaTheme .v-tabsheet-scroller button {
+	padding: 0;
+	margin-top: 6px;
+	width: 16px;
+	height: 16px;
+	border: none;
+	background: transparent;
+}
+
+.MensaTheme .v-tabsheet-scroller .v-tabsheet-scrollerPrev, .MensaTheme .v-tabsheet-scroller .v-tabsheet-scrollerPrev-disabled {
+	background: transparent url(/html/themes/classic/images/aui/icon_sprite.png) no-repeat -80px -192px;
+}
+
+.MensaTheme .v-tabsheet-scroller .v-tabsheet-scrollerNext, .MensaTheme .v-tabsheet-scroller .v-tabsheet-scrollerNext-disabled {
+	background: transparent url(/html/themes/classic/images/aui/icon_sprite.png) no-repeat -48px -192px;
+}
+
+.MensaTheme .v-tabsheet-scrollerPrev-disabled, .MensaTheme .v-tabsheet-scrollerNext-disabled {
+	opacity: 0.5;
+	filter: alpha(opacity=50);
+}
+
+.MensaTheme .v-tabsheet-caption-close {
+	background: transparent url(../liferay/tabsheet/close.png) no-repeat right top;
+	cursor: default;
+	float: right;
+	margin: 3px -1px 0;
+	overflow: hidden;
+	text-indent: -999px;
+	width: 13px;
+	height: 9px;
+}
+
+.v-ff .MensaTheme .v-tabsheet-caption-close {
+	margin-top: -10px;
+}
+
+.v-ff .MensaTheme .v-tabsheet-caption-close:only-child {
+	margin-top: -1px;
+}
+
+.MensaTheme.v-app input[type="text"], .MensaTheme.v-app input[type="password"], .MensaTheme.v-app input[type="reset"], .MensaTheme.v-app textarea, .MensaTheme .v-window input[type="text"], .MensaTheme .v-window input[type="password"], .MensaTheme .v-window input[type="reset"], .MensaTheme .v-window textarea {
+	padding: 5px 1px;
+}
+
+.MensaTheme input.v-textfield-prompt, .MensaTheme textarea.v-textarea-prompt {
+	font-style: normal;
+}
+
+.MensaTheme .v-tree-node {
+	background: transparent url(../liferay/tree/arrows_sprites.png) no-repeat -42px 1px;
+}
+
+.MensaTheme .v-tree-node span {
+	color: #336699;
+	padding: 1px 2px;
+	display: inline-block;
+}
+
+.MensaTheme .v-tree-node:hover {
+	background-position: -14px -30px;
+}
+
+.MensaTheme .v-tree-node-expanded {
+	background-position: -28px -14px;
+}
+
+.MensaTheme .v-tree-node-expanded:hover {
+	background-position: 0 -47px;
+}
+
+.MensaTheme .v-tree .v-tree-node-drag-top {
+	background-position: -42px 0px;
+}
+
+.MensaTheme .v-tree .v-tree-node-drag-top.v-tree-node-expanded {
+	background-position: -28px -15px;
+}
+
+.MensaTheme .v-tree-node-selected {
+	background: #333;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+}
+
+.MensaTheme .v-tree-node-selected span {
+	display: inline-block;
+	background: transparent;
+	color: #fff;
+	text-shadow: -1px -1px #000;
+	padding: 1px 2px;
+}
+
+.MensaTheme .v-tree-node-caption {
+	margin-left: 14px;
+	padding: 1px;
+}
+
+.MensaTheme .v-tree-node-focused {
+	border: 1px dotted #555;
+	padding: 0;
+}
+
+.MensaTheme .v-tree-node-children {
+	padding-left: 14px;
+}
+
+.MensaTheme .v-window {
+	background: transparent;
+}
+
+.MensaTheme .v-window-wrap {
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	background: #fff url(../liferay/window/top-left.png) no-repeat;
+}
+
+.MensaTheme .v-window-outerheader {
+	height: 38px;
+	margin-left: 9px;
+	padding: 10px 40px 12px 2px;
+	background: transparent url(../liferay/window/top-right.png) no-repeat right top;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+}
+
+.MensaTheme .v-window-header {
+	color: #000;
+	font-size: 12px;
+	text-shadow: 1px 1px #fff;
+}
+
+.MensaTheme .v-window-contents {
+	padding: 0 5px 0 5px;
+}
+
+.MensaTheme .v-window-footer {
+	height: 5px;
+	overflow: visible;
+}
+
+.MensaTheme .v-window div.v-window-footer-noresize {
+	height: 5px;
+}
+
+.MensaTheme .v-window-restorebox, .MensaTheme .v-window-maximizebox, .MensaTheme .v-window-closebox {
+	position: absolute;
+	width: 24px;
+	height: 24px;
+	top: 8px;
+}
+
+.MensaTheme .v-window-restorebox:hover, .MensaTheme .v-window-maximizebox:hover, .MensaTheme .v-window-closebox:hover {
+	background-position: 0 -24px;
+}
+
+.MensaTheme .v-window-restorebox:active, .MensaTheme .v-window-maximizebox:active, .MensaTheme .v-window-closebox:active {
+	background-position: 0 -48px;
+}
+
+.MensaTheme .v-window-closebox {
+	right: 9px;
+	background: url(../liferay/window/closebutton_sprites.png) no-repeat scroll 0 0 transparent;
+}
+
+.MensaTheme .v-window-restorebox, .MensaTheme .v-window-maximizebox {
+	right: 36px;
+}
+
+.MensaTheme .v-window-restorebox {
+	background: url(../liferay/window/restore_sprites.png) no-repeat scroll 0 0 transparent;
+}
+
+.MensaTheme .v-window-maximizebox {
+	background: url(../liferay/window/maximize_sprites.png) no-repeat scroll 0 0 transparent;
+}
+
+.MensaTheme .v-window-resizebox {
+	background: transparent url(/html/themes/classic/images/aui/icon_sprite.png) no-repeat scroll -69px -229px;
+	width: 10px;
+	height: 10px;
+	bottom: 0;
+}
