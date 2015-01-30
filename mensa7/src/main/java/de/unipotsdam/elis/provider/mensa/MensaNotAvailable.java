@@ -5,7 +5,7 @@
  * by the Apache Axis 1.4 Apr 22, 2006 (06:55:48 PDT) WSDL2Java emitter.
  */
 
-package de.unipotsdam.elis.mensa7.provider.mensaParser;
+package de.unipotsdam.elis.provider.mensa;
 
 public class MensaNotAvailable  extends org.apache.axis.AxisFault  implements java.io.Serializable {
     private java.lang.String message1;
@@ -76,7 +76,7 @@ public class MensaNotAvailable  extends org.apache.axis.AxisFault  implements ja
         new org.apache.axis.description.TypeDesc(MensaNotAvailable.class, true);
 
     static {
-        typeDesc.setXmlType(new javax.xml.namespace.QName("http://mensaParser.provider.elis.unipotsdam.de/", "MensaNotAvailable"));
+        typeDesc.setXmlType(new javax.xml.namespace.QName("http://mensa.provider.elis.unipotsdam.de/", "MensaNotAvailable"));
         org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("message1");
         elemField.setXmlName(new javax.xml.namespace.QName("", "message"));

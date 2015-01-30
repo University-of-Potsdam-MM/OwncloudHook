@@ -23,8 +23,9 @@ import de.unipotsdam.elis.mensa7.events.PreviousDayListener;
 import de.unipotsdam.elis.mensa7.layout.SpeiseplanLayouter;
 import de.unipotsdam.elis.mensa7.layout.components.GerichtComposite;
 import de.unipotsdam.elis.mensa7.logic.UserMessages;
-import de.unipotsdam.elis.mensa7.provider.mensaParser.Gericht;
-import de.unipotsdam.elis.mensa7.provider.mensaParser.Speiseplan;
+import de.unipotsdam.elis.mensa7.mapper.SpeiseplanDecorator;
+import de.unipotsdam.elis.provider.mensa.Gericht;
+import de.unipotsdam.elis.provider.mensa.Speiseplan;
 import de.unipotsdam.elis.util.date.DateUtil;
 import de.unipotsdam.elis.util.date.TruncatedDate;
 
@@ -76,11 +77,14 @@ public class SpeiseplanAdaptor {
 
 	public void doyourjob(Speiseplan speiseplan, TruncatedDate truncatedDate) {
 		speisePlanContainer.removeAllComponents();
+		
+		
+		SpeiseplanDecorator decorator = new SpeiseplanDecorator(speiseplan);
 
 		/**
 		 * add gerichte
 		 */
-		SortedSet<Gericht> gerichts = speiseplan.getGerichteHashMap().get(
+		SortedSet<Gericht> gerichts = decorator.getGerichteHashMap().get(
 				truncatedDate);
 		if (gerichts == null) {
 			showError(UserMessages.NO_INFORMATION_AVAILABLE);
@@ -88,7 +92,7 @@ public class SpeiseplanAdaptor {
 			Iterator<Gericht> iterator = gerichts.iterator();
 			while (iterator.hasNext()) {
 				GerichtComposite gerichtComposite = new GerichtComposite(
-						iterator.next(), speiseplan.getIconHashMapConverted());
+						iterator.next(), decorator.getIconHashMapConverted());
 				gerichtComposite.setStyleName("gericht");
 				speisePlanContainer.addComponent(gerichtComposite);
 			}

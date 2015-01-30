@@ -5,7 +5,7 @@
  * by the Apache Axis 1.4 Apr 22, 2006 (06:55:48 PDT) WSDL2Java emitter.
  */
 
-package de.unipotsdam.elis.mensa7.provider.mensaParser;
+package de.unipotsdam.elis.provider.mensa;
 
 public class ZusatzstoffeTyp implements java.io.Serializable {
     private java.lang.String _value_;
@@ -58,7 +58,7 @@ public class ZusatzstoffeTyp implements java.io.Serializable {
         new org.apache.axis.description.TypeDesc(ZusatzstoffeTyp.class);
 
     static {
-        typeDesc.setXmlType(new javax.xml.namespace.QName("http://mensaParser.provider.elis.unipotsdam.de/", "zusatzstoffeTyp"));
+        typeDesc.setXmlType(new javax.xml.namespace.QName("http://mensa.provider.elis.unipotsdam.de/", "zusatzstoffeTyp"));
     }
     /**
      * Return type metadata object

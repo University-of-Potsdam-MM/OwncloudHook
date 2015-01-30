@@ -12,7 +12,7 @@ import com.vaadin.ui.VerticalLayout;
 
 import de.unipotsdam.elis.mensa7.layout.icons.IconHashMap;
 import de.unipotsdam.elis.mensa7.layout.viewmodel.GerichtAdaptor;
-import de.unipotsdam.elis.mensa7.provider.mensaParser.Gericht;
+import de.unipotsdam.elis.provider.mensa.Gericht;
 
 public class GerichtComposite extends CustomComponent  {
 

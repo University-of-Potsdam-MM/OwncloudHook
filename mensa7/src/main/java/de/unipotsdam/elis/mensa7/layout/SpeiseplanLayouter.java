@@ -16,8 +16,8 @@ import de.unipotsdam.elis.mensa7.layout.components.SpeiseplanComposite;
 import de.unipotsdam.elis.mensa7.logic.MensaService;
 import de.unipotsdam.elis.mensa7.logic.SpeiseplanLogic;
 import de.unipotsdam.elis.mensa7.logic.UIPersistanceLayer;
-import de.unipotsdam.elis.mensa7.provider.mensaParser.CampusTyp;
-import de.unipotsdam.elis.mensa7.provider.mensaParser.MensaNotAvailable;
+import de.unipotsdam.elis.provider.mensa.CampusTyp;
+import de.unipotsdam.elis.provider.mensa.MensaNotAvailable;
 import de.unipotsdam.elis.util.date.TruncatedDate;
 
 public class SpeiseplanLayouter {

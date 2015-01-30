@@ -1,59 +1,59 @@
 /**
- * MensaParserWsLocator.java
+ * MensaLocator.java
  *
  * This file was auto-generated from WSDL
  * by the Apache Axis 1.4 Apr 22, 2006 (06:55:48 PDT) WSDL2Java emitter.
  */
 
-package de.unipotsdam.elis.mensa7.provider.mensaParser;
+package de.unipotsdam.elis.provider.mensa;
 
-public class MensaParserWsLocator extends org.apache.axis.client.Service implements de.unipotsdam.elis.mensa7.provider.mensaParser.MensaParserWs {
+public class MensaLocator extends org.apache.axis.client.Service implements de.unipotsdam.elis.provider.mensa.Mensa {
 
-    public MensaParserWsLocator() {
+    public MensaLocator() {
     }
 
 
-    public MensaParserWsLocator(org.apache.axis.EngineConfiguration config) {
+    public MensaLocator(org.apache.axis.EngineConfiguration config) {
         super(config);
     }
 
-    public MensaParserWsLocator(java.lang.String wsdlLoc, javax.xml.namespace.QName sName) throws javax.xml.rpc.ServiceException {
+    public MensaLocator(java.lang.String wsdlLoc, javax.xml.namespace.QName sName) throws javax.xml.rpc.ServiceException {
         super(wsdlLoc, sName);
     }
 
-    // Use to get a proxy class for MensaParserPort
-    private java.lang.String MensaParserPort_address = "https://fossa.soft.cs.uni-potsdam.de:8243/services/mensaParser/ws";
+    // Use to get a proxy class for MensaManagerPort
+    private java.lang.String MensaManagerPort_address = "http://fossa.soft.cs.uni-potsdam.de:7000/mensa-1.0/ws";
 
-    public java.lang.String getMensaParserPortAddress() {
-        return MensaParserPort_address;
+    public java.lang.String getMensaManagerPortAddress() {
+        return MensaManagerPort_address;
     }
 
     // The WSDD service name defaults to the port name.
-    private java.lang.String MensaParserPortWSDDServiceName = "MensaParserPort";
+    private java.lang.String MensaManagerPortWSDDServiceName = "MensaManagerPort";
 
-    public java.lang.String getMensaParserPortWSDDServiceName() {
-        return MensaParserPortWSDDServiceName;
+    public java.lang.String getMensaManagerPortWSDDServiceName() {
+        return MensaManagerPortWSDDServiceName;
     }
 
-    public void setMensaParserPortWSDDServiceName(java.lang.String name) {
-        MensaParserPortWSDDServiceName = name;
+    public void setMensaManagerPortWSDDServiceName(java.lang.String name) {
+        MensaManagerPortWSDDServiceName = name;
     }
 
-    public de.unipotsdam.elis.mensa7.provider.mensaParser.MensaParser getMensaParserPort() throws javax.xml.rpc.ServiceException {
+    public de.unipotsdam.elis.provider.mensa.MensaParser getMensaManagerPort() throws javax.xml.rpc.ServiceException {
        java.net.URL endpoint;
         try {
-            endpoint = new java.net.URL(MensaParserPort_address);
+            endpoint = new java.net.URL(MensaManagerPort_address);
         }
         catch (java.net.MalformedURLException e) {
             throw new javax.xml.rpc.ServiceException(e);
         }
-        return getMensaParserPort(endpoint);
+        return getMensaManagerPort(endpoint);
     }
 
-    public de.unipotsdam.elis.mensa7.provider.mensaParser.MensaParser getMensaParserPort(java.net.URL portAddress) throws javax.xml.rpc.ServiceException {
+    public de.unipotsdam.elis.provider.mensa.MensaParser getMensaManagerPort(java.net.URL portAddress) throws javax.xml.rpc.ServiceException {
         try {
-            de.unipotsdam.elis.mensa7.provider.mensaParser.MensaParserPortBindingStub _stub = new de.unipotsdam.elis.mensa7.provider.mensaParser.MensaParserPortBindingStub(portAddress, this);
-            _stub.setPortName(getMensaParserPortWSDDServiceName());
+            de.unipotsdam.elis.provider.mensa.MensaManagerPortBindingStub _stub = new de.unipotsdam.elis.provider.mensa.MensaManagerPortBindingStub(portAddress, this);
+            _stub.setPortName(getMensaManagerPortWSDDServiceName());
             return _stub;
         }
         catch (org.apache.axis.AxisFault e) {
@@ -61,8 +61,8 @@ public class MensaParserWsLocator extends org.apache.axis.client.Service impleme
         }
     }
 
-    public void setMensaParserPortEndpointAddress(java.lang.String address) {
-        MensaParserPort_address = address;
+    public void setMensaManagerPortEndpointAddress(java.lang.String address) {
+        MensaManagerPort_address = address;
     }
 
     /**
@@ -72,9 +72,9 @@ public class MensaParserWsLocator extends org.apache.axis.client.Service impleme
      */
     public java.rmi.Remote getPort(Class serviceEndpointInterface) throws javax.xml.rpc.ServiceException {
         try {
-            if (de.unipotsdam.elis.mensa7.provider.mensaParser.MensaParser.class.isAssignableFrom(serviceEndpointInterface)) {
-                de.unipotsdam.elis.mensa7.provider.mensaParser.MensaParserPortBindingStub _stub = new de.unipotsdam.elis.mensa7.provider.mensaParser.MensaParserPortBindingStub(new java.net.URL(MensaParserPort_address), this);
-                _stub.setPortName(getMensaParserPortWSDDServiceName());
+            if (de.unipotsdam.elis.provider.mensa.MensaParser.class.isAssignableFrom(serviceEndpointInterface)) {
+                de.unipotsdam.elis.provider.mensa.MensaManagerPortBindingStub _stub = new de.unipotsdam.elis.provider.mensa.MensaManagerPortBindingStub(new java.net.URL(MensaManagerPort_address), this);
+                _stub.setPortName(getMensaManagerPortWSDDServiceName());
                 return _stub;
             }
         }
@@ -94,8 +94,8 @@ public class MensaParserWsLocator extends org.apache.axis.client.Service impleme
             return getPort(serviceEndpointInterface);
         }
         java.lang.String inputPortName = portName.getLocalPart();
-        if ("MensaParserPort".equals(inputPortName)) {
-            return getMensaParserPort();
+        if ("MensaManagerPort".equals(inputPortName)) {
+            return getMensaManagerPort();
         }
         else  {
             java.rmi.Remote _stub = getPort(serviceEndpointInterface);
@@ -105,7 +105,7 @@ public class MensaParserWsLocator extends org.apache.axis.client.Service impleme
     }
 
     public javax.xml.namespace.QName getServiceName() {
-        return new javax.xml.namespace.QName("http://mensaParser.provider.elis.unipotsdam.de/", "mensaParserWs");
+        return new javax.xml.namespace.QName("http://mensa.provider.elis.unipotsdam.de/", "mensa");
     }
 
     private java.util.HashSet ports = null;
@@ -113,7 +113,7 @@ public class MensaParserWsLocator extends org.apache.axis.client.Service impleme
     public java.util.Iterator getPorts() {
         if (ports == null) {
             ports = new java.util.HashSet();
-            ports.add(new javax.xml.namespace.QName("http://mensaParser.provider.elis.unipotsdam.de/", "MensaParserPort"));
+            ports.add(new javax.xml.namespace.QName("http://mensa.provider.elis.unipotsdam.de/", "MensaManagerPort"));
         }
         return ports.iterator();
     }
@@ -123,8 +123,8 @@ public class MensaParserWsLocator extends org.apache.axis.client.Service impleme
     */
     public void setEndpointAddress(java.lang.String portName, java.lang.String address) throws javax.xml.rpc.ServiceException {
         
-if ("MensaParserPort".equals(portName)) {
-            setMensaParserPortEndpointAddress(address);
+if ("MensaManagerPort".equals(portName)) {
+            setMensaManagerPortEndpointAddress(address);
         }
         else 
 { // Unknown Port Name

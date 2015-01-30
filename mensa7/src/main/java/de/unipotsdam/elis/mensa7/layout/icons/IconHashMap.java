@@ -4,7 +4,7 @@ import java.util.HashMap;
 
 import com.vaadin.server.ThemeResource;
 
-import de.unipotsdam.elis.mensa7.provider.mensaParser.EssensTyp;
+import de.unipotsdam.elis.provider.mensa.EssensTyp;
 
 public class IconHashMap extends HashMap<EssensTyp, ThemeResource> {
 	/**

@@ -9,9 +9,9 @@ import org.joda.time.DateTime;
 import de.unipotsdam.elis.mensa7.events.GUIEvents;
 import de.unipotsdam.elis.mensa7.events.MensaEventManager;
 import de.unipotsdam.elis.mensa7.layout.viewmodel.SpeiseplanAdaptor;
-import de.unipotsdam.elis.mensa7.provider.mensaParser.CampusTyp;
-import de.unipotsdam.elis.mensa7.provider.mensaParser.MensaNotAvailable;
-import de.unipotsdam.elis.mensa7.provider.mensaParser.Speiseplan;
+import de.unipotsdam.elis.provider.mensa.CampusTyp;
+import de.unipotsdam.elis.provider.mensa.MensaNotAvailable;
+import de.unipotsdam.elis.provider.mensa.Speiseplan;
 import de.unipotsdam.elis.util.date.TruncatedDate;
 public class SpeiseplanLogic implements MensaEventManager {
 

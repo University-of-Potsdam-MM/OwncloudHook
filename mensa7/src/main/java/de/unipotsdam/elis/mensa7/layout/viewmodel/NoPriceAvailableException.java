@@ -1,6 +1,6 @@
 package de.unipotsdam.elis.mensa7.layout.viewmodel;
 
-import de.unipotsdam.elis.mensa7.provider.mensaParser.Gericht;
+import de.unipotsdam.elis.provider.mensa.Gericht;
 
 public class NoPriceAvailableException extends Exception {
 

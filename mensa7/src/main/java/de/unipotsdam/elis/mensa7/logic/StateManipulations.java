@@ -6,8 +6,8 @@ import com.vaadin.ui.TabSheet;
 import com.vaadin.ui.VerticalLayout;
 
 import de.unipotsdam.elis.mensa7.layout.viewmodel.SpeiseplanAdaptor;
-import de.unipotsdam.elis.mensa7.provider.mensaParser.CampusTyp;
-import de.unipotsdam.elis.mensa7.provider.mensaParser.Speiseplan;
+import de.unipotsdam.elis.provider.mensa.CampusTyp;
+import de.unipotsdam.elis.provider.mensa.Speiseplan;
 import de.unipotsdam.elis.util.date.TruncatedDate;
 
 public class StateManipulations {

@@ -1,5 +1,17 @@
 eclipse.preferences.version=1
 encoding//src/main/java=UTF-8
+encoding//src/main/java/de/unipotsdam/elis/provider/mensa/CampusTyp.java=UTF-8
+encoding//src/main/java/de/unipotsdam/elis/provider/mensa/EssensTyp.java=UTF-8
+encoding//src/main/java/de/unipotsdam/elis/provider/mensa/Gericht.java=UTF-8
+encoding//src/main/java/de/unipotsdam/elis/provider/mensa/Mensa.java=UTF-8
+encoding//src/main/java/de/unipotsdam/elis/provider/mensa/MensaLocator.java=UTF-8
+encoding//src/main/java/de/unipotsdam/elis/provider/mensa/MensaManagerPortBindingStub.java=UTF-8
+encoding//src/main/java/de/unipotsdam/elis/provider/mensa/MensaNotAvailable.java=UTF-8
+encoding//src/main/java/de/unipotsdam/elis/provider/mensa/MensaParser.java=UTF-8
+encoding//src/main/java/de/unipotsdam/elis/provider/mensa/Preise.java=UTF-8
+encoding//src/main/java/de/unipotsdam/elis/provider/mensa/Speiseplan.java=UTF-8
+encoding//src/main/java/de/unipotsdam/elis/provider/mensa/SpeiseplanIconHashMapEntry.java=UTF-8
+encoding//src/main/java/de/unipotsdam/elis/provider/mensa/ZusatzstoffeTyp.java=UTF-8
 encoding//src/main/resources=UTF-8
 encoding//src/test/java=UTF-8
 encoding/<project>=UTF-8

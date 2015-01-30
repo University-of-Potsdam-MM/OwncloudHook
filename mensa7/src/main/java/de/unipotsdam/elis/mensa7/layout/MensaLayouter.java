@@ -12,9 +12,9 @@ import com.vaadin.ui.VerticalLayout;
 import de.unipotsdam.elis.mensa7.logic.MensaService;
 import de.unipotsdam.elis.mensa7.logic.StateManipulations;
 import de.unipotsdam.elis.mensa7.logic.UIPersistanceLayer;
-import de.unipotsdam.elis.mensa7.provider.mensaParser.CampusTyp;
-import de.unipotsdam.elis.mensa7.provider.mensaParser.MensaNotAvailable;
 import de.unipotsdam.elis.mensa7.webservice.MensaWebservice;
+import de.unipotsdam.elis.provider.mensa.CampusTyp;
+import de.unipotsdam.elis.provider.mensa.MensaNotAvailable;
 
 /**
  * 

@@ -4,7 +4,7 @@ import javax.portlet.PortletSession;
 
 import org.apache.log4j.Logger;
 
-import de.unipotsdam.elis.mensa7.provider.mensaParser.CampusTyp;
+import de.unipotsdam.elis.provider.mensa.CampusTyp;
 import de.unipotsdam.elis.util.date.TruncatedDate;
 
 public class PortletSessionManager implements UIPersistanceLayer {

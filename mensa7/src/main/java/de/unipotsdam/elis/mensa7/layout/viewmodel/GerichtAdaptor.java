@@ -9,12 +9,10 @@ import com.vaadin.ui.Embedded;
 import com.vaadin.ui.Label;
 import com.vaadin.ui.VerticalLayout;
 
-import de.unipotsdam.elis.mensa7.events.MensaEventManager;
 import de.unipotsdam.elis.mensa7.layout.icons.IconHashMap;
-import de.unipotsdam.elis.mensa7.provider.mensaParser.EssensTyp;
-import de.unipotsdam.elis.mensa7.provider.mensaParser.Gericht;
-import de.unipotsdam.elis.mensa7.provider.mensaParser.PreisTyp;
-import de.unipotsdam.elis.mensa7.provider.mensaParser.SpeiseplanIconHashMapEntry;
+import de.unipotsdam.elis.mensa7.mapper.GerichtDecorator;
+import de.unipotsdam.elis.provider.mensa.EssensTyp;
+import de.unipotsdam.elis.provider.mensa.Gericht;
 
 /**
  * wrapped das SpeiseplanGUIElement mit dynamischem Code
@@ -79,21 +77,23 @@ public class GerichtAdaptor {
 	public void doyourjob(Gericht gericht, IconHashMap iconHashMap1) {
 		Logger logger = RootLogger.getLogger(GerichtAdaptor.class);
 		
+		GerichtDecorator gerichtDecorator = new GerichtDecorator(gericht);
+		
 		// set values for Preislabels
 		try {
 			setPreisLabelValues(gericht);
 		} catch (NoPriceAvailableException e) {						
-			logger.warn("Keine Preise für Gericht" + gericht.getTitel());
+			logger.warn("Keine Preise für Gericht" + gerichtDecorator.getTitle());
 		}
 
-		if (gericht.getBeschreibung() == null) {			
-			logger.warn("Keine Beschreibung für Gericht" + gericht.getTitel());
+		if (gericht.getDescription() == null) {			
+			logger.warn("Keine Beschreibung für Gericht" + gericht.getTitle());
 		} else {
-			this.beschreibung.setValue(gericht.getBeschreibung());
+			this.beschreibung.setValue(gericht.getDescription());
 		}
-		this.titel.setValue(gericht.getTitel());
-		if (gericht.getEssenstyp() != null) {
-			for (EssensTyp essensTyp : gericht.getEssenstyp()) {
+		this.titel.setValue(gericht.getTitle());
+		if (gericht.getType() != null) {
+			for (EssensTyp essensTyp : gericht.getType()) {
 				if (iconHashMap1.get(essensTyp) != null) {					
 					Embedded c = new Embedded("", (Resource) iconHashMap1.get(essensTyp));
 					this.essenstypContainer.addComponent(c);
@@ -103,11 +103,8 @@ public class GerichtAdaptor {
 
 	}
 
-	private void setPreisLabelValues(Gericht gericht) throws NoPriceAvailableException {
-		for (int i = 0; i < gericht.getPreise().length; i++) {
-			setPreisLabels(gericht, i);
-		}
-		
+	private void setPreisLabelValues(Gericht gericht) throws NoPriceAvailableException {		
+			setPreisLabels(gericht);				
 	}
 
 	/**
@@ -117,29 +114,24 @@ public class GerichtAdaptor {
 	 * @param i
 	 * @throws NoPriceAvailableException 
 	 */
-	private void setPreisLabels(Gericht gericht, int i) throws NoPriceAvailableException {
-		if (gericht.getPreise()[i].getKey().equals(PreisTyp.Gast)) {
-			this.gastPreis.setValue(printPrice(gericht, i));
-		} else if (gericht.getPreise()[i].getKey().equals(PreisTyp.Mitarbeiter)) {
-			this.mitarbeiterPreis.setValue(printPrice(gericht, i));
-		} else if (gericht.getPreise()[i].getKey().equals(PreisTyp.Student)) {
-			this.studentPreis.setValue(printPrice(gericht, i));
-		}
-
+	private void setPreisLabels(Gericht gericht) throws NoPriceAvailableException {		
+			this.gastPreis.setValue(gericht.getPrices().getGuest()+"");		
+			this.mitarbeiterPreis.setValue(gericht.getPrices().getStaff()+"");		
+			this.studentPreis.setValue(gericht.getPrices().getStudent()+"");
 	}
 
-	/**
-	 * formatiert die Preisangaben in einen lesbaren String
-	 * @param gericht
-	 * @param i
-	 * @return
-	 * @throws NoPriceAvailableException 
-	 */
-	private String printPrice(Gericht gericht, int i) throws NoPriceAvailableException {
-		if (gericht.getPreise()[i].getValue() == null) {
-			throw new NoPriceAvailableException(gericht);
-		}
-		return gericht.getPreise()[i].getValue() + " Euro";
-	}
+//	/**
+//	 * formatiert die Preisangaben in einen lesbaren String
+//	 * @param gericht
+//	 * @param i
+//	 * @return
+//	 * @throws NoPriceAvailableException 
+//	 */
+//	private String printPrice(Gericht gericht, int i) throws NoPriceAvailableException {
+//		if (gericht.getPreise()[i].getValue() == null) {
+//			throw new NoPriceAvailableException(gericht);
+//		}
+//		return gericht.getPreise()[i].getValue() + " Euro";
+//	}
 
 }

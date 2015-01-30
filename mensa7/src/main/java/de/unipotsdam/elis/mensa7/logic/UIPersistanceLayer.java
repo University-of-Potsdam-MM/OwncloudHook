@@ -1,6 +1,6 @@
 package de.unipotsdam.elis.mensa7.logic;
 
-import de.unipotsdam.elis.mensa7.provider.mensaParser.CampusTyp;
+import de.unipotsdam.elis.provider.mensa.CampusTyp;
 import de.unipotsdam.elis.util.date.TruncatedDate;
 
 /**

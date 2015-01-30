@@ -1,13 +1,13 @@
 /**
- * MensaParserPortBindingStub.java
+ * MensaManagerPortBindingStub.java
  *
  * This file was auto-generated from WSDL
  * by the Apache Axis 1.4 Apr 22, 2006 (06:55:48 PDT) WSDL2Java emitter.
  */
 
-package de.unipotsdam.elis.mensa7.provider.mensaParser;
+package de.unipotsdam.elis.provider.mensa;
 
-public class MensaParserPortBindingStub extends org.apache.axis.client.Stub implements de.unipotsdam.elis.mensa7.provider.mensaParser.MensaParser {
+public class MensaManagerPortBindingStub extends org.apache.axis.client.Stub implements de.unipotsdam.elis.provider.mensa.MensaParser {
     private java.util.Vector cachedSerClasses = new java.util.Vector();
     private java.util.Vector cachedSerQNames = new java.util.Vector();
     private java.util.Vector cachedSerFactories = new java.util.Vector();
@@ -25,33 +25,33 @@ public class MensaParserPortBindingStub extends org.apache.axis.client.Stub impl
         org.apache.axis.description.ParameterDesc param;
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("readCurrentMeals");
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "location"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://mensaParser.provider.elis.unipotsdam.de/", "campusTyp"), de.unipotsdam.elis.mensa7.provider.mensaParser.CampusTyp.class, false, false);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "location"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://mensa.provider.elis.unipotsdam.de/", "campusTyp"), de.unipotsdam.elis.provider.mensa.CampusTyp.class, false, false);
         oper.addParameter(param);
-        oper.setReturnType(new javax.xml.namespace.QName("http://mensaParser.provider.elis.unipotsdam.de/", "speiseplan"));
-        oper.setReturnClass(de.unipotsdam.elis.mensa7.provider.mensaParser.Speiseplan.class);
-        oper.setReturnQName(new javax.xml.namespace.QName("", "return"));
+        oper.setReturnType(new javax.xml.namespace.QName("http://mensa.provider.elis.unipotsdam.de/", "speiseplan"));
+        oper.setReturnClass(de.unipotsdam.elis.provider.mensa.Speiseplan.class);
+        oper.setReturnQName(new javax.xml.namespace.QName("", "meals"));
         oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
         oper.setUse(org.apache.axis.constants.Use.LITERAL);
         oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://mensaParser.provider.elis.unipotsdam.de/", "MensaNotAvailable"),
-                      "de.unipotsdam.elis.provider.mensaParser.MensaNotAvailable",
-                      new javax.xml.namespace.QName("http://mensaParser.provider.elis.unipotsdam.de/", "MensaNotAvailable"), 
+                      new javax.xml.namespace.QName("http://mensa.provider.elis.unipotsdam.de/", "MensaNotAvailable"),
+                      "de.unipotsdam.elis.provider.mensa.MensaNotAvailable",
+                      new javax.xml.namespace.QName("http://mensa.provider.elis.unipotsdam.de/", "MensaNotAvailable"), 
                       true
                      ));
         _operations[0] = oper;
 
     }
 
-    public MensaParserPortBindingStub() throws org.apache.axis.AxisFault {
+    public MensaManagerPortBindingStub() throws org.apache.axis.AxisFault {
          this(null);
     }
 
-    public MensaParserPortBindingStub(java.net.URL endpointURL, javax.xml.rpc.Service service) throws org.apache.axis.AxisFault {
+    public MensaManagerPortBindingStub(java.net.URL endpointURL, javax.xml.rpc.Service service) throws org.apache.axis.AxisFault {
          this(service);
          super.cachedEndpoint = endpointURL;
     }
 
-    public MensaParserPortBindingStub(javax.xml.rpc.Service service) throws org.apache.axis.AxisFault {
+    public MensaManagerPortBindingStub(javax.xml.rpc.Service service) throws org.apache.axis.AxisFault {
         if (service == null) {
             super.service = new org.apache.axis.client.Service();
         } else {
@@ -71,108 +71,67 @@ public class MensaParserPortBindingStub extends org.apache.axis.client.Stub impl
             java.lang.Class simpledf = org.apache.axis.encoding.ser.SimpleDeserializerFactory.class;
             java.lang.Class simplelistsf = org.apache.axis.encoding.ser.SimpleListSerializerFactory.class;
             java.lang.Class simplelistdf = org.apache.axis.encoding.ser.SimpleListDeserializerFactory.class;
-            qName = new javax.xml.namespace.QName("http://mensaParser.provider.elis.unipotsdam.de/", ">>gericht>preise>entry");
+            qName = new javax.xml.namespace.QName("http://mensa.provider.elis.unipotsdam.de/", ">>speiseplan>iconHashMap>entry");
             cachedSerQNames.add(qName);
-            cls = de.unipotsdam.elis.mensa7.provider.mensaParser.GerichtPreiseEntry.class;
+            cls = de.unipotsdam.elis.provider.mensa.SpeiseplanIconHashMapEntry.class;
             cachedSerClasses.add(cls);
             cachedSerFactories.add(beansf);
             cachedDeserFactories.add(beandf);
 
-            qName = new javax.xml.namespace.QName("http://mensaParser.provider.elis.unipotsdam.de/", ">>speiseplan>gerichte>entry");
+            qName = new javax.xml.namespace.QName("http://mensa.provider.elis.unipotsdam.de/", ">speiseplan>iconHashMap");
             cachedSerQNames.add(qName);
-            cls = de.unipotsdam.elis.mensa7.provider.mensaParser.SpeiseplanGerichteEntry.class;
+            cls = de.unipotsdam.elis.provider.mensa.SpeiseplanIconHashMapEntry[].class;
             cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
-
-            qName = new javax.xml.namespace.QName("http://mensaParser.provider.elis.unipotsdam.de/", ">>speiseplan>iconHashMap>entry");
-            cachedSerQNames.add(qName);
-            cls = de.unipotsdam.elis.mensa7.provider.mensaParser.SpeiseplanIconHashMapEntry.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
-
-            qName = new javax.xml.namespace.QName("http://mensaParser.provider.elis.unipotsdam.de/", ">gericht>preise");
-            cachedSerQNames.add(qName);
-            cls = de.unipotsdam.elis.mensa7.provider.mensaParser.GerichtPreiseEntry[].class;
-            cachedSerClasses.add(cls);
-            qName = new javax.xml.namespace.QName("http://mensaParser.provider.elis.unipotsdam.de/", ">>gericht>preise>entry");
+            qName = new javax.xml.namespace.QName("http://mensa.provider.elis.unipotsdam.de/", ">>speiseplan>iconHashMap>entry");
             qName2 = new javax.xml.namespace.QName("", "entry");
             cachedSerFactories.add(new org.apache.axis.encoding.ser.ArraySerializerFactory(qName, qName2));
             cachedDeserFactories.add(new org.apache.axis.encoding.ser.ArrayDeserializerFactory());
 
-            qName = new javax.xml.namespace.QName("http://mensaParser.provider.elis.unipotsdam.de/", ">speiseplan>gerichte");
+            qName = new javax.xml.namespace.QName("http://mensa.provider.elis.unipotsdam.de/", "campusTyp");
             cachedSerQNames.add(qName);
-            cls = de.unipotsdam.elis.mensa7.provider.mensaParser.SpeiseplanGerichteEntry[].class;
-            cachedSerClasses.add(cls);
-            qName = new javax.xml.namespace.QName("http://mensaParser.provider.elis.unipotsdam.de/", ">>speiseplan>gerichte>entry");
-            qName2 = new javax.xml.namespace.QName("", "entry");
-            cachedSerFactories.add(new org.apache.axis.encoding.ser.ArraySerializerFactory(qName, qName2));
-            cachedDeserFactories.add(new org.apache.axis.encoding.ser.ArrayDeserializerFactory());
-
-            qName = new javax.xml.namespace.QName("http://mensaParser.provider.elis.unipotsdam.de/", ">speiseplan>iconHashMap");
-            cachedSerQNames.add(qName);
-            cls = de.unipotsdam.elis.mensa7.provider.mensaParser.SpeiseplanIconHashMapEntry[].class;
-            cachedSerClasses.add(cls);
-            qName = new javax.xml.namespace.QName("http://mensaParser.provider.elis.unipotsdam.de/", ">>speiseplan>iconHashMap>entry");
-            qName2 = new javax.xml.namespace.QName("", "entry");
-            cachedSerFactories.add(new org.apache.axis.encoding.ser.ArraySerializerFactory(qName, qName2));
-            cachedDeserFactories.add(new org.apache.axis.encoding.ser.ArrayDeserializerFactory());
-
-            qName = new javax.xml.namespace.QName("http://mensaParser.provider.elis.unipotsdam.de/", "campusTyp");
-            cachedSerQNames.add(qName);
-            cls = de.unipotsdam.elis.mensa7.provider.mensaParser.CampusTyp.class;
+            cls = de.unipotsdam.elis.provider.mensa.CampusTyp.class;
             cachedSerClasses.add(cls);
             cachedSerFactories.add(enumsf);
             cachedDeserFactories.add(enumdf);
 
-            qName = new javax.xml.namespace.QName("http://mensaParser.provider.elis.unipotsdam.de/", "essensTyp");
+            qName = new javax.xml.namespace.QName("http://mensa.provider.elis.unipotsdam.de/", "essensTyp");
             cachedSerQNames.add(qName);
-            cls = de.unipotsdam.elis.mensa7.provider.mensaParser.EssensTyp.class;
+            cls = de.unipotsdam.elis.provider.mensa.EssensTyp.class;
             cachedSerClasses.add(cls);
             cachedSerFactories.add(enumsf);
             cachedDeserFactories.add(enumdf);
 
-            qName = new javax.xml.namespace.QName("http://mensaParser.provider.elis.unipotsdam.de/", "gericht");
+            qName = new javax.xml.namespace.QName("http://mensa.provider.elis.unipotsdam.de/", "gericht");
             cachedSerQNames.add(qName);
-            cls = de.unipotsdam.elis.mensa7.provider.mensaParser.Gericht.class;
+            cls = de.unipotsdam.elis.provider.mensa.Gericht.class;
             cachedSerClasses.add(cls);
             cachedSerFactories.add(beansf);
             cachedDeserFactories.add(beandf);
 
-            qName = new javax.xml.namespace.QName("http://mensaParser.provider.elis.unipotsdam.de/", "gerichtArray");
+            qName = new javax.xml.namespace.QName("http://mensa.provider.elis.unipotsdam.de/", "MensaNotAvailable");
             cachedSerQNames.add(qName);
-            cls = de.unipotsdam.elis.mensa7.provider.mensaParser.Gericht[].class;
-            cachedSerClasses.add(cls);
-            qName = new javax.xml.namespace.QName("http://mensaParser.provider.elis.unipotsdam.de/", "gericht");
-            qName2 = new javax.xml.namespace.QName("", "item");
-            cachedSerFactories.add(new org.apache.axis.encoding.ser.ArraySerializerFactory(qName, qName2));
-            cachedDeserFactories.add(new org.apache.axis.encoding.ser.ArrayDeserializerFactory());
-
-            qName = new javax.xml.namespace.QName("http://mensaParser.provider.elis.unipotsdam.de/", "MensaNotAvailable");
-            cachedSerQNames.add(qName);
-            cls = de.unipotsdam.elis.mensa7.provider.mensaParser.MensaNotAvailable.class;
+            cls = de.unipotsdam.elis.provider.mensa.MensaNotAvailable.class;
             cachedSerClasses.add(cls);
             cachedSerFactories.add(beansf);
             cachedDeserFactories.add(beandf);
 
-            qName = new javax.xml.namespace.QName("http://mensaParser.provider.elis.unipotsdam.de/", "preisTyp");
+            qName = new javax.xml.namespace.QName("http://mensa.provider.elis.unipotsdam.de/", "preise");
             cachedSerQNames.add(qName);
-            cls = de.unipotsdam.elis.mensa7.provider.mensaParser.PreisTyp.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(enumsf);
-            cachedDeserFactories.add(enumdf);
-
-            qName = new javax.xml.namespace.QName("http://mensaParser.provider.elis.unipotsdam.de/", "speiseplan");
-            cachedSerQNames.add(qName);
-            cls = de.unipotsdam.elis.mensa7.provider.mensaParser.Speiseplan.class;
+            cls = de.unipotsdam.elis.provider.mensa.Preise.class;
             cachedSerClasses.add(cls);
             cachedSerFactories.add(beansf);
             cachedDeserFactories.add(beandf);
 
-            qName = new javax.xml.namespace.QName("http://mensaParser.provider.elis.unipotsdam.de/", "zusatzstoffeTyp");
+            qName = new javax.xml.namespace.QName("http://mensa.provider.elis.unipotsdam.de/", "speiseplan");
             cachedSerQNames.add(qName);
-            cls = de.unipotsdam.elis.mensa7.provider.mensaParser.ZusatzstoffeTyp.class;
+            cls = de.unipotsdam.elis.provider.mensa.Speiseplan.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(beansf);
+            cachedDeserFactories.add(beandf);
+
+            qName = new javax.xml.namespace.QName("http://mensa.provider.elis.unipotsdam.de/", "zusatzstoffeTyp");
+            cachedSerQNames.add(qName);
+            cls = de.unipotsdam.elis.provider.mensa.ZusatzstoffeTyp.class;
             cachedSerClasses.add(cls);
             cachedSerFactories.add(enumsf);
             cachedDeserFactories.add(enumdf);
@@ -243,7 +202,7 @@ public class MensaParserPortBindingStub extends org.apache.axis.client.Stub impl
         }
     }
 
-    public de.unipotsdam.elis.mensa7.provider.mensaParser.Speiseplan readCurrentMeals(de.unipotsdam.elis.mensa7.provider.mensaParser.CampusTyp location) throws java.rmi.RemoteException, de.unipotsdam.elis.mensa7.provider.mensaParser.MensaNotAvailable {
+    public de.unipotsdam.elis.provider.mensa.Speiseplan readCurrentMeals(de.unipotsdam.elis.provider.mensa.CampusTyp location) throws java.rmi.RemoteException, de.unipotsdam.elis.provider.mensa.MensaNotAvailable {
         if (super.cachedEndpoint == null) {
             throw new org.apache.axis.NoEndPointException();
         }
@@ -255,7 +214,7 @@ public class MensaParserPortBindingStub extends org.apache.axis.client.Stub impl
         _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
         _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("http://mensaParser.provider.elis.unipotsdam.de/", "readCurrentMeals"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://mensa.provider.elis.unipotsdam.de/", "readCurrentMeals"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
@@ -267,9 +226,9 @@ public class MensaParserPortBindingStub extends org.apache.axis.client.Stub impl
         else {
             extractAttachments(_call);
             try {
-                return (de.unipotsdam.elis.mensa7.provider.mensaParser.Speiseplan) _resp;
+                return (de.unipotsdam.elis.provider.mensa.Speiseplan) _resp;
             } catch (java.lang.Exception _exception) {
-                return (de.unipotsdam.elis.mensa7.provider.mensaParser.Speiseplan) org.apache.axis.utils.JavaUtils.convert(_resp, de.unipotsdam.elis.mensa7.provider.mensaParser.Speiseplan.class);
+                return (de.unipotsdam.elis.provider.mensa.Speiseplan) org.apache.axis.utils.JavaUtils.convert(_resp, de.unipotsdam.elis.provider.mensa.Speiseplan.class);
             }
         }
   } catch (org.apache.axis.AxisFault axisFaultException) {
@@ -277,8 +236,8 @@ public class MensaParserPortBindingStub extends org.apache.axis.client.Stub impl
         if (axisFaultException.detail instanceof java.rmi.RemoteException) {
               throw (java.rmi.RemoteException) axisFaultException.detail;
          }
-        if (axisFaultException.detail instanceof de.unipotsdam.elis.mensa7.provider.mensaParser.MensaNotAvailable) {
-              throw (de.unipotsdam.elis.mensa7.provider.mensaParser.MensaNotAvailable) axisFaultException.detail;
+        if (axisFaultException.detail instanceof de.unipotsdam.elis.provider.mensa.MensaNotAvailable) {
+              throw (de.unipotsdam.elis.provider.mensa.MensaNotAvailable) axisFaultException.detail;
          }
    }
   throw axisFaultException;

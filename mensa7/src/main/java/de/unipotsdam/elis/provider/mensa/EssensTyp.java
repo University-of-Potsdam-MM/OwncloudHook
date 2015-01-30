@@ -1,37 +1,43 @@
 /**
- * PreisTyp.java
+ * EssensTyp.java
  *
  * This file was auto-generated from WSDL
  * by the Apache Axis 1.4 Apr 22, 2006 (06:55:48 PDT) WSDL2Java emitter.
  */
 
-package de.unipotsdam.elis.mensa7.provider.mensaParser;
+package de.unipotsdam.elis.provider.mensa;
 
-public class PreisTyp implements java.io.Serializable {
+public class EssensTyp implements java.io.Serializable {
     private java.lang.String _value_;
     private static java.util.HashMap _table_ = new java.util.HashMap();
 
     // Constructor
-    protected PreisTyp(java.lang.String value) {
+    protected EssensTyp(java.lang.String value) {
         _value_ = value;
         _table_.put(_value_,this);
     }
 
-    public static final java.lang.String _Student = "Student";
-    public static final java.lang.String _Mitarbeiter = "Mitarbeiter";
-    public static final java.lang.String _Gast = "Gast";
-    public static final PreisTyp Student = new PreisTyp(_Student);
-    public static final PreisTyp Mitarbeiter = new PreisTyp(_Mitarbeiter);
-    public static final PreisTyp Gast = new PreisTyp(_Gast);
+    public static final java.lang.String _Schwein = "Schwein";
+    public static final java.lang.String _Vegan = "Vegan";
+    public static final java.lang.String _Vegetarisch = "Vegetarisch";
+    public static final java.lang.String _Rind = "Rind";
+    public static final java.lang.String _Fisch = "Fisch";
+    public static final java.lang.String _Huhn = "Huhn";
+    public static final EssensTyp Schwein = new EssensTyp(_Schwein);
+    public static final EssensTyp Vegan = new EssensTyp(_Vegan);
+    public static final EssensTyp Vegetarisch = new EssensTyp(_Vegetarisch);
+    public static final EssensTyp Rind = new EssensTyp(_Rind);
+    public static final EssensTyp Fisch = new EssensTyp(_Fisch);
+    public static final EssensTyp Huhn = new EssensTyp(_Huhn);
     public java.lang.String getValue() { return _value_;}
-    public static PreisTyp fromValue(java.lang.String value)
+    public static EssensTyp fromValue(java.lang.String value)
           throws java.lang.IllegalArgumentException {
-        PreisTyp enumeration = (PreisTyp)
+        EssensTyp enumeration = (EssensTyp)
             _table_.get(value);
         if (enumeration==null) throw new java.lang.IllegalArgumentException();
         return enumeration;
     }
-    public static PreisTyp fromString(java.lang.String value)
+    public static EssensTyp fromString(java.lang.String value)
           throws java.lang.IllegalArgumentException {
         return fromValue(value);
     }
@@ -57,10 +63,10 @@ public class PreisTyp implements java.io.Serializable {
     }
     // Type metadata
     private static org.apache.axis.description.TypeDesc typeDesc =
-        new org.apache.axis.description.TypeDesc(PreisTyp.class);
+        new org.apache.axis.description.TypeDesc(EssensTyp.class);
 
     static {
-        typeDesc.setXmlType(new javax.xml.namespace.QName("http://mensaParser.provider.elis.unipotsdam.de/", "preisTyp"));
+        typeDesc.setXmlType(new javax.xml.namespace.QName("http://mensa.provider.elis.unipotsdam.de/", "essensTyp"));
     }
     /**
      * Return type metadata object

@@ -5,10 +5,10 @@
  * by the Apache Axis 1.4 Apr 22, 2006 (06:55:48 PDT) WSDL2Java emitter.
  */
 
-package de.unipotsdam.elis.mensa7.provider.mensaParser;
+package de.unipotsdam.elis.provider.mensa;
 
 public class SpeiseplanIconHashMapEntry  implements java.io.Serializable {
-    private de.unipotsdam.elis.mensa7.provider.mensaParser.EssensTyp key;
+    private de.unipotsdam.elis.provider.mensa.EssensTyp key;
 
     private org.apache.axis.types.URI value;
 
@@ -16,7 +16,7 @@ public class SpeiseplanIconHashMapEntry  implements java.io.Serializable {
     }
 
     public SpeiseplanIconHashMapEntry(
-           de.unipotsdam.elis.mensa7.provider.mensaParser.EssensTyp key,
+           de.unipotsdam.elis.provider.mensa.EssensTyp key,
            org.apache.axis.types.URI value) {
            this.key = key;
            this.value = value;
@@ -28,7 +28,7 @@ public class SpeiseplanIconHashMapEntry  implements java.io.Serializable {
      * 
      * @return key
      */
-    public de.unipotsdam.elis.mensa7.provider.mensaParser.EssensTyp getKey() {
+    public de.unipotsdam.elis.provider.mensa.EssensTyp getKey() {
         return key;
     }
 
@@ -38,7 +38,7 @@ public class SpeiseplanIconHashMapEntry  implements java.io.Serializable {
      * 
      * @param key
      */
-    public void setKey(de.unipotsdam.elis.mensa7.provider.mensaParser.EssensTyp key) {
+    public void setKey(de.unipotsdam.elis.provider.mensa.EssensTyp key) {
         this.key = key;
     }
 
@@ -106,11 +106,11 @@ public class SpeiseplanIconHashMapEntry  implements java.io.Serializable {
         new org.apache.axis.description.TypeDesc(SpeiseplanIconHashMapEntry.class, true);
 
     static {
-        typeDesc.setXmlType(new javax.xml.namespace.QName("http://mensaParser.provider.elis.unipotsdam.de/", ">>speiseplan>iconHashMap>entry"));
+        typeDesc.setXmlType(new javax.xml.namespace.QName("http://mensa.provider.elis.unipotsdam.de/", ">>speiseplan>iconHashMap>entry"));
         org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("key");
         elemField.setXmlName(new javax.xml.namespace.QName("", "key"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://mensaParser.provider.elis.unipotsdam.de/", "essensTyp"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://mensa.provider.elis.unipotsdam.de/", "essensTyp"));
         elemField.setMinOccurs(0);
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);

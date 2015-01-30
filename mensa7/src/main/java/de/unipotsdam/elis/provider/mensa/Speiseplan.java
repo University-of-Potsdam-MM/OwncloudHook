@@ -5,33 +5,53 @@
  * by the Apache Axis 1.4 Apr 22, 2006 (06:55:48 PDT) WSDL2Java emitter.
  */
 
-package de.unipotsdam.elis.mensa7.provider.mensaParser;
-
-import java.util.HashMap;
-import java.util.TreeSet;
-
-import com.vaadin.server.ThemeResource;
-
-import de.unipotsdam.elis.mensa7.layout.icons.IconHashMap;
-import de.unipotsdam.elis.util.date.TruncatedDate;
+package de.unipotsdam.elis.provider.mensa;
 
 public class Speiseplan  implements java.io.Serializable {
-    private de.unipotsdam.elis.mensa7.provider.mensaParser.CampusTyp campus;
+    private de.unipotsdam.elis.provider.mensa.Gericht[] meal;
 
-    private de.unipotsdam.elis.mensa7.provider.mensaParser.SpeiseplanGerichteEntry[] gerichte;
+    private de.unipotsdam.elis.provider.mensa.CampusTyp campus;
 
-    private de.unipotsdam.elis.mensa7.provider.mensaParser.SpeiseplanIconHashMapEntry[] iconHashMap;
+    private de.unipotsdam.elis.provider.mensa.SpeiseplanIconHashMapEntry[] iconHashMap;
 
     public Speiseplan() {
     }
 
     public Speiseplan(
-           de.unipotsdam.elis.mensa7.provider.mensaParser.CampusTyp campus,
-           de.unipotsdam.elis.mensa7.provider.mensaParser.SpeiseplanGerichteEntry[] gerichte,
-           de.unipotsdam.elis.mensa7.provider.mensaParser.SpeiseplanIconHashMapEntry[] iconHashMap) {
+           de.unipotsdam.elis.provider.mensa.Gericht[] meal,
+           de.unipotsdam.elis.provider.mensa.CampusTyp campus,
+           de.unipotsdam.elis.provider.mensa.SpeiseplanIconHashMapEntry[] iconHashMap) {
+           this.meal = meal;
            this.campus = campus;
-           this.gerichte = gerichte;
            this.iconHashMap = iconHashMap;
+    }
+
+
+    /**
+     * Gets the meal value for this Speiseplan.
+     * 
+     * @return meal
+     */
+    public de.unipotsdam.elis.provider.mensa.Gericht[] getMeal() {
+        return meal;
+    }
+
+
+    /**
+     * Sets the meal value for this Speiseplan.
+     * 
+     * @param meal
+     */
+    public void setMeal(de.unipotsdam.elis.provider.mensa.Gericht[] meal) {
+        this.meal = meal;
+    }
+
+    public de.unipotsdam.elis.provider.mensa.Gericht getMeal(int i) {
+        return this.meal[i];
+    }
+
+    public void setMeal(int i, de.unipotsdam.elis.provider.mensa.Gericht _value) {
+        this.meal[i] = _value;
     }
 
 
@@ -40,7 +60,7 @@ public class Speiseplan  implements java.io.Serializable {
      * 
      * @return campus
      */
-    public de.unipotsdam.elis.mensa7.provider.mensaParser.CampusTyp getCampus() {
+    public de.unipotsdam.elis.provider.mensa.CampusTyp getCampus() {
         return campus;
     }
 
@@ -50,28 +70,8 @@ public class Speiseplan  implements java.io.Serializable {
      * 
      * @param campus
      */
-    public void setCampus(de.unipotsdam.elis.mensa7.provider.mensaParser.CampusTyp campus) {
+    public void setCampus(de.unipotsdam.elis.provider.mensa.CampusTyp campus) {
         this.campus = campus;
-    }
-
-
-    /**
-     * Gets the gerichte value for this Speiseplan.
-     * 
-     * @return gerichte
-     */
-    public de.unipotsdam.elis.mensa7.provider.mensaParser.SpeiseplanGerichteEntry[] getGerichte() {
-        return gerichte;
-    }
-
-
-    /**
-     * Sets the gerichte value for this Speiseplan.
-     * 
-     * @param gerichte
-     */
-    public void setGerichte(de.unipotsdam.elis.mensa7.provider.mensaParser.SpeiseplanGerichteEntry[] gerichte) {
-        this.gerichte = gerichte;
     }
 
 
@@ -80,7 +80,7 @@ public class Speiseplan  implements java.io.Serializable {
      * 
      * @return iconHashMap
      */
-    public de.unipotsdam.elis.mensa7.provider.mensaParser.SpeiseplanIconHashMapEntry[] getIconHashMap() {
+    public de.unipotsdam.elis.provider.mensa.SpeiseplanIconHashMapEntry[] getIconHashMap() {
         return iconHashMap;
     }
 
@@ -90,7 +90,7 @@ public class Speiseplan  implements java.io.Serializable {
      * 
      * @param iconHashMap
      */
-    public void setIconHashMap(de.unipotsdam.elis.mensa7.provider.mensaParser.SpeiseplanIconHashMapEntry[] iconHashMap) {
+    public void setIconHashMap(de.unipotsdam.elis.provider.mensa.SpeiseplanIconHashMapEntry[] iconHashMap) {
         this.iconHashMap = iconHashMap;
     }
 
@@ -106,12 +106,12 @@ public class Speiseplan  implements java.io.Serializable {
         __equalsCalc = obj;
         boolean _equals;
         _equals = true && 
+            ((this.meal==null && other.getMeal()==null) || 
+             (this.meal!=null &&
+              java.util.Arrays.equals(this.meal, other.getMeal()))) &&
             ((this.campus==null && other.getCampus()==null) || 
              (this.campus!=null &&
               this.campus.equals(other.getCampus()))) &&
-            ((this.gerichte==null && other.getGerichte()==null) || 
-             (this.gerichte!=null &&
-              java.util.Arrays.equals(this.gerichte, other.getGerichte()))) &&
             ((this.iconHashMap==null && other.getIconHashMap()==null) || 
              (this.iconHashMap!=null &&
               java.util.Arrays.equals(this.iconHashMap, other.getIconHashMap())));
@@ -126,19 +126,19 @@ public class Speiseplan  implements java.io.Serializable {
         }
         __hashCodeCalc = true;
         int _hashCode = 1;
-        if (getCampus() != null) {
-            _hashCode += getCampus().hashCode();
-        }
-        if (getGerichte() != null) {
+        if (getMeal() != null) {
             for (int i=0;
-                 i<java.lang.reflect.Array.getLength(getGerichte());
+                 i<java.lang.reflect.Array.getLength(getMeal());
                  i++) {
-                java.lang.Object obj = java.lang.reflect.Array.get(getGerichte(), i);
+                java.lang.Object obj = java.lang.reflect.Array.get(getMeal(), i);
                 if (obj != null &&
                     !obj.getClass().isArray()) {
                     _hashCode += obj.hashCode();
                 }
             }
+        }
+        if (getCampus() != null) {
+            _hashCode += getCampus().hashCode();
         }
         if (getIconHashMap() != null) {
             for (int i=0;
@@ -160,25 +160,26 @@ public class Speiseplan  implements java.io.Serializable {
         new org.apache.axis.description.TypeDesc(Speiseplan.class, true);
 
     static {
-        typeDesc.setXmlType(new javax.xml.namespace.QName("http://mensaParser.provider.elis.unipotsdam.de/", "speiseplan"));
+        typeDesc.setXmlType(new javax.xml.namespace.QName("http://mensa.provider.elis.unipotsdam.de/", "speiseplan"));
         org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("meal");
+        elemField.setXmlName(new javax.xml.namespace.QName("", "meal"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://mensa.provider.elis.unipotsdam.de/", "gericht"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(false);
+        elemField.setMaxOccursUnbounded(true);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("campus");
         elemField.setXmlName(new javax.xml.namespace.QName("", "campus"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://mensaParser.provider.elis.unipotsdam.de/", "campusTyp"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://mensa.provider.elis.unipotsdam.de/", "campusTyp"));
         elemField.setMinOccurs(0);
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
-        elemField.setFieldName("gerichte");
-        elemField.setXmlName(new javax.xml.namespace.QName("", "gerichte"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://mensaParser.provider.elis.unipotsdam.de/", ">>speiseplan>gerichte>entry"));
-        elemField.setNillable(false);
-        elemField.setItemQName(new javax.xml.namespace.QName("", "entry"));
-        typeDesc.addFieldDesc(elemField);
-        elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("iconHashMap");
         elemField.setXmlName(new javax.xml.namespace.QName("", "iconHashMap"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://mensaParser.provider.elis.unipotsdam.de/", ">>speiseplan>iconHashMap>entry"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://mensa.provider.elis.unipotsdam.de/", ">>speiseplan>iconHashMap>entry"));
         elemField.setNillable(false);
         elemField.setItemQName(new javax.xml.namespace.QName("", "entry"));
         typeDesc.addFieldDesc(elemField);
@@ -214,22 +215,5 @@ public class Speiseplan  implements java.io.Serializable {
           new  org.apache.axis.encoding.ser.BeanDeserializer(
             _javaType, _xmlType, typeDesc);
     }
-
-    public HashMap<TruncatedDate, TreeSet<Gericht>> getGerichteHashMap() {
-		HashMap<TruncatedDate, TreeSet<Gericht>> hashMap = new HashMap<TruncatedDate, TreeSet<Gericht>>();
-		for (SpeiseplanGerichteEntry entry : gerichte) {
-			hashMap.put(new TruncatedDate(entry.getKey().getTime()), new TreeSet<Gericht>(java.util.Arrays.asList(entry.getValue())));
-		}
-		return hashMap;
-	}
-
-	public IconHashMap getIconHashMapConverted() {
-		IconHashMap hashMap = new IconHashMap();
-		for (SpeiseplanIconHashMapEntry speiseplanIconHashMapEntry : this.getIconHashMap()) {
-			if (speiseplanIconHashMapEntry.getValue() != null)
-				hashMap.put(speiseplanIconHashMapEntry.getKey(), new ThemeResource(speiseplanIconHashMapEntry.getValue().toString()));
-		}
-		return hashMap;
-	}
 
 }

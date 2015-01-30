@@ -2,7 +2,6 @@ package de.unipotsdam.elis.mensa7.events;
 
 import org.bushe.swing.event.EventSubscriber;
 
-import de.unipotsdam.elis.mensa7.provider.mensaParser.CampusTyp;
 import de.unipotsdam.elis.util.date.TruncatedDate;
 
 /**
