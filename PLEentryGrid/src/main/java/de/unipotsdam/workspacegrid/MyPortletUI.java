@@ -35,7 +35,6 @@ import de.unipotsdam.elis.workspacegrid.model.WorkspaceSlide;
 import de.unipotsdam.elis.workspacegrid.model.WorkspaceUtilService;
 import de.unipotsdam.elis.workspacegrid.view.WorkspaceSlideView;
 
-@Theme("workspacesgridtheme")
 @SuppressWarnings("serial")
 @Widgetset("org.up.ple.AppWidgetSet")
 public class MyPortletUI extends UI {
